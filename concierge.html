@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI受付システム「GBase Concierge」｜無人受付・AIコンシェルジュ｜GBase SUPPORT</title>
+  <meta name="description" content="AI受付システム「GBase Concierge」は、無人受付・AIコンシェルジュで商業施設・百貨店の来店者対応を自動化。多言語対応、24時間365日、AI案内ロボットとして次世代の顧客体験を実現。">
+  <meta name="keywords" content="AI受付, AI受付システム, 無人受付, AIコンシェルジュ, AI案内ロボット, AIインフォメーション, 多言語対応, 商業施設, 百貨店, GBase Concierge">
+  <link rel="canonical" href="https://gbase.ai/products/concierge">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#F5F3FF', 100:'#EDE9FE', 200:'#DDD6FE', 300:'#C4B5FD', 400:'#A78BFA', 500:'#7C68FB', 600:'#6D55F5', 700:'#5B45E0', 800:'#4C38C2', 900:'#3B2D8F' },
+            accent: { 400:'#FB923C', 500:'#F97316', 600:'#EA580C' },
+            success: { 50:'#F0FDF4', 500:'#22C55E', 600:'#16A34A' },
+            dark: { 800:'#1F2937', 900:'#111827' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .icon { font-family: 'Material Symbols Rounded'; font-size: 24px; font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
+    .gradient-text { background: linear-gradient(135deg, #7C68FB 0%, #A78BFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(124,104,251,0.1), 0 8px 16px rgba(0,0,0,0.04); }
+    .btn-3d { box-shadow: 0 4px 14px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.08); transition: all 0.25s ease; }
+    .btn-3d:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.1); }
+    .btn-3d:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+    .chat-bubble { animation: fadeInUp 0.3s ease-out; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .typing-indicator span { animation: pulse 1.5s infinite; }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+    .feature-card:hover { transform: translateY(-4px); }
+    .channel-card:hover { transform: scale(1.02); }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+  <!-- ===== NAVIGATION (GBase official style) ===== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+    <div class="px-4 md:px-10 lg:px-40 flex justify-center">
+      <div class="flex h-16 w-full max-w-[1200px] items-center justify-between">
+        <div class="flex items-center">
+          <a class="flex items-center hover:opacity-80 transition-opacity" href="https://cs.gbase.ai/">
+            <img src="https://cs.gbase.ai/title-logo.png" alt="GBase Support" class="h-8 w-auto">
+          </a>
+        </div>
+        <nav class="hidden md:flex items-center">
+          <nav class="flex items-center gap-8">
+            <a class="text-sm font-medium py-5 border-b-2 border-transparent hover:text-orange-500 transition-colors text-gray-700" href="https://cs.gbase.ai/">ホーム</a>
+            <div class="relative group">
+              <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-orange-500 py-5 border-b-2 border-transparent transition-colors">
+                ソリューション
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-56 z-50">
+                <div class="bg-white border border-gray-200 rounded-lg shadow-xl p-2 flex flex-col gap-1">
+                  <a class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors" href="https://cs.gbase.ai/solution#case-study">
+                    <div class="font-medium">商業施設・百貨店</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="relative group">
+              <button class="flex items-center gap-1 text-sm font-medium text-orange-500 py-5 border-b-2 border-orange-500 transition-colors">
+                製品／機能
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
+                <div class="bg-white border border-gray-200 rounded-lg shadow-xl p-5 grid grid-cols-2 gap-6 w-[620px]">
+                  <!-- 製品 Column -->
+                  <div>
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-3">製品</p>
+                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="/products/concierge">
+                      <div class="flex items-start gap-3">
+                        <span class="icon text-orange-500 mt-0.5">support_agent</span>
+                        <div>
+                          <div class="font-bold text-sm text-gray-900">GBase Concierge</div>
+                          <div class="text-xs text-gray-500 mt-0.5">多言語対応AIコンシェルジュ</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <!-- 機能 Column -->
+                  <div>
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-3">機能</p>
+                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="https://cs.gbase.ai/solution#feature-faq">
+                      <div class="flex items-start gap-3">
+                        <span class="icon text-gray-500 mt-0.5">help</span>
+                        <div>
+                          <div class="font-bold text-sm text-gray-900">FAQ・施設案内AI</div>
+                          <div class="text-xs text-gray-500 mt-0.5">よくある質問を自動対応</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="https://cs.gbase.ai/solution#feature-floormap">
+                      <div class="flex items-start gap-3">
+                        <span class="icon text-gray-500 mt-0.5">map</span>
+                        <div>
+                          <div class="font-bold text-sm text-gray-900">フロアマップ・ナビゲーション</div>
+                          <div class="text-xs text-gray-500 mt-0.5">3Dマップで目的地まで案内</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="https://cs.gbase.ai/solution#feature-realtime">
+                      <div class="flex items-start gap-3">
+                        <span class="icon text-gray-500 mt-0.5">record_voice_over</span>
+                        <div>
+                          <div class="font-bold text-sm text-gray-900">リアルタイム会話</div>
+                          <div class="text-xs text-gray-500 mt-0.5">10言語以上の音声対話</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="text-sm font-medium py-5 border-b-2 border-transparent hover:text-orange-500 transition-colors text-gray-700" href="https://cs.gbase.ai/price">料金</a>
+            <div class="relative group">
+              <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-orange-500 py-5 border-b-2 border-transparent transition-colors">
+                リソース
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-56 z-50">
+                <div class="bg-white border border-gray-200 rounded-lg shadow-xl p-2 flex flex-col gap-1">
+                  <a class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors" href="https://cs.gbase.ai/showcase/newoman-takanawa"><div class="font-medium">導入事例</div></a>
+                  <a class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors" href="https://cs.gbase.ai/blog"><div class="font-medium">ブログ</div></a>
+                  <a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors"><div class="font-medium">マニュアル</div></a>
+                  <a href="https://cs.gbase.ai/blog/release-notes/" class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors"><div class="font-medium">リリースノート</div></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
+          <a href="https://admin.gbase.ai" class="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors">ログイン</a>
+          <a class="flex items-center justify-center rounded-full h-10 px-5 border border-gray-300 hover:border-gray-700 transition-colors text-gray-700 text-sm font-medium" href="https://cs.gbase.ai/register">無料ではじめる</a>
+          <a href="https://cs.gbase.ai/contact" class="flex items-center justify-center rounded-full h-10 px-5 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 transition-all text-white text-sm font-medium">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="pt-32 pb-20 overflow-hidden" style="background: #F3F3FE;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-100 text-primary-700 text-sm font-medium rounded-full mb-6">
+            <span class="icon text-base">support_agent</span>
+            GBase Concierge
+          </div>
+          <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-6 font-jp">
+            来店者の疑問に、<br>
+            <span class="gradient-text">いつでも答える。</span>
+          </h1>
+          <p class="text-lg text-gray-600 leading-relaxed mb-8 max-w-lg">
+            多言語対応、24時間365日、来店者を記憶するAI受付システム。<br>
+            無人受付・AIコンシェルジュで、施設案内の課題をまとめて解決します。
+          </p>
+          <div class="flex flex-wrap gap-4 mb-8">
+            <a href="#contact" class="px-8 py-3.5 bg-white text-primary-600 font-semibold rounded-full hover:bg-primary-50 transition-all duration-300 cursor-pointer text-lg btn-3d">
+              お問い合わせ
+            </a>
+            <a href="https://cs.gbase.ai/solution#case-study" class="px-8 py-3.5 bg-gradient-to-b from-primary-500 to-primary-600 text-white font-semibold rounded-full hover:from-primary-600 hover:to-primary-700 transition-all duration-300 cursor-pointer text-lg btn-3d">
+              資料をダウンロード
+            </a>
+          </div>
+
+        <!-- Case Study Badge -->
+        <div class="hidden mt-12 flex flex-wrap justify-center items-center gap-8 bg-gradient-to-r from-primary-50 to-primary-100 rounded-full px-8 py-4">
+          <div class="flex items-center gap-3">
+            <span class="icon text-primary-600 text-2xl">verified</span>
+            <div class="text-center">
+              <p class="text-primary-700 font-semibold">Sapporo Factory & LUMINE</p>
+              <p class="text-sm text-gray-600">大型商業施設での実績済み</p>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="relative">
+          <img src="./images/concierge-hero.jpg" alt="GBase Concierge 製品概要" class="w-full h-auto">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHALLENGES ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-sm text-primary-500 font-semibold mb-3">お客様の課題</p>
+        <h2 class="text-3xl font-bold font-jp">AI受付システム導入前、来店者対応の3つの課題</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white rounded-2xl p-8 border-2xl border-red-100">
+          <div class="mb-6">
+            <p class="text-sm text-red-600 font-semibold mb-3">課題 1</p>
+            <h3 class="text-xl font-bold mb-4">人件費の高騰</h3>
+          </div>
+          <div class="bg-gradient-to-br from-red-50 to-white rounded-xl p-4 mb-4">
+            <p class="text-sm text-gray-700 leading-relaxed">
+              コンシェルジュ人材の確保・育成コストが増加の一途。<br>
+              夜間・休日の対応には、さらに多くの人員が必要となり、<br>
+              月間60万円以上の人件費がかかることも。
+            </p>
+          </div>
+          <div class="flex items-center gap-2 text-gray-500 text-sm">
+            <span class="icon text-red-500">close</span>
+            <span>コスト増大</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 border-2xl border-orange-100">
+          <div class="mb-6">
+            <p class="text-sm text-orange-600 font-semibold mb-3">課題 2</p>
+            <h3 class="text-xl font-bold mb-4">多言語対応の困難さ</h3>
+          </div>
+          <div class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-4 mb-4">
+            <p class="text-sm text-gray-700 leading-relaxed">
+              インバウンド需要が増加しているが、多言語に対応できる<br>
+              人材の確保が困難。通訳者を配置しても、1人1言語に限られるため、<br>
+              全言語に対応するには多くの人員が必要。
+            </p>
+          </div>
+          <div class="flex items-center gap-2 text-gray-500 text-sm">
+            <span class="icon text-orange-500">close</span>
+            <span>対応できない言語が増加</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 border-2xl border-amber-100">
+          <div class="mb-6">
+            <p class="text-sm text-amber-600 font-semibold mb-3">課題 3</p>
+            <h3 class="text-xl font-bold mb-4">人手不足による応答遅れ</h3>
+          </div>
+          <div class="bg-gradient-to-br from-amber-50 to-white rounded-xl p-4 mb-4">
+            <p class="text-sm text-gray-700 leading-relaxed">
+              来店者が増え、コンシェルジュだけでは応答が追いつかず。<br>
+              お客様を待たせることで、満足度の低下やキャンセルにつながります。
+            </p>
+          </div>
+          <div class="flex items-center gap-2 text-gray-500 text-sm">
+            <span class="icon text-amber-500">groups</span>
+            <span>お客様が待つことで不満が増加</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THREE CORE CAPABILITIES ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-sm text-primary-500 font-semibold mb-3">3つの能力で、来店者対応を変革</p>
+        <h2 class="text-3xl font-bold font-jp">GBase Conciergeができること</h2>
+      </div>
+
+      <!-- Feature 1: Realtime -->
+      <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 text-sm font-medium rounded-full mb-6">
+            <span class="icon text-base">speed</span>
+            いつでも、すぐに答える
+          </div>
+          <h3 class="text-2xl font-bold mb-6">来店者の質問に、<br>1秒以内で即座に回答</h3>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            音声にもテキストにも対応。待ち時間ゼロで、来店者をスムーズに案内します。
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="icon text-success-500">check_circle</span>
+              <span class="text-gray-700">音声で話しかけるだけでOK</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="icon text-success-500">check_circle</span>
+              <span class="text-gray-700">日英中韓など10言語以上に対応</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="icon text-success-500">check_circle</span>
+              <span class="text-gray-700">チャネルを問わず同じ対応</span>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <img src="./images/concierge-realtime.jpg" alt="リアルタイム応答" class="rounded-2xl w-full h-auto">
+          <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-green-500 rounded-2xl flex items-center justify-center shadow-xl">
+            <span class="icon text-white text-4xl">bolt</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Memory -->
+      <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div class="order-2 lg:order-1 relative">
+          <img src="./images/concierge-memory.jpg" alt="来店者記憶" class="rounded-2xl w-full h-auto">
+          <div class="absolute bottom-6 -left-12 w-24 h-24 bg-blue-500 rounded-2xl flex items-center justify-center shadow-xl z-10">
+            <span class="icon text-white text-4xl">psychology</span>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 text-sm font-medium rounded-full mb-6">
+            <span class="icon text-base">history</span>
+            来店者を覚えている
+          </div>
+          <h3 class="text-2xl font-bold mb-6">以前の会話の続きから、<br>パーソナライズ対応</h3>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            来店者を特定し、好みを学習。チャネルを超えてシームレスな体験を提供します。
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="icon text-primary-500">check_circle</span>
+              <span class="text-gray-700">「さっき聞いたこと」を覚えている</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="icon text-primary-500">check_circle</span>
+              <span class="text-gray-700">店頭端末で聞いたことをLINEで続き</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="icon text-primary-500">check_circle</span>
+              <span class="text-gray-700">来店回数が増えるほど賢くなる</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: Skill -->
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 text-purple-700 text-sm font-medium rounded-full mb-6">
+            <span class="icon text-base">extension</span>
+            できること無限大
+          </div>
+          <h3 class="text-2xl font-bold mb-6">店舗案内から予約管理まで、<br>施設に必要な業務をすべてカバー</h3>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            複雑な業務もシンプルに。来店者のあらゆるニーズに対応します。
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="icon text-primary-500">check_circle</span>
+              <span class="text-gray-700">店舗検索・フロア案内</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="icon text-primary-500">check_circle</span>
+              <span class="text-gray-700">イベント・キャンペーン情報</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="icon text-primary-500">check_circle</span>
+              <span class="text-gray-700">予約・チケット発行</span>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <img src="./images/concierge-unlimited.jpg" alt="無限の可能性" class="rounded-2xl w-full h-auto">
+          <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-purple-500 rounded-2xl flex items-center justify-center shadow-xl">
+            <span class="icon text-white text-4xl">all_inclusive</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section id="features" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-sm text-primary-500 font-semibold mb-3">機能</p>
+        <h2 class="text-3xl font-bold font-jp">来店者対応をこれ1つで完結</h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">店舗検索からイベント案内、予約管理まで。AI案内ロボットとして、来店者が欲しい情報を最短距離で提供します。</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Feature 1 -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+            <span class="icon text-blue-600 text-2xl">store</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">店舗検索・案内</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            「〇〇店はどこ？」「3階のレストランは？」施設内のあらゆる店舗を即座に検索・案内。
+          </p>
+          <div class="bg-blue-50 rounded-xl p-3">
+            <p class="text-xs text-blue-800 font-semibold mb-2">シーン例</p>
+            <p class="text-xs text-gray-600">「3階の奥、レストラン街です。エレベーターを上がって右側にお進みください」</p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4">
+            <span class="icon text-green-600 text-2xl">event</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">イベント・キャンペーン</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            「今日のイベントは？」「今月のキャンペーンは？」開催中のイベント情報を即座に回答。
+          </p>
+          <div class="bg-green-50 rounded-xl p-3">
+            <p class="text-xs text-green-800 font-semibold mb-2">シーン例</p>
+            <p class="text-xs text-gray-600">「本日は1階イベント広場で「春のフェア」を開催中。11時から抽選会もございます」</p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mb-4">
+            <span class="icon text-purple-600 text-2xl">confirmation_number</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">予約・チケット</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            「〇〇店の予約したい」「チケットを購入したい」予約システムとの連携も可能。
+          </p>
+          <div class="bg-purple-50 rounded-xl p-3">
+            <p class="text-xs text-purple-800 font-semibold mb-2">シーン例</p>
+            <p class="text-xs text-gray-600">「ご希望の日時は？予約可能です。チケットの発行も承ります」</p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4">
+            <span class="icon text-green-600 text-2xl">map</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">ルート案内</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            「そこまでどうやっていくの？」目的地までの最適ルートを案内。
+          </p>
+          <div class="bg-green-50 rounded-xl p-3">
+            <p class="text-xs text-green-800 font-semibold mb-2">シーン例</p>
+            <p class="text-xs text-gray-600">「現在地から〇〇店までは、エレベーターで3階へ。そのまま直進です」</p>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mb-4">
+            <span class="icon text-purple-600 text-2xl">local_offer</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">クーポン・特典</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            「クーポンはない？」「会員特典は？」来店者に合わせたオファーを提案。
+          </p>
+          <div class="bg-purple-50 rounded-xl p-3">
+            <p class="text-xs text-purple-800 font-semibold mb-2">シーン例</p>
+            <p class="text-xs text-gray-600">「会員様限定で10%OFFクーポンをご利用いただけます。発行しますか？」</p>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+            <span class="icon text-blue-600 text-2xl">recommend</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">おすすめ・レコメンド</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            「何かおすすめは？」来店者の好みに応じた店舗・商品を提案。
+          </p>
+          <div class="bg-blue-50 rounded-xl p-3">
+            <p class="text-xs text-blue-800 font-semibold mb-2">シーン例</p>
+            <p class="text-xs text-gray-600">「以前カフェによく行かれていましたね。同じジャンルのお店をご紹介します」</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHANNELS ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="text-sm text-primary-500 font-semibold mb-3">あらゆる接点から</p>
+        <h2 class="text-3xl font-bold font-jp">店頭端末・LINE・Web、AI受付システムをどこからでも</h2>
+      </div>
+
+      <!-- Main Photo Grid -->
+      <div class="grid lg:grid-cols-4 gap-4 mb-8">
+        <div class="relative group overflow-hidden rounded-2xl shadow-lg">
+          <img src="./images/kiosk-smart.jpg" alt="店頭端末・サイネージ" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+
+        <div class="relative group overflow-hidden rounded-2xl shadow-lg">
+          <img src="./images/line-works.jpg" alt="LINE Works" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+
+        <div class="relative group overflow-hidden rounded-2xl shadow-lg">
+          <img src="./images/qr-code.jpg" alt="QR Code" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+
+        <div class="relative group overflow-hidden rounded-2xl shadow-lg">
+          <img src="./images/web-widget.jpg" alt="Web Widget" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+      </div>
+
+      <!-- Channel Details -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center">
+          <h3 class="font-bold text-lg mb-2">店頭端末・サイネージ</h3>
+          <p class="text-sm text-gray-600 mb-4">施設内のタッチパネルから</p>
+          <p class="text-xs text-gray-500">音声でもタッチでも対話可能。最初に触れる入口として最適。</p>
+        </div>
+
+        <div class="text-center">
+          <h3 class="font-bold text-lg mb-2">LINE / LINE WORKS</h3>
+          <p class="text-sm text-gray-600 mb-4">いつでも手元のスマホから</p>
+          <p class="text-xs text-gray-500">来店前の相談から、施設内の問い合わせまで。スタッフへの呼び出しも可能。</p>
+        </div>
+
+        <div class="text-center">
+          <h3 class="font-bold text-lg mb-2">QR Code</h3>
+          <p class="text-sm text-gray-600 mb-4">カメラをかざすだけで</p>
+          <p class="text-xs text-gray-500">館内に設置されたQRをスキャンすると、ブラウザで即座にAI対話開始。</p>
+        </div>
+
+        <div class="text-center">
+          <h3 class="font-bold text-lg mb-2">Web Widget</h3>
+          <p class="text-sm text-gray-600 mb-4">施設サイトに埋め込み</p>
+          <p class="text-xs text-gray-500">来店前に自宅で施設案内・店舗検索が可能。Webサイトにチャットウィジェットを埋め込むだけ。</p>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== USE CASES ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-sm text-primary-500 font-semibold mb-3">対応業種</p>
+        <h2 class="text-3xl font-bold font-jp">あらゆる業界で活用できるAI受付システム</h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">商業施設・ホテル・企業フロント・公共施設で、AI案内ロボットとして導入事例が増加中。</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center mb-4 shadow-lg">
+            <span class="icon text-white text-3xl">shopping_bag</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">商業施設・百貨店</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">店舗案内、イベント情報、クーポン配布。買い物をサポートするAIコンシェルジュ。</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center mb-4 shadow-lg">
+            <span class="icon text-white text-3xl">hotel</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">ホテル・旅館</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">施設案内、周辺情報、予約確認。お客様をおもてなしするAIコンシェルジュ。</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center mb-4 shadow-lg">
+            <span class="icon text-white text-3xl">business</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">企業フロント</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">来客案内、アポイント管理、社内呼び出し。無人受付を実現するAIコンシェルジュ。</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center mb-4 shadow-lg">
+            <span class="icon text-white text-3xl">account_balance</span>
+          </div>
+          <h3 class="font-bold text-lg mb-3">公共施設</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">施設案内、申請案内、イベント案内。市民サービスを向上するAIコンシェルジュ。</p>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="mt-16 text-center">
+        <a href="https://cs.gbase.ai/solution#case-study" class="inline-flex items-center gap-2 px-10 py-4 border-2 border-primary-500 text-primary-600 hover:bg-primary-50 font-semibold rounded-full transition-all duration-300 cursor-pointer text-lg">
+          ソリューションを見る
+          <span class="icon">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section id="contact" class="py-24 bg-gradient-to-br from-dark-800 to-dark-900 text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold mb-6 font-jp">
+        来店者対応を、<span class="gradient-text">今すぐ変革</span>しませんか？
+      </h2>
+      <p class="text-gray-400 mb-10 max-w-lg mx-auto">
+        AI受付システムで人件費を最大83%削減、24時間365日の無人受付を実現。<br>
+        AIコンシェルジュ「GBase Concierge」の導入事例をぜひご覧ください。
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#" class="px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold rounded-full cursor-pointer text-lg btn-3d transition-all">
+          資料をダウンロード
+        </a>
+        <a href="#" class="px-10 py-4 border-2 border-white/20 text-white font-semibold rounded-full cursor-pointer text-lg btn-3d">
+          お問い合わせ
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (GBase official style) ===== -->
+  <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+    <div class="px-4 md:px-10 lg:px-40 flex justify-center">
+      <div class="w-full max-w-[1200px]">
+        <div class="grid md:grid-cols-5 gap-10 mb-12">
+          <div class="md:col-span-2">
+            <a href="https://cs.gbase.ai/" class="inline-block mb-4">
+              <img src="https://cs.gbase.ai/title-logo.png" alt="GBase Support" class="h-8 w-auto">
+            </a>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">AIで来店者対応を変革。多言語対応AIコンシェルジュで、24時間365日の高品質な対応を実現します。</p>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-900 text-sm mb-4">ソリューション</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="https://cs.gbase.ai/solution#case-study" class="text-gray-600 hover:text-orange-500 transition-colors">商業施設・百貨店</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-900 text-sm mb-4">製品／機能</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="https://cs.gbase.ai/solution#feature-faq" class="text-gray-600 hover:text-orange-500 transition-colors">FAQ・施設案内AI</a></li>
+              <li><a href="https://cs.gbase.ai/solution#feature-floormap" class="text-gray-600 hover:text-orange-500 transition-colors">フロアマップ・ナビゲーション</a></li>
+              <li><a href="https://cs.gbase.ai/solution#feature-realtime" class="text-gray-600 hover:text-orange-500 transition-colors">リアルタイム会話</a></li>
+              <li><a href="https://cs.gbase.ai/price" class="text-gray-600 hover:text-orange-500 transition-colors">料金</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-900 text-sm mb-4">リソース</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="https://cs.gbase.ai/showcase/newoman-takanawa" class="text-gray-600 hover:text-orange-500 transition-colors">導入事例</a></li>
+              <li><a href="https://cs.gbase.ai/blog" class="text-gray-600 hover:text-orange-500 transition-colors">ブログ</a></li>
+              <li><a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-orange-500 transition-colors">マニュアル</a></li>
+              <li><a href="https://cs.gbase.ai/blog/release-notes/" class="text-gray-600 hover:text-orange-500 transition-colors">リリースノート</a></li>
+              <li><a href="https://cs.gbase.ai/contact" class="text-gray-600 hover:text-orange-500 transition-colors">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-200 pt-8 flex flex-wrap justify-between items-center gap-4">
+          <p class="text-xs text-gray-500">&copy; 2026 Sparticle Inc. All rights reserved.</p>
+          <div class="flex gap-6 text-xs">
+            <a href="#" class="text-gray-500 hover:text-orange-500 transition-colors">プライバシーポリシー</a>
+            <a href="#" class="text-gray-500 hover:text-orange-500 transition-colors">利用規約</a>
+            <a href="#" class="text-gray-500 hover:text-orange-500 transition-colors">特定商取引法</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== INTERACTIVE DEMO SCRIPT ===== -->
+  <script>
+    const responses = {
+      '〇〇店はどこですか？': '〇〇店は3階に御座います。エレベーターを上がって右手の方です。ご案内しましょうか？',
+      '今日のイベントは？': '本日は1階イベント広場で「春のフェア」を開催中です。11時から抽選会もございます。',
+      '英語で対応できますか？': 'はい、英語でも対応可能です。English support is available. How can I help you?',
+      default: 'ありがとうございます。スタッフがご対応しますので、少々お待ちください。'
+    };
+
+    function askQuestion(question) {
+      const container = document.getElementById('chat-container');
+      const quickQuestions = document.getElementById('quick-questions');
+
+      const userMsg = document.createElement('div');
+      userMsg.className = 'flex justify-end chat-bubble';
+      userMsg.innerHTML = `<div class="bg-primary-500 text-white rounded-2xl rounded-tr-none px-4 py-3 max-w-xs"><p class="text-sm">${question}</p></div>`;
+      container.appendChild(userMsg);
+
+      quickQuestions.style.display = 'none';
+
+      const typing = document.createElement('div');
+      typing.className = 'flex justify-start chat-bubble';
+      typing.id = 'typing-indicator';
+      typing.innerHTML = `<div class="bg-primary-50 rounded-2xl rounded-tl-none px-4 py-3"><div class="typing-indicator flex gap-1"><span class="w-2 h-2 bg-gray-400 rounded-full"></span><span class="w-2 h-2 bg-gray-400 rounded-full"></span><span class="w-2 h-2 bg-gray-400 rounded-full"></span></div></div>`;
+      container.appendChild(typing);
+
+      setTimeout(() => {
+        container.removeChild(typing);
+        const response = responses[question] || responses.default;
+        const aiMsg = document.createElement('div');
+        aiMsg.className = 'flex justify-start chat-bubble';
+        aiMsg.innerHTML = `<div class="bg-primary-50 rounded-2xl rounded-tl-none px-4 py-3 max-w-xs"><p class="text-sm text-gray-800">${response}</p></div>`;
+        container.appendChild(aiMsg);
+        setTimeout(() => { quickQuestions.style.display = 'block'; }, 1000);
+        container.scrollTop = container.scrollHeight;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
