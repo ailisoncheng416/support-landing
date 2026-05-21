@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サッポロファクトリー GBase Support 導入事例｜AIコンシェルジュで問い合わせ自動回答率 90% 以上を実現</title>
+  <meta name="description" content="サッポロファクトリー（サッポロ不動産開発）が GBase Support を導入。音声・タッチ対話対応の Smart Kiosk 型 AI コンシェルジュで、約150ショップの案内業務を自動化。自動回答率 90% 以上・4 言語（日英中韓）対応を実現。">
+  <meta name="keywords" content="サッポロファクトリー, サッポロ不動産開発, GBase Support, AIコンシェルジュ, 商業施設 AI, 商業施設 チャットボット, フロアマップ AI, 多言語 案内, リゾーム">
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="サッポロファクトリー GBase Support 導入事例｜商業施設 AI コンシェルジュ">
+  <meta property="og:description" content="約150ショップの大規模商業施設でAIコンシェルジュを導入。音声対話・フロアマップ連携で自動回答率 90% 以上を実現。リゾームとSparticleの協業事例。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://cs.gbase.ai/showcase/sapporo-factory">
+  <meta property="og:image" content="https://cs.gbase.ai/showcase/sapporo-factory/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="サッポロファクトリー GBase Support 導入事例">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="GBase Support">
+  <meta property="article:section" content="導入事例">
+  <meta property="article:tag" content="商業施設">
+  <meta property="article:tag" content="AIコンシェルジュ">
+  <meta property="article:tag" content="フロアマップ AI">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="サッポロファクトリー GBase Support 導入事例">
+  <meta name="twitter:description" content="商業施設特化型 AI コンシェルジュ（Smart Kiosk）で自動回答率 90% 以上・4 言語（日英中韓）対応を実現。">
+  <meta name="twitter:image" content="https://cs.gbase.ai/showcase/sapporo-factory/og-image.jpg">
+
+  <link rel="canonical" href="https://cs.gbase.ai/showcase/sapporo-factory">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#F5F3FF', 100:'#EDE9FE', 200:'#DDD6FE', 300:'#C4B5FD', 400:'#A78BFA', 500:'#8B5CF6', 600:'#7C3AED', 700:'#6D28D9', 800:'#5B21B6', 900:'#4C1D95' },
+            accent: { 50:'#FFFBEB', 100:'#FEF3C7', 200:'#FDE68A', 300:'#FCD34D', 400:'#FBBF24', 500:'#F59E0B' },
+            dark: { 800:'#1F2937', 900:'#111827' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+            jp: ['Noto Sans JP', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --sol-text: #1A1A2E; --sol-brand: #8B5CF6; --sol-accent: #7C3AED;
+      --sol-secondary: #5E6278; --sol-bg: #F7F8FA;
+      --sol-border: #E4E7EC;
+    }
+    /* ===== SITE HEADER ===== */
+    .site-header { position: sticky; top: 0; z-index: 50; width: 100%; border-bottom: 1px solid var(--sol-border); background: rgba(255,255,255,0.95); backdrop-filter: blur(4px); }
+    .site-header-inner { padding: 0 40px; display: flex; justify-content: center; }
+    .site-header-content { display: flex; height: 64px; width: 100%; max-width: 1200px; align-items: center; justify-content: space-between; }
+    .site-logo img { height: 32px; width: auto; }
+    .site-logo { display: flex; align-items: center; text-decoration: none; transition: opacity 0.2s; }
+    .site-logo:hover { opacity: 0.8; }
+    .site-nav { display: flex; align-items: center; gap: 0; }
+    .nav-link { font-size: 14px; font-weight: 500; color: var(--sol-text); text-decoration: none; padding: 20px 16px; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+    .nav-link:hover { color: var(--sol-brand); }
+    .nav-dropdown { position: relative; }
+    .nav-btn { display: flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 500; color: var(--sol-text); background: none; border: none; cursor: pointer; padding: 20px 16px; transition: color 0.2s; }
+    .nav-btn svg { width: 14px; height: 14px; }
+    .nav-btn:hover { color: var(--sol-brand); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% - 4px); left: 0; background: #fff; border: 1px solid var(--sol-border); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); min-width: 220px; padding: 8px; z-index: 100; }
+    .nav-dropdown-menu::before { content: ''; position: absolute; top: -8px; left: 0; right: 0; height: 8px; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-inner { display: flex; flex-direction: column; gap: 2px; }
+    .nav-dropdown-item { display: block; padding: 8px 12px; border-radius: 6px; text-decoration: none; color: var(--sol-text); transition: background 0.15s; }
+    .nav-dropdown-item:hover { background: var(--sol-bg); }
+    .item-title { font-size: 13px; font-weight: 600; }
+    .item-sub { font-size: 12px; color: var(--sol-secondary); margin-top: 2px; }
+    .site-header-actions { display: flex; align-items: center; gap: 12px; }
+    .nav-login { font-size: 14px; font-weight: 500; color: var(--sol-text); text-decoration: none; padding: 8px 12px; transition: color 0.2s; }
+    .nav-login:hover { color: var(--sol-brand); }
+    .btn-outline-round { font-size: 13px; font-weight: 600; color: var(--sol-brand); border: 1.5px solid var(--sol-brand); border-radius: 9999px; padding: 7px 16px; text-decoration: none; transition: all 0.2s; }
+    .btn-outline-round:hover { background: var(--sol-brand); color: #fff; }
+    .btn-gradient-round { font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #8B5CF6, #A78BFA); border-radius: 9999px; padding: 7px 16px; text-decoration: none; border: none; transition: opacity 0.2s; }
+    .btn-gradient-round:hover { opacity: 0.88; }
+
+    /* ===== SITE FOOTER ===== */
+    .site-footer { background: var(--sol-bg); border-top: 1px solid var(--sol-border); color: var(--sol-secondary); padding: 48px 40px 24px; }
+    .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+    .site-footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; margin-bottom: 40px; }
+    .site-footer h3 { font-size: 13px; font-weight: 700; color: var(--sol-text); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--sol-border); }
+    .site-footer h3.mt { margin-top: 28px; }
+    .site-footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .site-footer ul a { font-size: 13px; color: var(--sol-secondary); text-decoration: none; transition: color 0.2s; }
+    .site-footer ul a:hover { color: var(--sol-brand); }
+    .site-footer ul a small { display: inline; font-size: 0.72rem; color: rgba(94, 98, 120, 0.6); margin-left: 0.25rem; font-weight: 400; white-space: nowrap; }
+    .footer-social { display: flex; gap: 10px; margin-top: 1.25rem; }
+    .footer-social a { width: 18px; height: 18px; color: var(--sol-secondary); transition: color 0.2s; display: inline-block; }
+    .footer-social a:hover { color: var(--sol-brand); }
+    .footer-social svg { width: 100%; height: 100%; }
+    .site-footer-bottom { border-top: 1px solid var(--sol-border); padding-top: 20px; font-size: 12px; color: var(--sol-secondary); }
+    .footer-bottom-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+    .footer-legal { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    .footer-legal a { font-size: 12px; color: var(--sol-secondary); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--sol-brand); }
+    @media (max-width: 960px) { .site-footer-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .icon { font-family: 'Material Symbols Rounded'; font-size: 24px; font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
+    .gradient-text { background: linear-gradient(135deg, #7C68FB 0%, #A78BFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cta-gradient-text { background: linear-gradient(135deg, #DDD6FE 0%, #FEF3C7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-gradient-text { background: linear-gradient(135deg, #6D28D9 0%, #8B5CF6 50%, #A78BFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .img-depth { box-shadow: 0 20px 60px rgba(139,92,246,0.18), 0 8px 24px rgba(139,92,246,0.10); }
+    .stat-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(139,92,246,0.18), 0 4px 8px rgba(0,0,0,0.05) !important; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(139,92,246,0.20), 0 8px 16px rgba(0,0,0,0.06); }
+    .btn-3d { box-shadow: 0 4px 14px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.08); transition: all 0.25s ease; }
+    .btn-3d:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.1); }
+    .section-fade { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .section-fade.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .section-fade { opacity: 1; transform: none; transition: none; }
+      .stat-card:hover, .card-hover:hover, .btn-3d:hover { transform: none; }
+    }
+    /* Article body */
+    .article-body { font-size: 15px; line-height: 1.85; color: #374151; }
+    .article-body p { margin-bottom: 1.25rem; }
+    .section-heading { font-size: 18px; font-weight: 700; color: #1A1A2E; padding-bottom: 12px; border-bottom: 1px solid #E5E7EB; margin-bottom: 20px; }
+    .inline-link { color: #7C3AED; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(124, 58, 237, 0.35); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .inline-link:hover { text-decoration-color: #7C3AED; }
+    .section-label { font-size: 11px; font-weight: 700; color: #8B5CF6; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 6px; }
+    .sidebar-sticky { position: sticky; top: 80px; }
+
+    /* ============================================ */
+    /* support-pricing アライン用 nav / footer       */
+    /* ============================================ */
+    :root {
+      --brand: #8B5CF6;
+      --brand-deep: #7C3AED;
+      --brand-soft: rgba(139, 92, 246, 0.1);
+      --accent-blue: #6366F1;
+      --bg-base: #FFFFFF;
+      --bg-soft: #F4F2FA;
+      --border: #ECEAF5;
+      --border-strong: #D7D2EA;
+      --text: #1A1A2E;
+      --text-muted: #555573;
+      --text-dim: #8B8AA8;
+    }
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: nowrap;
+    }
+    .nav-logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 28px; width: auto; display: block; }
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 1.75rem; flex-wrap: nowrap; }
+    .nav-links > li { position: relative; }
+    .nav-links a, .nav-links .dropdown-trigger {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .nav-links a:hover, .nav-links .has-dropdown:hover .dropdown-trigger { color: var(--brand); }
+    .nav-links a.active { color: var(--brand); font-weight: 700; }
+    .dropdown-trigger::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid currentColor;
+      transition: transform 0.2s;
+    }
+    .has-dropdown:hover .dropdown-trigger::after { transform: rotate(180deg); }
+    .dropdown-panel { position: absolute; top: 100%; left: 0; padding-top: 0.5rem; display: none; z-index: 200; }
+    .has-dropdown:hover .dropdown-panel { display: block; }
+    .dropdown-content {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      padding: 0.5rem;
+      min-width: 15rem;
+    }
+    .dropdown-content.dropdown-wide {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      min-width: 36rem;
+      padding: 1rem;
+    }
+    .dropdown-section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0 0.75rem 0.5rem;
+    }
+    .dropdown-content a {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--text);
+      transition: background 0.2s, color 0.2s;
+      white-space: normal;
+      text-decoration: none;
+    }
+    .dropdown-content a:hover { background: var(--brand-soft); color: var(--brand); }
+    .dropdown-content a .icon { font-size: 18px; line-height: 1; flex-shrink: 0; margin-top: 1px; color: var(--text-dim); }
+    .dropdown-content a:hover .icon { color: var(--brand); }
+    .dropdown-content a.is-featured .icon { color: var(--brand); }
+    .dropdown-content a > .item-text { flex: 1; min-width: 0; }
+    .dropdown-content a strong { display: block; font-weight: 600; margin-bottom: 0.1rem; }
+    .dropdown-content a small { display: block; font-size: 0.72rem; color: var(--text-dim); }
+    .nav-buttons { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .nav-login-link { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); transition: color 0.2s; text-decoration: none; }
+    .nav-login-link:hover { color: var(--brand); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: all 0.2s;
+      white-space: nowrap;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-secondary {
+      background: var(--bg-base);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+    }
+    .btn-brand {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--accent-blue) 100%);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+    }
+    .btn-brand:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+    }
+    .btn-sm { padding: 0.55rem 1rem; font-size: 0.85rem; }
+
+    /* Footer (support-pricing aligned) */
+    .footer {
+      background: #1A1A2E;
+      color: rgba(255,255,255,0.7);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+    }
+    .footer ul { list-style: none; }
+    .footer ul li { padding: 0.3rem 0; font-size: 0.85rem; }
+    .footer ul a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    .footer ul a:hover { color: var(--brand); }
+    .footer ul a small {
+      display: inline;
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.4);
+      margin-left: 0.3rem;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+    .footer-subhead {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .footer .footer-social { display: flex; gap: 0.75rem; margin-top: 1rem; }
+    .footer .footer-social a { width: 1.25rem; height: 1.25rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer .footer-social a:hover { color: var(--brand); }
+    .footer .footer-social svg { width: 100%; height: 100%; }
+    .footer-bottom-row {
+      max-width: 1200px;
+      margin: 1.5rem auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--brand); }
+    @media (max-width: 960px) {
+      .footer-content { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* CTA section — warm purple gradient (support-pricing style) */
+    .cta-section {
+      padding: 5rem 2rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse 55% 60% at 50% 50%, rgba(139, 92, 246, 0.22) 0%, transparent 75%),
+        linear-gradient(180deg, rgba(139, 92, 246, 0.08) 0%, rgba(245, 158, 11, 0.04) 100%);
+      border-top: 1px solid var(--border);
+    }
+    .cta-section h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      margin-bottom: 0.85rem;
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .cta-section p {
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      max-width: 880px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+  </style>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "サッポロファクトリー GBase Support 導入事例｜AIコンシェルジュで問い合わせ自動回答率 90% 以上を実現",
+    "description": "サッポロファクトリー（サッポロ不動産開発）が GBase Support を導入。音声・タッチ対話対応の Smart Kiosk 型 AI コンシェルジュで、約150ショップの案内業務を自動化。自動回答率 90% 以上・4 言語（日英中韓）対応を実現。",
+    "image": [
+      "https://cs.gbase.ai/showcase/sapporo-factory/og-image.jpg",
+      "images/sapporo-factory-ai-information-actual.jpg"
+    ],
+    "author": { "@type": "Organization", "name": "Sparticle Inc.", "url": "https://sparticle.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "GBase Support",
+      "logo": { "@type": "ImageObject", "url": "https://cs.gbase.ai/title-logo.png" }
+    },
+    "inLanguage": "ja",
+    "articleSection": "導入事例",
+    "keywords": "サッポロファクトリー, サッポロ不動産開発, GBase Support, AIコンシェルジュ, 商業施設 AI, フロアマップ AI, 多言語 案内",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://cs.gbase.ai/showcase/sapporo-factory"
+    },
+    "about": {
+      "@type": "Organization",
+      "name": "サッポロ不動産開発株式会社",
+      "url": "https://www.sapporo-re.jp/",
+      "industry": "不動産開発・商業施設運営"
+    },
+    "mentions": [
+      {
+        "@type": "Organization",
+        "name": "株式会社リゾーム",
+        "url": "https://www.rhizome-e.com/",
+        "industry": "商業施設向けソリューション"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "GBase Support",
+        "url": "https://cs.gbase.ai/",
+        "applicationCategory": "BusinessApplication"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://cs.gbase.ai/" },
+      { "@type": "ListItem", "position": 2, "name": "導入事例", "item": "https://cs.gbase.ai/showcase" },
+      { "@type": "ListItem", "position": 3, "name": "サッポロファクトリー", "item": "https://cs.gbase.ai/showcase/sapporo-factory" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sparticle Inc.",
+    "url": "https://sparticle.com/",
+    "logo": "https://cs.gbase.ai/title-logo.png",
+    "sameAs": [
+      "https://prtimes.jp/main/html/searchrlp/company_id/87269",
+      "https://x.com/sparticle_ai",
+      "https://jp.linkedin.com/company/sparticle-inc",
+      "https://note.com/sparticle_gbase",
+      "https://www.youtube.com/@sparticle_gbase"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: SoftwareApplication (GBase Support) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GBase Support",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Webブラウザ",
+    "url": "https://cs.gbase.ai/",
+    "description": "商業施設・百貨店・サービス業向けの AI コンシェルジュ／カスタマーサポートプラットフォーム。音声対話・フロアマップ連携・10 言語対応で、案内業務の自動化を実現。",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "JPY",
+      "availability": "https://schema.org/InStock",
+      "url": "https://cs.gbase.ai/contact"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Sparticle Inc.",
+      "url": "https://sparticle.com/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="https://cs.gbase.ai/" class="nav-logo" aria-label="GBase Support">
+        <img src="https://cs.gbase.ai/title-logo.png" alt="GBase Support - チャットボットで問い合わせ対応を自動化" width="140" height="28" decoding="async">
+      </a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <button class="dropdown-trigger" type="button">ソリューション</button>
+          <div class="dropdown-panel">
+            <div class="dropdown-content">
+              <a href="https://cs.gbase.ai/solution#case-study">商業施設・百貨店</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <button class="dropdown-trigger" type="button">製品／機能</button>
+          <div class="dropdown-panel">
+            <div class="dropdown-content dropdown-wide">
+              <div>
+                <p class="dropdown-section-label">製品</p>
+                <a href="https://ailisoncheng416.github.io/support-landing/concierge.html" class="is-featured">
+                  <span class="icon">support_agent</span>
+                  <span class="item-text"><strong>GBase Concierge</strong><small>多言語対応 AI コンシェルジュ</small></span>
+                </a>
+              </div>
+              <div>
+                <p class="dropdown-section-label">機能</p>
+                <a href="https://cs.gbase.ai/solution#feature-faq">
+                  <span class="icon">help</span>
+                  <span class="item-text"><strong>FAQ・施設案内AI</strong><small>よくある質問を自動対応</small></span>
+                </a>
+                <a href="https://cs.gbase.ai/solution#feature-floormap">
+                  <span class="icon">map</span>
+                  <span class="item-text"><strong>フロアマップ・ナビゲーション</strong><small>3Dマップで目的地まで案内</small></span>
+                </a>
+                <a href="https://cs.gbase.ai/solution#feature-realtime">
+                  <span class="icon">record_voice_over</span>
+                  <span class="item-text"><strong>リアルタイム会話</strong><small>10言語以上の音声対話</small></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="https://cs.gbase.ai/pricing">料金</a></li>
+        <li><a href="https://cs.gbase.ai/showcase" class="active">導入事例</a></li>
+        <li class="has-dropdown">
+          <button class="dropdown-trigger" type="button">リソース</button>
+          <div class="dropdown-panel">
+            <div class="dropdown-content">
+              <a href="https://cs.gbase.ai/blog">ブログ</a>
+              <a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener">マニュアル</a>
+              <a href="https://cs.gbase.ai/blog/release-notes/">リリースノート</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="https://admin.gbase.ai" class="nav-login-link">ログイン</a>
+        <a href="https://cs.gbase.ai/register" class="btn btn-secondary btn-sm">無料ではじめる</a>
+        <a href="https://cs.gbase.ai/contact" class="btn btn-brand btn-sm">お問い合わせ</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="bg-gray-50 border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-6 py-3">
+        <nav class="flex items-center gap-1 text-sm text-gray-500" aria-label="breadcrumb">
+          <a href="https://cs.gbase.ai/" class="hover:text-primary-500 transition-colors">ホーム</a>
+          <span class="icon text-gray-300 mx-0.5" style="font-size: 15px;">chevron_right</span>
+          <a href="https://cs.gbase.ai/showcase" class="hover:text-primary-500 transition-colors">導入事例</a>
+          <span class="icon text-gray-300 mx-0.5" style="font-size: 15px;">chevron_right</span>
+          <span class="text-gray-800 font-medium">サッポロファクトリー</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="py-16 md:py-20 bg-gradient-to-br from-primary-50 via-white to-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-14 items-center">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 flex items-center justify-center bg-white rounded-lg border border-gray-200 flex-none" style="box-shadow: 0 2px 8px rgba(139,92,246,0.06);">
+                <img src="images/sapporo-re-icon.svg" alt="サッポロ不動産開発 ブランドマーク" class="w-7 h-7" width="28" height="28" decoding="async">
+              </div>
+              <div>
+                <p class="text-xs text-gray-500 leading-none mb-1.5">導入企業</p>
+                <p class="text-xl font-bold text-gray-900 font-jp leading-tight">サッポロ不動産開発株式会社</p>
+              </div>
+            </div>
+            <h1 class="text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight mb-5 font-jp">
+              <span class="gradient-text">生成AIが顧客と施設をつなぐ。</span><br>案内業務を、AI で再設計。
+            </h1>
+            <p class="text-lg text-gray-600 leading-relaxed mb-8 max-w-lg">
+              北海道札幌市の大型商業施設「サッポロファクトリー」に、商業施設特化型 AI コンシェルジュ「GBase Support」を導入。音声対話 × フロアマップ連携で、約 150 ショップの案内業務を自動化し、<strong class="text-gray-900">問い合わせ自動回答率 90% 以上</strong>を実現。
+            </p>
+            <a href="https://cs.gbase.ai/contact" class="inline-flex items-center gap-2 px-7 py-3 font-bold rounded-full btn-3d" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA); color: white; box-shadow: 0 4px 16px rgba(139,92,246,0.3);">
+              <span class="icon text-lg">mail</span>
+              お問い合わせ・ご相談
+            </a>
+          </div>
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden img-depth max-w-md ml-auto">
+            <img src="images/sapporo-factory-ai-information-actual.jpg"
+                 alt="サッポロファクトリー館内に設置された「AI INFORMATION」Smart Kiosk — タッチパネルから日本語・英語・中国語・韓国語の 4 言語で案内"
+                 class="w-full h-full object-cover"
+                 width="2048"
+                 height="1618"
+                 fetchpriority="high"
+                 decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="py-20 bg-primary-50 section-fade">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="text-sm text-primary-500 font-semibold mb-3">導入効果</p>
+          <h2 class="text-3xl font-bold font-jp text-gray-900">数字で見る、導入の成果</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-2xl p-8 text-center stat-card cursor-pointer" style="box-shadow: 0 4px 20px rgba(139,92,246,0.06), 0 1px 3px rgba(0,0,0,0.04);">
+            <div class="text-4xl font-extrabold stat-gradient-text mb-2">90<span style="font-size:1.5rem;">%</span><span style="font-size:1rem;color:var(--sol-secondary);">以上</span></div>
+            <p class="text-base text-gray-700 font-medium mb-2">問い合わせ自動回答率</p>
+            <p class="text-sm text-gray-400">有人対応の負担を大幅減</p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center stat-card cursor-pointer" style="box-shadow: 0 4px 20px rgba(139,92,246,0.06), 0 1px 3px rgba(0,0,0,0.04);">
+            <div class="text-4xl font-extrabold stat-gradient-text mb-2">4</div>
+            <p class="text-base text-gray-700 font-medium mb-2">対応言語</p>
+            <p class="text-sm text-gray-400">日・英・中・韓</p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center stat-card cursor-pointer" style="box-shadow: 0 4px 20px rgba(139,92,246,0.06), 0 1px 3px rgba(0,0,0,0.04);">
+            <div class="text-4xl font-extrabold stat-gradient-text mb-2">約150</div>
+            <p class="text-base text-gray-700 font-medium mb-2">ショップ・レストラン</p>
+            <p class="text-sm text-gray-400">大型施設の案内に対応</p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center stat-card cursor-pointer" style="box-shadow: 0 4px 20px rgba(139,92,246,0.06), 0 1px 3px rgba(0,0,0,0.04);">
+            <div class="text-4xl font-extrabold stat-gradient-text mb-2">2</div>
+            <p class="text-base text-gray-700 font-medium mb-2">操作モード</p>
+            <p class="text-sm text-gray-400">音声・タッチの両対応</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="flex gap-14 items-start">
+
+        <!-- LEFT: Article body -->
+        <div class="flex-1 min-w-0 article-body section-fade">
+
+          <!-- 背景 -->
+          <section id="background" class="mb-12">
+            <span class="section-label">導入の背景</span>
+            <h2 class="section-heading">歴史的商業施設が直面する案内業務の課題</h2>
+            <p>
+              サッポロファクトリーは、日本人の手による初のビール工場「開拓使麦酒醸造所」の跡地に立つ大型商業施設である。敷地内には約 150 のショップやレストランが立ち並び、地下から 4 階までの吹き抜けアトリウムをシンボルとして、ガラス越しに日差しが注ぐ気持ちのよい空間が広がる。
+            </p>
+            <p>
+              これまで同施設では、有人によるインフォメーション対応で来館者からの問い合わせに対応していた。約 150 のショップ・レストランを擁する大規模施設において、店舗位置の問い合わせ・営業時間の確認・イベント情報の提供といった案内業務は、来館者体験の中核を担う一方で、スタッフのリソースを大きく消費していた。
+            </p>
+            <p>
+              「案内業務を AI が安定的に担い、スタッフがより付加価値の高い業務に専念できる役割分担を実現したい」——その想いを起点に、商業施設特化型 AI コンシェルジュの導入が検討された。
+            </p>
+          </section>
+
+          <!-- 選定 -->
+          <section id="solution" class="mb-12">
+            <span class="section-label">選定の決め手</span>
+            <h2 class="section-heading">商業施設に最適化された AI コンシェルジュ「GBase Support」</h2>
+            <p>
+              サッポロ不動産開発が GBase Support を選定した決め手は、3 つの条件を一つの構成で満たせる点にあった。
+            </p>
+
+            <div class="space-y-5 my-6">
+              <div class="pl-4 border-l-2 border-primary-300">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">① 高い回答精度 — 問い合わせ自動回答率 90% 以上</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  Sparticle 独自の RAG（検索拡張生成）技術により、店舗・施設情報を事前に学習。商業施設に特化した質問パターンに対し、安定した高精度の応答を実現する。仕組みの詳細は<a href="https://cs.gbase.ai/blog/chatbot-mechanism-how-it-works/" class="inline-link">チャットボットの仕組み解説</a>もあわせてご参照ください。
+                </p>
+              </div>
+              <div class="pl-4 border-l-2 border-primary-300">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">② 地図連携機能 — フロアマップ自動表示</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  回答内容に応じて、該当テナントをフロアマップ上に自動でピン表示。「〇〇店はどこ？」と聞くだけで、目的の場所まで視覚的に案内できる。
+                </p>
+              </div>
+              <div class="pl-4 border-l-2 border-primary-300">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">③ シームレスな有人切り替え — ボタン一本で人へ</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  AI で対応しきれない複雑な問い合わせは、AI チャットからボタン操作一回で有人対応へ切り替え可能。スタッフは複雑案件に集中できる役割分担を実現。
+                </p>
+              </div>
+            </div>
+
+            <p>
+              また、株式会社リゾーム（岡山県岡山市）との協業による導入も特徴的だ。商業施設向けに長年ソリューションを展開してきたリゾームのノウハウと、Sparticle の生成 AI 技術が組み合わさることで、現場運営に即した実装が短期間で実現した。
+            </p>
+          </section>
+
+          <!-- 導入 -->
+          <section id="implementation" class="mb-12">
+            <span class="section-label">導入の仕組み</span>
+            <h2 class="section-heading">館内 Smart Kiosk で、音声・タッチで即座に対話</h2>
+            <p>
+              来館者は施設内に設置された Smart Kiosk から、音声・タッチで AI コンシェルジュと直接対話できる。専用アプリのインストールやスマートフォン操作は不要で、子どもから外国人観光客まで、誰もが直感的に利用できるインターフェースを実現している。
+            </p>
+
+            <div class="space-y-5 my-6">
+              <div class="pl-4 border-l-2 border-primary-200">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">店舗・施設情報の事前学習と自動更新</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  約 150 のテナント情報を AI が事前学習。情報の更新も自動化されており、常に最新のナレッジベースを維持する。
+                </p>
+              </div>
+              <div class="pl-4 border-l-2 border-primary-200">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">チャット＋フロアマップのピン表示</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  「3階のレストランを教えて」と聞くと、該当する店舗がフロアマップ上にピン表示される。文字説明だけでなく視覚的に行き先がわかる仕組み。
+                </p>
+              </div>
+              <div class="pl-4 border-l-2 border-primary-200">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">4 言語（日英中韓）対応のインバウンド体制</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  日本語・英語・中国語・韓国語の 4 言語に対応。訪日外国人観光客にも母国語で案内できる体制を構築している。
+                </p>
+              </div>
+              <div class="pl-4 border-l-2 border-primary-200">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">音声・タッチ操作の直感的なインターフェース</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  Smart Kiosk のタッチ画面と音声入力に対応。両手がふさがった状況でも音声で、文字を確認したいときはタッチで、状況に応じて入力方法を選択可能。
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 効果 -->
+          <section id="results" class="mb-12">
+            <span class="section-label">導入後の効果</span>
+            <h2 class="section-heading">スタッフが付加価値の高い業務に専念できる環境</h2>
+            <p>
+              GBase Support の導入により、来館者からの日常的な問い合わせは AI コンシェルジュが <strong>自動回答率 90% 以上</strong> でカバー。営業時間中、待ち時間なく即座に案内できるため、ピーク時間帯のインフォメーション混雑も大きく緩和されている。自動回答率をはじめとする運用指標の捉え方は<a href="https://cs.gbase.ai/blog/customer-success-kpi-guide-2026/" class="inline-link">カスタマーサクセス KPI ガイド</a>もご参考ください。
+            </p>
+            <p>
+              定型的な案内業務を AI が担うことで、インフォメーションスタッフはより複雑なケース対応、来館者との深い交流、施設運営の改善業務など、<strong>付加価値の高い役割</strong> に時間を使えるようになった。「AI とスタッフの役割分担」が実現したことで、来館者対応の品質も平準化されている。役割シフトの考え方は<a href="https://cs.gbase.ai/blog/operator-role-customer-support-2026/" class="inline-link">オペレーターの役割変遷</a>もあわせてご活用ください。
+            </p>
+            <p>
+              また、訪日外国人観光客の増加に対する課題感もあった中で、4 言語（日英中韓）対応の Smart Kiosk は、インバウンド対応の即戦力としても機能している。
+            </p>
+          </section>
+
+        </div>
+        <!-- END LEFT -->
+
+        <!-- RIGHT: Sidebar -->
+        <div class="w-72 flex-none sidebar-sticky">
+          <div class="border border-gray-200 rounded-xl overflow-hidden" style="box-shadow: 0 2px 12px rgba(139,92,246,0.06);">
+
+            <div class="bg-primary-50 px-5 py-4 border-b border-primary-100">
+              <p class="text-xs font-semibold text-primary-500 uppercase tracking-wider mb-2">導入企業</p>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 flex items-center justify-center bg-white rounded-md border border-gray-200 flex-none" style="box-shadow: 0 1px 4px rgba(139,92,246,0.06);">
+                  <img src="images/sapporo-re-icon.svg" alt="サッポロ不動産開発 ブランドマーク" class="w-5 h-5" width="20" height="20" decoding="async" loading="lazy">
+                </div>
+                <p class="text-sm font-bold text-gray-900 font-jp leading-tight whitespace-nowrap">サッポロ不動産開発</p>
+              </div>
+              <div class="mt-3 pt-3 border-t border-primary-100">
+                <p class="text-xs font-semibold text-primary-500 uppercase tracking-wider mb-1.5">協業パートナー</p>
+                <p class="text-xs text-gray-700 leading-relaxed">
+                  <a href="https://www.rhizome-e.com/" target="_blank" rel="noopener" class="text-gray-900 font-semibold hover:underline">株式会社リゾーム</a><br>
+                  <span class="text-gray-500">商業施設向けソリューションを長年展開</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="divide-y divide-gray-100">
+              <div class="px-5 py-3.5 flex items-start gap-3">
+                <span class="icon text-primary-400 mt-0.5" style="font-size:18px;">storefront</span>
+                <div>
+                  <p class="text-xs text-gray-400 mb-0.5">業態</p>
+                  <p class="text-sm font-medium text-gray-800">大型商業施設運営（不動産開発）</p>
+                </div>
+              </div>
+              <div class="px-5 py-3.5 flex items-start gap-3">
+                <span class="icon text-primary-400 mt-0.5" style="font-size:18px;">location_city</span>
+                <div>
+                  <p class="text-xs text-gray-400 mb-0.5">本社所在地</p>
+                  <p class="text-sm font-medium text-gray-800">東京都渋谷区</p>
+                </div>
+              </div>
+              <div class="px-5 py-3.5 flex items-start gap-3">
+                <span class="icon text-primary-400 mt-0.5" style="font-size:18px;">person</span>
+                <div>
+                  <p class="text-xs text-gray-400 mb-0.5">代表者</p>
+                  <p class="text-sm font-medium text-gray-800">代表取締役 富岡 良之</p>
+                </div>
+              </div>
+              <div class="px-5 py-3.5 flex items-start gap-3">
+                <span class="icon text-primary-400 mt-0.5" style="font-size:18px;">link</span>
+                <div>
+                  <p class="text-xs text-gray-400 mb-0.5">公式サイト</p>
+                  <a href="https://www.sapporo-re.jp/" target="_blank" rel="noopener" class="text-sm font-medium text-primary-600 hover:underline">sapporo-re.jp</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-5 py-4 border-t border-gray-100 bg-gray-50">
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">導入施設</p>
+              <div class="space-y-2.5">
+                <div class="flex items-start gap-2">
+                  <span class="icon text-gray-400 mt-0.5" style="font-size:15px;">pin_drop</span>
+                  <div>
+                    <p class="text-xs font-medium text-gray-700">サッポロファクトリー</p>
+                    <p class="text-xs text-gray-400">北海道札幌市</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="icon text-gray-400" style="font-size:15px;">domain</span>
+                  <p class="text-xs text-gray-700">約 150 ショップ・レストラン</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="icon text-gray-400" style="font-size:15px;">history_edu</span>
+                  <p class="text-xs text-gray-700">日本初のビール工場跡地</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-5 py-4 border-t border-gray-100">
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">課題</p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>有人による案内業務でスタッフのリソース消費が大きい</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>約 150 ショップの案内で、店舗位置・営業時間の問い合わせが頻発</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>インバウンド対応で多言語コミュニケーションの強化が必要</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="px-5 py-4 border-t border-gray-100">
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">使用機能</p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>店舗・施設の自然言語問い合わせ応答</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>フロアマップ連携によるピン表示案内</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>4 言語（日英中韓）対応のインバウンド接客</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>音声・タッチ操作の両対応（Smart Kiosk）</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <!-- END RIGHT -->
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <section id="contact" class="cta-section">
+      <h2>貴社の商業施設でも、AI コンシェルジュで案内業務を再設計しませんか？</h2>
+      <p>
+        商業施設・百貨店・複合施設など、来館者対応のスケール課題を抱える組織向けに、貴施設に最適化された AI コンシェルジュをご提案します。<br>
+        実機デモのご相談も承ります。
+      </p>
+      <a href="https://cs.gbase.ai/contact" class="btn btn-brand">お問い合わせ</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <h4>ソリューション</h4>
+          <ul>
+            <li><a href="https://cs.gbase.ai/solution#case-study">商業施設・百貨店</a></li>
+          </ul>
+          <p class="footer-subhead">製品</p>
+          <ul>
+            <li><a href="https://ailisoncheng416.github.io/support-landing/concierge.html">GBase Concierge</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>機能</h4>
+          <ul>
+            <li><a href="https://cs.gbase.ai/solution#feature-faq">FAQ・施設案内AI</a></li>
+            <li><a href="https://cs.gbase.ai/solution#feature-floormap">フロアマップ・ナビゲーション</a></li>
+            <li><a href="https://cs.gbase.ai/solution#feature-realtime">リアルタイム会話</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>リソース</h4>
+          <ul>
+            <li><a href="https://cs.gbase.ai/showcase/sapporo-factory">導入事例</a></li>
+            <li><a href="https://cs.gbase.ai/blog">ブログ</a></li>
+            <li><a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener">マニュアル</a></li>
+            <li><a href="https://cs.gbase.ai/blog/release-notes/">リリースノート</a></li>
+            <li><a href="https://cs.gbase.ai/pricing">料金</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>その他のプロダクト</h4>
+          <ul>
+            <li><a href="https://gbase.ai/" target="_blank" rel="noopener">GBase<small>（ナレッジ AI）</small></a></li>
+            <li><a href="https://onprem.gbase.ai/" target="_blank" rel="noopener">GBase OnPrem<small>（オンプレ AI）</small></a></li>
+            <li><a href="https://subtitles.felo.me/" target="_blank" rel="noopener">Felo Subtitles<small>（多言語字幕）</small></a></li>
+            <li><a href="https://s.gbase.ai/" target="_blank" rel="noopener">GBase GTM<small>（顧客獲得 AI）</small></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Sparticle について</h4>
+          <ul>
+            <li><a href="https://www.sparticle.com/" target="_blank" rel="noopener">会社概要</a></li>
+            <li><a href="https://www.sparticle.com/careers" target="_blank" rel="noopener">採用情報</a></li>
+          </ul>
+          <div class="footer-social">
+            <a href="https://prtimes.jp/main/html/searchrlp/company_id/87269" target="_blank" rel="noopener" aria-label="PR TIMES" title="PR TIMES">
+              <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="currentColor"/><text x="12" y="17.5" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="900" text-anchor="middle" fill="#1A1A2E">P</text></svg>
+            </a>
+            <a href="https://x.com/sparticle_ai" target="_blank" rel="noopener" aria-label="X" title="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://jp.linkedin.com/company/sparticle-inc?trk=public_post_feed-actor-image" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a href="https://note.com/sparticle_gbase" target="_blank" rel="noopener" aria-label="note" title="note">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@sparticle_gbase" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <p>© 2026 Sparticle Inc. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="https://cs.gbase.ai/privacy-policy">プライバシーポリシー</a>
+          <a href="https://cs.gbase.ai/terms-of-use">利用規約</a>
+          <a href="https://cs.gbase.ai/legal/specific-based">特定商取引法</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Scroll animation -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
