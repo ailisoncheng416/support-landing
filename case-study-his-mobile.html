@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HISモバイル GBase Support 導入事例｜AIチャットで料金プラン等の問い合わせを約6割削減</title>
+  <meta name="description" content="格安SIM「HISモバイル」（H.I.S. Mobile）が GBase Support を導入。公式サイトのお問い合わせ窓口にリアルタイム音声・テキスト両対応の AI チャットを設置し、申し込み・料金プラン説明など特定の問い合わせを約 60% 削減。10 言語対応で在留・訪日外国人のサポートも効率化。">
+  <meta name="keywords" content="HISモバイル, H.I.S. Mobile, 格安SIM, MVNO, GBase Support, AIチャットボット, カスタマーサポート AI, 問い合わせ削減, FAQ自動化, 多言語サポート">
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="HISモバイル GBase Support 導入事例｜カスタマーサポート AI">
+  <meta property="og:description" content="格安SIM「HISモバイル」が公式サイトのお問い合わせ窓口に AI チャットを導入。リアルタイム音声・テキスト両対応で特定の問い合わせを約 60% 削減。10 言語対応でインバウンドのサポートも効率化。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://cs.gbase.ai/showcase/his-mobile">
+  <meta property="og:image" content="https://cs.gbase.ai/showcase/his-mobile/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HISモバイル GBase Support 導入事例">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="GBase Support">
+  <meta property="article:section" content="導入事例">
+  <meta property="article:tag" content="格安SIM">
+  <meta property="article:tag" content="カスタマーサポート AI">
+  <meta property="article:tag" content="FAQ自動化">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HISモバイル GBase Support 導入事例">
+  <meta name="twitter:description" content="格安SIM「HISモバイル」が AI チャットを導入。特定の問い合わせを約 60% 削減・10 言語・音声/テキスト対応でサポートを効率化。">
+  <meta name="twitter:image" content="https://cs.gbase.ai/showcase/his-mobile/og-image.jpg">
+
+  <link rel="canonical" href="https://cs.gbase.ai/showcase/his-mobile">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#F5F3FF', 100:'#EDE9FE', 200:'#DDD6FE', 300:'#C4B5FD', 400:'#A78BFA', 500:'#8B5CF6', 600:'#7C3AED', 700:'#6D28D9', 800:'#5B21B6', 900:'#4C1D95' },
+            accent: { 50:'#FFFBEB', 100:'#FEF3C7', 200:'#FDE68A', 300:'#FCD34D', 400:'#FBBF24', 500:'#F59E0B' },
+            dark: { 800:'#1F2937', 900:'#111827' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+            jp: ['Noto Sans JP', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --sol-text: #1A1A2E; --sol-brand: #8B5CF6; --sol-accent: #7C3AED;
+      --sol-secondary: #5E6278; --sol-bg: #F7F8FA;
+      --sol-border: #E4E7EC;
+    }
+    /* ===== SITE HEADER ===== */
+    .site-header { position: sticky; top: 0; z-index: 50; width: 100%; border-bottom: 1px solid var(--sol-border); background: rgba(255,255,255,0.95); backdrop-filter: blur(4px); }
+    .site-header-inner { padding: 0 40px; display: flex; justify-content: center; }
+    .site-header-content { display: flex; height: 64px; width: 100%; max-width: 1200px; align-items: center; justify-content: space-between; }
+    .site-logo img { height: 32px; width: auto; }
+    .site-logo { display: flex; align-items: center; text-decoration: none; transition: opacity 0.2s; }
+    .site-logo:hover { opacity: 0.8; }
+    .site-nav { display: flex; align-items: center; gap: 0; }
+    .nav-link { font-size: 14px; font-weight: 500; color: var(--sol-text); text-decoration: none; padding: 20px 16px; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+    .nav-link:hover { color: var(--sol-brand); }
+    .nav-dropdown { position: relative; }
+    .nav-btn { display: flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 500; color: var(--sol-text); background: none; border: none; cursor: pointer; padding: 20px 16px; transition: color 0.2s; }
+    .nav-btn svg { width: 14px; height: 14px; }
+    .nav-btn:hover { color: var(--sol-brand); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% - 4px); left: 0; background: #fff; border: 1px solid var(--sol-border); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); min-width: 220px; padding: 8px; z-index: 100; }
+    .nav-dropdown-menu::before { content: ''; position: absolute; top: -8px; left: 0; right: 0; height: 8px; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-inner { display: flex; flex-direction: column; gap: 2px; }
+    .nav-dropdown-item { display: block; padding: 8px 12px; border-radius: 6px; text-decoration: none; color: var(--sol-text); transition: background 0.15s; }
+    .nav-dropdown-item:hover { background: var(--sol-bg); }
+    .item-title { font-size: 13px; font-weight: 600; }
+    .item-sub { font-size: 12px; color: var(--sol-secondary); margin-top: 2px; }
+    .site-header-actions { display: flex; align-items: center; gap: 12px; }
+    .nav-login { font-size: 14px; font-weight: 500; color: var(--sol-text); text-decoration: none; padding: 8px 12px; transition: color 0.2s; }
+    .nav-login:hover { color: var(--sol-brand); }
+    .btn-outline-round { font-size: 13px; font-weight: 600; color: var(--sol-brand); border: 1.5px solid var(--sol-brand); border-radius: 9999px; padding: 7px 16px; text-decoration: none; transition: all 0.2s; }
+    .btn-outline-round:hover { background: var(--sol-brand); color: #fff; }
+    .btn-gradient-round { font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #8B5CF6, #A78BFA); border-radius: 9999px; padding: 7px 16px; text-decoration: none; border: none; transition: opacity 0.2s; }
+    .btn-gradient-round:hover { opacity: 0.88; }
+
+    /* ===== SITE FOOTER ===== */
+    .site-footer { background: var(--sol-bg); border-top: 1px solid var(--sol-border); color: var(--sol-secondary); padding: 48px 40px 24px; }
+    .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+    .site-footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; margin-bottom: 40px; }
+    .site-footer h3 { font-size: 13px; font-weight: 700; color: var(--sol-text); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--sol-border); }
+    .site-footer h3.mt { margin-top: 28px; }
+    .site-footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .site-footer ul a { font-size: 13px; color: var(--sol-secondary); text-decoration: none; transition: color 0.2s; }
+    .site-footer ul a:hover { color: var(--sol-brand); }
+    .site-footer ul a small { display: inline; font-size: 0.72rem; color: rgba(94, 98, 120, 0.6); margin-left: 0.25rem; font-weight: 400; white-space: nowrap; }
+    .footer-social { display: flex; gap: 10px; margin-top: 1.25rem; }
+    .footer-social a { width: 18px; height: 18px; color: var(--sol-secondary); transition: color 0.2s; display: inline-block; }
+    .footer-social a:hover { color: var(--sol-brand); }
+    .footer-social svg { width: 100%; height: 100%; }
+    .site-footer-bottom { border-top: 1px solid var(--sol-border); padding-top: 20px; font-size: 12px; color: var(--sol-secondary); }
+    .footer-bottom-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+    .footer-legal { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    .footer-legal a { font-size: 12px; color: var(--sol-secondary); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--sol-brand); }
+    @media (max-width: 960px) { .site-footer-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .icon { font-family: 'Material Symbols Rounded'; font-size: 24px; font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
+    .gradient-text { background: linear-gradient(135deg, #7C68FB 0%, #A78BFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cta-gradient-text { background: linear-gradient(135deg, #DDD6FE 0%, #FEF3C7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-gradient-text { background: linear-gradient(135deg, #6D28D9 0%, #8B5CF6 50%, #A78BFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .img-depth { box-shadow: 0 20px 60px rgba(139,92,246,0.18), 0 8px 24px rgba(139,92,246,0.10); }
+    .stat-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(139,92,246,0.18), 0 4px 8px rgba(0,0,0,0.05) !important; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(139,92,246,0.20), 0 8px 16px rgba(0,0,0,0.06); }
+    .btn-3d { box-shadow: 0 4px 14px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.08); transition: all 0.25s ease; }
+    .btn-3d:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.1); }
+    .section-fade { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .section-fade.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .section-fade { opacity: 1; transform: none; transition: none; }
+      .stat-card:hover, .card-hover:hover, .btn-3d:hover { transform: none; }
+    }
+    /* Article body */
+    .article-body { font-size: 15px; line-height: 1.85; color: #374151; }
+    .article-body p { margin-bottom: 1.25rem; }
+    .section-heading { font-size: 18px; font-weight: 700; color: #1A1A2E; padding-bottom: 12px; border-bottom: 1px solid #E5E7EB; margin-bottom: 20px; }
+    .inline-link { color: #7C3AED; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(124, 58, 237, 0.35); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .inline-link:hover { text-decoration-color: #7C3AED; }
+    .section-label { font-size: 11px; font-weight: 700; color: #8B5CF6; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 6px; }
+    .sidebar-sticky { position: sticky; top: 80px; }
+
+    /* ============================================ */
+    /* support-pricing アライン用 nav / footer       */
+    /* ============================================ */
+    :root {
+      --brand: #8B5CF6;
+      --brand-deep: #7C3AED;
+      --brand-soft: rgba(139, 92, 246, 0.1);
+      --accent-blue: #6366F1;
+      --bg-base: #FFFFFF;
+      --bg-soft: #F4F2FA;
+      --border: #ECEAF5;
+      --border-strong: #D7D2EA;
+      --text: #1A1A2E;
+      --text-muted: #555573;
+      --text-dim: #8B8AA8;
+    }
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: nowrap;
+    }
+    .nav-logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 28px; width: auto; display: block; }
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 1.75rem; flex-wrap: nowrap; }
+    .nav-links > li { position: relative; }
+    .nav-links a, .nav-links .dropdown-trigger {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .nav-links a:hover, .nav-links .has-dropdown:hover .dropdown-trigger { color: var(--brand); }
+    .nav-links a.active { color: var(--brand); font-weight: 700; }
+    .dropdown-trigger::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid currentColor;
+      transition: transform 0.2s;
+    }
+    .has-dropdown:hover .dropdown-trigger::after { transform: rotate(180deg); }
+    .dropdown-panel { position: absolute; top: 100%; left: 0; padding-top: 0.5rem; display: none; z-index: 200; }
+    .has-dropdown:hover .dropdown-panel { display: block; }
+    .dropdown-content {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      padding: 0.5rem;
+      min-width: 15rem;
+    }
+    .dropdown-content.dropdown-wide {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      min-width: 36rem;
+      padding: 1rem;
+    }
+    .dropdown-section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0 0.75rem 0.5rem;
+    }
+    .dropdown-content a {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--text);
+      transition: background 0.2s, color 0.2s;
+      white-space: normal;
+      text-decoration: none;
+    }
+    .dropdown-content a:hover { background: var(--brand-soft); color: var(--brand); }
+    .dropdown-content a .icon { font-size: 18px; line-height: 1; flex-shrink: 0; margin-top: 1px; color: var(--text-dim); }
+    .dropdown-content a:hover .icon { color: var(--brand); }
+    .dropdown-content a.is-featured .icon { color: var(--brand); }
+    .dropdown-content a > .item-text { flex: 1; min-width: 0; }
+    .dropdown-content a strong { display: block; font-weight: 600; margin-bottom: 0.1rem; }
+    .dropdown-content a small { display: block; font-size: 0.72rem; color: var(--text-dim); }
+    .nav-buttons { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .nav-login-link { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); transition: color 0.2s; text-decoration: none; }
+    .nav-login-link:hover { color: var(--brand); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: all 0.2s;
+      white-space: nowrap;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-secondary {
+      background: var(--bg-base);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+    }
+    .btn-brand {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--accent-blue) 100%);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+    }
+    .btn-brand:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+    }
+    .btn-sm { padding: 0.55rem 1rem; font-size: 0.85rem; }
+
+    /* Footer (support-pricing aligned) */
+    .footer {
+      background: #1A1A2E;
+      color: rgba(255,255,255,0.7);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+    }
+    .footer ul { list-style: none; }
+    .footer ul li { padding: 0.3rem 0; font-size: 0.85rem; }
+    .footer ul a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    .footer ul a:hover { color: var(--brand); }
+    .footer ul a small {
+      display: inline;
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.4);
+      margin-left: 0.3rem;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+    .footer-subhead {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .footer .footer-social { display: flex; gap: 0.75rem; margin-top: 1rem; }
+    .footer .footer-social a { width: 1.25rem; height: 1.25rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer .footer-social a:hover { color: var(--brand); }
+    .footer .footer-social svg { width: 100%; height: 100%; }
+    .footer-bottom-row {
+      max-width: 1200px;
+      margin: 1.5rem auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--brand); }
+    @media (max-width: 960px) {
+      .footer-content { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* CTA section — warm purple gradient (support-pricing style) */
+    .cta-section {
+      padding: 5rem 2rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse 55% 60% at 50% 50%, rgba(139, 92, 246, 0.22) 0%, transparent 75%),
+        linear-gradient(180deg, rgba(139, 92, 246, 0.08) 0%, rgba(245, 158, 11, 0.04) 100%);
+      border-top: 1px solid var(--border);
+    }
+    .cta-section h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      margin-bottom: 0.85rem;
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .cta-section p {
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      max-width: 880px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+  </style>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "HISモバイル GBase Support 導入事例｜AIチャットで料金プラン等の問い合わせを約6割削減",
+    "description": "格安SIM「HISモバイル」（H.I.S. Mobile）が GBase Support を導入。公式サイトのお問い合わせ窓口にリアルタイム音声・テキスト両対応の AI チャットを設置し、申し込み・料金プラン説明など特定の問い合わせを約 60% 削減。10 言語対応で在留・訪日外国人のサポートも効率化。",
+    "image": [
+      "https://cs.gbase.ai/showcase/his-mobile/og-image.jpg",
+      "images/his-mobile-support-ai-chat.png"
+    ],
+    "author": { "@type": "Organization", "name": "Sparticle Inc.", "url": "https://sparticle.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "GBase Support",
+      "logo": { "@type": "ImageObject", "url": "https://cs.gbase.ai/title-logo.png" }
+    },
+    "inLanguage": "ja",
+    "articleSection": "導入事例",
+    "keywords": "HISモバイル, H.I.S. Mobile, 格安SIM, MVNO, GBase Support, カスタマーサポート AI, FAQ自動化, 多言語サポート",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://cs.gbase.ai/showcase/his-mobile"
+    },
+    "about": {
+      "@type": "Organization",
+      "name": "H.I.S.Mobile株式会社",
+      "alternateName": "HISモバイル",
+      "url": "https://his-mobile.com/",
+      "industry": "通信（格安SIM・MVNO）"
+    },
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "GBase Support",
+        "url": "https://cs.gbase.ai/",
+        "applicationCategory": "BusinessApplication"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://cs.gbase.ai/" },
+      { "@type": "ListItem", "position": 2, "name": "導入事例", "item": "https://cs.gbase.ai/showcase" },
+      { "@type": "ListItem", "position": 3, "name": "HISモバイル", "item": "https://cs.gbase.ai/showcase/his-mobile" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sparticle Inc.",
+    "url": "https://sparticle.com/",
+    "logo": "https://cs.gbase.ai/title-logo.png",
+    "sameAs": [
+      "https://prtimes.jp/main/html/searchrlp/company_id/87269",
+      "https://x.com/sparticle_ai",
+      "https://jp.linkedin.com/company/sparticle-inc",
+      "https://note.com/sparticle_gbase",
+      "https://www.youtube.com/@sparticle_gbase"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: SoftwareApplication (GBase Support) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GBase Support",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Webブラウザ",
+    "url": "https://cs.gbase.ai/",
+    "description": "通信・小売・サービス業向けの AI チャットボット／カスタマーサポートプラットフォーム。RAG による高精度な FAQ 自動応答・多言語対応で、問い合わせ対応の自動化を実現。",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "JPY",
+      "availability": "https://schema.org/InStock",
+      "url": "https://cs.gbase.ai/contact"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Sparticle Inc.",
+      "url": "https://sparticle.com/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="https://cs.gbase.ai/" class="nav-logo" aria-label="GBase Support">
+        <img src="https://cs.gbase.ai/title-logo.png" alt="GBase Support - チャットボットで問い合わせ対応を自動化" width="140" height="28" decoding="async">
+      </a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <button class="dropdown-trigger" type="button">ソリューション</button>
+          <div class="dropdown-panel">
+            <div class="dropdown-content">
+              <a href="https://cs.gbase.ai/solution#case-study">商業施設・百貨店</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <button class="dropdown-trigger" type="button">製品／機能</button>
+          <div class="dropdown-panel">
+            <div class="dropdown-content dropdown-wide">
+              <div>
+                <p class="dropdown-section-label">製品</p>
+                <a href="https://ailisoncheng416.github.io/support-landing/concierge.html" class="is-featured">
+                  <span class="icon">support_agent</span>
+                  <span class="item-text"><strong>GBase Concierge</strong><small>多言語対応 AI コンシェルジュ</small></span>
+                </a>
+              </div>
+              <div>
+                <p class="dropdown-section-label">機能</p>
+                <a href="https://cs.gbase.ai/solution#feature-faq">
+                  <span class="icon">help</span>
+                  <span class="item-text"><strong>FAQ・施設案内AI</strong><small>よくある質問を自動対応</small></span>
+                </a>
+                <a href="https://cs.gbase.ai/solution#feature-floormap">
+                  <span class="icon">map</span>
+                  <span class="item-text"><strong>フロアマップ・ナビゲーション</strong><small>3Dマップで目的地まで案内</small></span>
+                </a>
+                <a href="https://cs.gbase.ai/solution#feature-realtime">
+                  <span class="icon">record_voice_over</span>
+                  <span class="item-text"><strong>リアルタイム会話</strong><small>10言語以上の音声対話</small></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="https://cs.gbase.ai/pricing">料金</a></li>
+        <li><a href="https://cs.gbase.ai/showcase" class="active">導入事例</a></li>
+        <li class="has-dropdown">
+          <button class="dropdown-trigger" type="button">リソース</button>
+          <div class="dropdown-panel">
+            <div class="dropdown-content">
+              <a href="https://cs.gbase.ai/blog">ブログ</a>
+              <a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener">マニュアル</a>
+              <a href="https://cs.gbase.ai/blog/release-notes/">リリースノート</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="https://admin.gbase.ai" class="nav-login-link">ログイン</a>
+        <a href="https://cs.gbase.ai/register" class="btn btn-secondary btn-sm">無料ではじめる</a>
+        <a href="https://cs.gbase.ai/contact" class="btn btn-brand btn-sm">お問い合わせ</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="bg-gray-50 border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-6 py-3">
+        <nav class="flex items-center gap-1 text-sm text-gray-500" aria-label="breadcrumb">
+          <a href="https://cs.gbase.ai/" class="hover:text-primary-500 transition-colors">ホーム</a>
+          <span class="icon text-gray-300 mx-0.5" style="font-size: 15px;">chevron_right</span>
+          <a href="https://cs.gbase.ai/showcase" class="hover:text-primary-500 transition-colors">導入事例</a>
+          <span class="icon text-gray-300 mx-0.5" style="font-size: 15px;">chevron_right</span>
+          <span class="text-gray-800 font-medium">HISモバイル</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="py-16 md:py-20 bg-gradient-to-br from-primary-50 via-white to-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-14 items-center">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 flex items-center justify-center bg-white rounded-lg border border-gray-200 flex-none" style="box-shadow: 0 2px 8px rgba(139,92,246,0.06);">
+                <img src="images/his-mobile-logo.png" alt="HISモバイル ロゴ" class="w-full h-full object-contain rounded-lg" width="225" height="225" decoding="async">
+              </div>
+              <div>
+                <p class="text-xs text-gray-500 leading-none mb-1.5">導入企業</p>
+                <p class="text-xl font-bold text-gray-900 font-jp leading-tight">H.I.S.Mobile株式会社 様</p>
+              </div>
+            </div>
+            <h1 class="text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight mb-5 font-jp">
+              <span class="gradient-text">特定の問い合わせを、約6割削減。</span><br>公式サイトのお問い合わせ窓口を、AIチャットで再設計。
+            </h1>
+            <p class="text-lg text-gray-600 leading-relaxed mb-8 max-w-lg">
+              格安SIM「HISモバイル」が、公式サイトのお問い合わせ窓口に AI チャット「GBase Support」を導入。リアルタイム音声・テキストの両対応で、申し込み・料金プラン説明など特定の問い合わせを <strong class="text-gray-900">約 60% 削減</strong>。10 言語対応で在留・訪日外国人のサポートも効率化しました。
+            </p>
+            <a href="https://cs.gbase.ai/contact" class="inline-flex items-center gap-2 px-7 py-3 font-bold rounded-full btn-3d" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA); color: white; box-shadow: 0 4px 16px rgba(139,92,246,0.3);">
+              <span class="icon text-lg">mail</span>
+              お問い合わせ・ご相談
+            </a>
+          </div>
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden img-depth max-w-md ml-auto">
+            <img src="images/his-mobile-support-ai-chat.png"
+                 alt="HISモバイル公式サイトのお問い合わせ窓口に組み込まれた GBase Support の AI チャット。「格安SIMのご質問は？」と表示され、料金プラン・申し込みなどの質問に日本語で回答する"
+                 class="w-full h-full object-cover"
+                 width="1630"
+                 height="1223"
+                 fetchpriority="high"
+                 decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="py-20 bg-primary-50 section-fade">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="text-sm text-primary-500 font-semibold mb-3">導入効果</p>
+          <h2 class="text-3xl font-bold font-jp text-gray-900">数字で見る、導入の成果</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-2xl p-8 text-center stat-card cursor-pointer" style="box-shadow: 0 4px 20px rgba(139,92,246,0.06), 0 1px 3px rgba(0,0,0,0.04);">
+            <div class="text-4xl font-extrabold stat-gradient-text mb-2">60<span style="font-size:1.5rem;">%</span><span style="font-size:1rem;color:var(--sol-secondary);">削減</span></div>
+            <p class="text-base text-gray-700 font-medium mb-2">特定設問の問い合わせ</p>
+            <p class="text-sm text-gray-400">申し込み・料金プラン説明 など（約6割）</p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center stat-card cursor-pointer" style="box-shadow: 0 4px 20px rgba(139,92,246,0.06), 0 1px 3px rgba(0,0,0,0.04);">
+            <div class="text-4xl font-extrabold stat-gradient-text mb-2">10<span style="font-size:1.5rem;">言語</span></div>
+            <p class="text-base text-gray-700 font-medium mb-2">多言語サポートに対応</p>
+            <p class="text-sm text-gray-400">在留・訪日外国人にも母国語で</p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center stat-card cursor-pointer" style="box-shadow: 0 4px 20px rgba(139,92,246,0.06), 0 1px 3px rgba(0,0,0,0.04);">
+            <div class="text-4xl font-extrabold stat-gradient-text mb-2">2<span style="font-size:1.5rem;">モード</span></div>
+            <p class="text-base text-gray-700 font-medium mb-2">音声・テキストで入力</p>
+            <p class="text-sm text-gray-400">リアルタイム音声にも対応</p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center stat-card cursor-pointer" style="box-shadow: 0 4px 20px rgba(139,92,246,0.06), 0 1px 3px rgba(0,0,0,0.04);">
+            <div class="text-4xl font-extrabold stat-gradient-text mb-2">RAG</div>
+            <p class="text-base text-gray-700 font-medium mb-2">自社情報に基づく回答</p>
+            <p class="text-sm text-gray-400">ハルシネーションを抑制</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="flex gap-14 items-start">
+
+        <!-- LEFT: Article body -->
+        <div class="flex-1 min-w-0 article-body section-fade">
+
+          <!-- 背景 -->
+          <section id="background" class="mb-12">
+            <span class="section-label">導入の背景</span>
+            <h2 class="section-heading">格安SIM の成長とともに増える、定型的な問い合わせ</h2>
+            <p>
+              「HISモバイル」は、H.I.S.Mobile株式会社（H.I.S. グループと日本通信が出資）が運営する格安SIM サービスである。「自由自在2.0プラン」など分かりやすい料金プランを軸に、個人から法人まで幅広いユーザーに利用されている。在留・訪日外国人の利用も多く、多言語でのサポートが求められる事業特性を持つ。
+            </p>
+            <p>
+              利用者の拡大に伴い、カスタマーサポートには <strong>申し込み方法や料金プランの説明といった、定型的だが件数の多い問い合わせ</strong> が集中していた。格安SIM は低価格を強みとするため、サポート運用の効率化はサービス全体の競争力に直結する重要なテーマだった。
+            </p>
+            <p>
+              「定型的な問い合わせは AI が安定的に担い、オペレーターはより個別性の高い相談に集中できる体制をつくりたい」——そうした狙いから、生成AI を活用したカスタマーサポートの導入が検討された。
+            </p>
+          </section>
+
+          <!-- 選定 -->
+          <section id="solution" class="mb-12">
+            <span class="section-label">選定の決め手</span>
+            <h2 class="section-heading">自社情報に基づいて正確に答える AI チャット「GBase Support」</h2>
+            <p>
+              HISモバイル様が GBase Support を選定した決め手は、格安SIM のサポートに求められる「正確さ・多言語・引き継ぎ」を一つの構成で満たせる点にあった。
+            </p>
+
+            <div class="space-y-5 my-6">
+              <div class="pl-4 border-l-2 border-primary-300">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">① RAG による高精度な回答 — 自社のFAQ・規約・プラン情報に基づく</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  Sparticle 独自の RAG（検索拡張生成）技術により、自社の FAQ・利用規約・料金プラン情報を参照して回答を生成。汎用 AI にありがちな「もっともらしいが誤った回答（ハルシネーション）」を抑え、申し込み・料金などセンシティブな案内でも、自社情報に基づいた正確な回答を返せる。仕組みの詳細は<a href="https://cs.gbase.ai/blog/chatbot-mechanism-how-it-works/" class="inline-link">チャットボットの仕組み解説</a>で紹介している。
+                </p>
+              </div>
+              <div class="pl-4 border-l-2 border-primary-300">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">② 10 言語 × 音声・テキスト両対応 — 誰もが使いやすい窓口</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  GBase Support は 10 言語に対応し、外国人ユーザーの多い格安SIM サービスでも、オペレーターの言語負担を増やさずインバウンド対応を強化できる。さらに、リアルタイム音声と文字入力の両方に対応し、利用者は使いやすい方法で問い合わせできる。
+                </p>
+              </div>
+              <div class="pl-4 border-l-2 border-primary-300">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">③ シームレスな有人切り替え — 複雑な相談は人へ</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  AI で対応しきれない個別性の高い相談は、有人サポートへスムーズに引き継ぎ。オペレーターは定型対応から解放され、本当に人の判断が必要な案件に集中できる。
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 導入 -->
+          <section id="implementation" class="mb-12">
+            <span class="section-label">導入の仕組み</span>
+            <h2 class="section-heading">公式サイトのお問い合わせ窓口で、音声でも文字でも即対応</h2>
+            <p>
+              HISモバイルの公式サイトのお問い合わせ窓口に AI チャットを設置。利用者は<strong>リアルタイム音声でも、文字入力でも</strong>自然な言葉で質問でき、申し込み手続き・料金プラン・各種設定といった「よくある質問」に、その場で回答が得られる。
+            </p>
+
+            <div class="space-y-5 my-6">
+              <div class="pl-4 border-l-2 border-primary-200">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">自社ナレッジの学習＋情報更新への追従</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  FAQ・利用規約・料金プラン情報などの自社ナレッジを GBase Support が参照。プラン改定やキャンペーンなどで情報が変わっても、ナレッジを更新すれば回答に反映され、運用側のメンテナンス負担を抑えられる。
+                </p>
+              </div>
+              <div class="pl-4 border-l-2 border-primary-200">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">申し込み・料金プラン説明など定型問い合わせの自動応答</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  問い合わせの多くを占める「申し込み方法」「料金プランの違い」などの定型質問を AI が一次対応。利用者は待ち時間なく回答を得られ、サポート窓口の負荷も軽減される。
+                </p>
+              </div>
+              <div class="pl-4 border-l-2 border-primary-200">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">リアルタイム音声・テキスト入力の両対応</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  声で話しかけても、文字で入力しても構わない。リアルタイム音声と文字入力の両方に対応し、利用シーンや好みに合わせて誰もが使いやすい窓口を実現する。
+                </p>
+              </div>
+              <div class="pl-4 border-l-2 border-primary-200">
+                <h3 class="text-sm font-semibold text-gray-900 mb-1.5">10 言語対応のサポート</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-0">
+                  日本語をはじめ 10 言語に対応。在留・訪日外国人ユーザーにも母国語に近い形で問い合わせ対応でき、グローバルなユーザー層を持つ格安SIM サービスに適したサポート体制を実現する。
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 効果 -->
+          <section id="results" class="mb-12">
+            <span class="section-label">導入後の効果</span>
+            <h2 class="section-heading">特定の問い合わせを約6割削減、サポート運用を効率化</h2>
+            <p>
+              GBase Support の導入以降、<strong>申し込み・料金プランの説明など特定の設問については、お問い合わせが約 6 割減少</strong>。利用者は「よくある質問」をその場で自己解決できるようになり、サポート窓口に集中していた定型問い合わせが大きく軽減された。運用指標の捉え方は<a href="https://cs.gbase.ai/blog/customer-success-kpi-guide-2026/" class="inline-link">カスタマーサクセス KPI ガイド</a>で整理している。
+            </p>
+            <p>
+              定型対応を AI が担うことで、オペレーターはより複雑で個別性の高い相談に時間を使えるようになった。10 言語対応により、在留・訪日外国人ユーザーへのサポートも効率化されている。AI と人の役割分担は<a href="https://cs.gbase.ai/blog/operator-role-customer-support-2026/" class="inline-link">オペレーターの役割変遷</a>で詳しく扱っている。
+            </p>
+            <p>
+              約 1 年にわたるご利用で得られた知見を土台に、HISモバイルは第 2 段階として、利用者の通信量と利用パターンのミスマッチ解消を目指す「AI 料金コンシェルジュ」の開発に着手。同開発は、HISモバイル・Sparticle・AI システム開発の UniConvo 株式会社による 3 社共同プロジェクトとして、将来的な機能構想も含めて進められている。
+            </p>
+            <p class="text-xs text-gray-400 leading-relaxed" style="margin-top:1.5rem;">
+              ※ 削減率は、申し込み・料金プラン説明など特定の設問における導入前後のお問い合わせ件数の比較です（H.I.S.Mobile株式会社 発表に基づく）。効果はご利用状況により異なります。
+            </p>
+          </section>
+
+        </div>
+        <!-- END LEFT -->
+
+        <!-- RIGHT: Sidebar -->
+        <div class="w-72 flex-none sidebar-sticky">
+          <div class="border border-gray-200 rounded-xl overflow-hidden" style="box-shadow: 0 2px 12px rgba(139,92,246,0.06);">
+
+            <div class="bg-primary-50 px-5 py-4 border-b border-primary-100">
+              <p class="text-xs font-semibold text-primary-500 uppercase tracking-wider mb-2">導入企業</p>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 flex items-center justify-center bg-white rounded-md border border-gray-200 flex-none" style="box-shadow: 0 1px 4px rgba(139,92,246,0.06);">
+                  <img src="images/his-mobile-logo.png" alt="HISモバイル ロゴ" class="w-full h-full object-contain rounded-md" width="225" height="225" decoding="async">
+                </div>
+                <p class="text-sm font-bold text-gray-900 font-jp leading-tight">H.I.S.Mobile株式会社 様</p>
+              </div>
+            </div>
+
+            <div class="divide-y divide-gray-100">
+              <div class="px-5 py-3.5 flex items-start gap-3">
+                <span class="icon text-primary-400 mt-0.5" style="font-size:18px;">sim_card</span>
+                <div>
+                  <p class="text-xs text-gray-400 mb-0.5">業態</p>
+                  <p class="text-sm font-medium text-gray-800">格安SIM・MVNO（移動体通信）</p>
+                </div>
+              </div>
+              <div class="px-5 py-3.5 flex items-start gap-3">
+                <span class="icon text-primary-400 mt-0.5" style="font-size:18px;">location_city</span>
+                <div>
+                  <p class="text-xs text-gray-400 mb-0.5">本社所在地</p>
+                  <p class="text-sm font-medium text-gray-800">東京都港区</p>
+                </div>
+              </div>
+              <div class="px-5 py-3.5 flex items-start gap-3">
+                <span class="icon text-primary-400 mt-0.5" style="font-size:18px;">person</span>
+                <div>
+                  <p class="text-xs text-gray-400 mb-0.5">代表者</p>
+                  <p class="text-sm font-medium text-gray-800">代表取締役社長 猪腰 英知</p>
+                </div>
+              </div>
+              <div class="px-5 py-3.5 flex items-start gap-3">
+                <span class="icon text-primary-400 mt-0.5" style="font-size:18px;">link</span>
+                <div>
+                  <p class="text-xs text-gray-400 mb-0.5">公式サイト</p>
+                  <a href="https://his-mobile.com/" target="_blank" rel="noopener" class="text-sm font-medium text-primary-600 hover:underline">his-mobile.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-5 py-4 border-t border-gray-100 bg-gray-50">
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">主要サービス</p>
+              <div class="space-y-2.5">
+                <div class="flex items-start gap-2">
+                  <span class="icon text-gray-400 mt-0.5" style="font-size:15px;">sim_card</span>
+                  <div>
+                    <p class="text-xs font-medium text-gray-700">HISモバイル（格安SIM）</p>
+                    <p class="text-xs text-gray-400">自由自在2.0プラン 等</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="icon text-gray-400" style="font-size:15px;">groups</span>
+                  <p class="text-xs text-gray-700">個人・法人向けに提供</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="icon text-gray-400" style="font-size:15px;">calendar_today</span>
+                  <p class="text-xs text-gray-700">2018年2月 設立</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-5 py-4 border-t border-gray-100">
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">課題</p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>申し込み・料金プラン説明など定型的な問い合わせが多い</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>格安SIM ゆえ、サポート運用コストの効率化が重要</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>在留・訪日外国人ユーザーへの多言語対応が必要</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="px-5 py-4 border-t border-gray-100">
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">使用機能</p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>公式サイト お問い合わせ窓口での自然言語応答</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>RAG による自社情報に基づく正確な回答</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>リアルタイム音声・テキスト入力の両対応</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>10 言語対応のカスタマーサポート</span>
+                </li>
+                <li class="flex items-start gap-2 text-xs text-gray-700 leading-relaxed">
+                  <span class="text-primary-400 flex-none" style="margin-top: 1px;">•</span>
+                  <span>有人サポートへのスムーズな引き継ぎ</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <!-- END RIGHT -->
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <section id="contact" class="cta-section">
+      <h2>貴社のサポートも、AI チャットで効率化しませんか？</h2>
+      <p>
+        通信・EC・サービス業など、問い合わせ件数の多い事業者向けに、貴社の FAQ・規約に基づいて正確に答える AI チャットをご提案します。<br>
+        多言語対応・有人連携のご相談も承ります。
+      </p>
+      <a href="https://cs.gbase.ai/contact" class="btn btn-brand">お問い合わせ</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <h4>ソリューション</h4>
+          <ul>
+            <li><a href="https://cs.gbase.ai/solution#case-study">商業施設・百貨店</a></li>
+          </ul>
+          <p class="footer-subhead">製品</p>
+          <ul>
+            <li><a href="https://ailisoncheng416.github.io/support-landing/concierge.html">GBase Concierge</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>機能</h4>
+          <ul>
+            <li><a href="https://cs.gbase.ai/solution#feature-faq">FAQ・施設案内AI</a></li>
+            <li><a href="https://cs.gbase.ai/solution#feature-floormap">フロアマップ・ナビゲーション</a></li>
+            <li><a href="https://cs.gbase.ai/solution#feature-realtime">リアルタイム会話</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>リソース</h4>
+          <ul>
+            <li><a href="https://cs.gbase.ai/showcase">導入事例</a></li>
+            <li><a href="https://cs.gbase.ai/blog">ブログ</a></li>
+            <li><a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener">マニュアル</a></li>
+            <li><a href="https://cs.gbase.ai/blog/release-notes/">リリースノート</a></li>
+            <li><a href="https://cs.gbase.ai/pricing">料金</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>その他のプロダクト</h4>
+          <ul>
+            <li><a href="https://gbase.ai/" target="_blank" rel="noopener">GBase<small>（ナレッジ AI）</small></a></li>
+            <li><a href="https://onprem.gbase.ai/" target="_blank" rel="noopener">GBase OnPrem<small>（オンプレ AI）</small></a></li>
+            <li><a href="https://subtitles.felo.me/" target="_blank" rel="noopener">Felo Subtitles<small>（多言語字幕）</small></a></li>
+            <li><a href="https://s.gbase.ai/" target="_blank" rel="noopener">GBase GTM<small>（顧客獲得 AI）</small></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Sparticle について</h4>
+          <ul>
+            <li><a href="https://www.sparticle.com/" target="_blank" rel="noopener">会社概要</a></li>
+            <li><a href="https://www.sparticle.com/careers" target="_blank" rel="noopener">採用情報</a></li>
+          </ul>
+          <div class="footer-social">
+            <a href="https://prtimes.jp/main/html/searchrlp/company_id/87269" target="_blank" rel="noopener" aria-label="PR TIMES" title="PR TIMES">
+              <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="currentColor"/><text x="12" y="17.5" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="900" text-anchor="middle" fill="#1A1A2E">P</text></svg>
+            </a>
+            <a href="https://x.com/sparticle_ai" target="_blank" rel="noopener" aria-label="X" title="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://jp.linkedin.com/company/sparticle-inc?trk=public_post_feed-actor-image" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a href="https://note.com/sparticle_gbase" target="_blank" rel="noopener" aria-label="note" title="note">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@sparticle_gbase" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <p>© 2026 Sparticle Inc. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="https://cs.gbase.ai/privacy-policy">プライバシーポリシー</a>
+          <a href="https://cs.gbase.ai/terms-of-use">利用規約</a>
+          <a href="https://cs.gbase.ai/legal/specific-based">特定商取引法</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Scroll animation -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
