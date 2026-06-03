@@ -35,9 +35,11 @@
     .accent-text { color: #EE862B; }
     .case-card { transition: all 0.3s ease; }
     .case-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(238,134,43,0.20), 0 8px 16px rgba(0,0,0,0.06); }
-    .case-card-image { aspect-ratio: 16 / 10; overflow: hidden; }
+    .case-card-image { aspect-ratio: 16 / 10; overflow: hidden; position: relative; }
     .case-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
     .case-card:hover .case-card-image img { transform: scale(1.04); }
+    .case-card-logo { position: absolute; bottom: 0.75rem; right: 0.75rem; background: #fff; border-radius: 8px; padding: 0.45rem 0.7rem; box-shadow: 0 2px 8px rgba(0,0,0,0.18); display: flex; align-items: center; height: 42px; }
+    .case-card-logo img { height: 28px; width: auto; display: block; }
     .icon { font-family: 'Material Symbols Rounded'; font-size: 24px; font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
     @media (max-width: 960px) {
       .case-grid { grid-template-columns: 1fr !important; }
@@ -68,6 +70,7 @@
         <a href="https://cs.gbase.ai/showcase/newoman-takanawa" class="case-card flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-200" style="box-shadow: 0 4px 20px rgba(238,134,43,0.06);" aria-label="NEWoMan 高輪 導入事例：案内所・電話対応 最大 70% 削減を実現">
           <div class="case-card-image bg-gray-100">
             <img src="https://raw.githubusercontent.com/AilisonC147/GBaseSupportSLP/main/banner.jpg" alt="NEWoMan 高輪 GBase Support 導入事例 — ルミネ史上最大規模の新施設" width="800" height="500" fetchpriority="high" decoding="async">
+            <div class="case-card-logo"><img src="images/lumine-logo.svg" alt="ルミネ" loading="lazy" decoding="async"></div>
           </div>
           <div class="p-7 flex flex-col flex-grow">
             <span class="inline-flex items-center w-fit px-2 py-0.5 rounded-full text-xs font-semibold bg-accent-50 text-accent-500 mb-4">商業施設</span>
@@ -89,6 +92,7 @@
         <a href="https://ailisoncheng416.github.io/support-landing/case-study-sapporo-factory.html" class="case-card flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-200" style="box-shadow: 0 4px 20px rgba(238,134,43,0.06);" aria-label="サッポロファクトリー 導入事例：Smart Kiosk で自動回答率 90%+ を実現">
           <div class="case-card-image bg-gray-100">
             <img src="images/sapporo-factory-ai-information-actual.jpg" alt="サッポロファクトリー館内に設置された「AI INFORMATION」Smart Kiosk — 音声・タッチで 4 言語案内" width="800" height="500" loading="lazy" decoding="async">
+            <div class="case-card-logo"><img src="images/sapporo-factory-logo.png" alt="サッポロファクトリー" loading="lazy" decoding="async"></div>
           </div>
           <div class="p-7 flex flex-col flex-grow">
             <span class="inline-flex items-center w-fit px-2 py-0.5 rounded-full text-xs font-semibold bg-accent-50 text-accent-500 mb-4">商業施設</span>
