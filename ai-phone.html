@@ -1,732 +1,1259 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI電話受付・取次｜電話の一次対応と転送を自動化｜GBase Support</title>
-  <meta name="description" content="GBase SupportのAI電話受付・取次は、着信にAIが自然な音声で一次対応し、用件の意図を判断して最適な担当・部署へ自動で転送。取次専用の「リスクゼロ」から始めて、AIの対応範囲を段階的に広げられる可逆設計です。">
-  <meta name="keywords" content="AI電話, 電話自動応答, AI電話受付, 電話取次 自動化, 電話転送 AI, ボイスボット, IVR, GBase Support">
-  <link rel="canonical" href="https://cs.gbase.ai/ai-phone">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI電話受付・取次｜電話の一次対応と転送を自動化 | GBase Support</title>
+    <meta name="description" content="GBase SupportのAI電話受付・取次は、着信にAIが自然な音声で一次対応し、用件の意図を判断して最適な担当・部署へ自動で転送。取次専用の「リスクゼロ」から始めて、AIの対応範囲を段階的に広げられる可逆設計です。">
+    <meta name="keywords" content="AI電話, 電話自動応答, AI電話受付, 電話取次 自動化, 電話転送 AI, ボイスボット, IVR, GBase Support">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://cs.gbase.ai/ai-phone">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="AI電話受付・取次｜電話の一次対応と転送を自動化｜GBase Support">
-  <meta property="og:description" content="着信にAIが一次対応し、用件の意図を判断して最適な担当へ自動で取次。取次専用の「リスクゼロ」から始められる、可逆設計の電話AIです。">
-  <meta property="og:image" content="https://cs.gbase.ai/title-logo.png">
-  <meta property="og:url" content="https://cs.gbase.ai/ai-phone">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ja_JP">
-  <meta property="og:site_name" content="GBase Support">
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI電話受付・取次｜電話の一次対応と転送を自動化 | GBase Support">
+    <meta property="og:description" content="着信にAIが一次対応し、用件の意図を判断して最適な担当へ自動で取次。取次専用の「リスクゼロ」から始められる、可逆設計の電話AIです。">
+    <meta property="og:image" content="https://cs.gbase.ai/title-logo.png">
+    <meta property="og:url" content="https://cs.gbase.ai/ai-phone">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="GBase Support">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI電話受付・取次｜GBase Support">
-  <meta name="twitter:description" content="着信にAIが一次対応し、意図を判断して最適な担当へ自動で取次。リスクゼロから始められる可逆設計の電話AI。">
-  <meta name="twitter:image" content="https://cs.gbase.ai/title-logo.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI電話受付・取次｜GBase Support">
+    <meta name="twitter:description" content="着信にAIが一次対応し、意図を判断して最適な担当へ自動で取次。リスクゼロから始められる可逆設計の電話AI。">
+    <meta name="twitter:image" content="https://cs.gbase.ai/title-logo.png">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: { 50:'#F5F3FF', 100:'#EDE9FE', 200:'#DDD6FE', 300:'#C4B5FD', 400:'#A78BFA', 500:'#7C68FB', 600:'#6D55F5', 700:'#5B45E0', 800:'#4C38C2', 900:'#3B2D8F' },
-            accent: { 400:'#FB923C', 500:'#F97316', 600:'#EA580C' },
-            success: { 50:'#F0FDF4', 500:'#22C55E', 600:'#16A34A' },
-            dark: { 800:'#1F2937', 900:'#111827' }
-          },
-          fontFamily: {
-            sans: ['Inter', 'Noto Sans JP', 'sans-serif']
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Structured Data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "GBase Support AI電話受付・取次",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://cs.gbase.ai/ai-phone",
+      "isPartOf": {
+        "@type": "SoftwareApplication",
+        "name": "GBase Support",
+        "url": "https://cs.gbase.ai/"
+      },
+      "featureList": [
+        "AIによる電話の一次対応",
+        "意図判断による自動取次（転送）",
+        "自然文で設定できる取次ルール",
+        "転送前アナウンス・フォールバック",
+        "応答スタイルの3段階制御（取次優先・バランス・自己解決優先）",
+        "重要用件を必ず人へつなぐ安全設計"
+      ],
+      "description": "着信にAIが自然な音声で一次対応し、用件の意図を判断して最適な担当・部署へ自動で取次（転送）する、GBase Supportの電話AI機能です。"
+    }
+    </script>
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sparticle Inc.",
+      "url": "https://cs.gbase.ai",
+      "logo": "https://cs.gbase.ai/title-logo.png",
+      "sameAs": [
+        "https://x.com/sparticle_ai",
+        "https://note.com/sparticle",
+        "https://www.linkedin.com/company/sparticle-inc"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://cs.gbase.ai/" },
+        { "@type": "ListItem", "position": 2, "name": "AI電話受付・取次", "item": "https://cs.gbase.ai/ai-phone" }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "AIはどこまで電話に回答しますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "応答スタイルは「取次優先」「バランス」「自己解決優先」の3段階から選べます。最初はAIが受付と取次に徹する「取次優先」で安全に開始し、運用データが蓄積されるにつれて、AIが直接回答する範囲を段階的に広げられます。設定はいつでも保守側へ戻せる可逆設計です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "クレームや決済などの重要な用件はどうなりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "クレーム・決済/課金・本人確認・予約や契約の確定・法的事項は、AIの確信度に関わらず必ずスタッフへ取次する設計です。AIが重要な判断を勝手に行うことは構造的にありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "取次ルールはどのように設定しますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "「どんな用件のとき、どの担当につなぐか」を自然な文章とキーワードで登録するだけです。取次先は複数登録でき、優先順位の上から順に判定されます。どれにも当てはまらない場合の既定の取次先も設定できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "転送先が電話に出られなかった場合は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "応答がない場合は、あらかじめ設定した固定メッセージを自動で案内し、取りこぼしを防ぎます。転送前には「担当におつなぎします」のアナウンスも自動で読み上げます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "チャットボットと同じ知識を使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。GBase Supportのナレッジベースをそのまま電話の応答に活用します。FAQや資料を一度登録すれば、Web・LINE・店頭端末・電話のすべての接点で共通利用でき、電話の通話データもナレッジの改善に活かせます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "導入はどのように進みますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "まずAIが受付と取次に徹する段階から運用を開始し、通話データを蓄積しながら、AIが直接回答する範囲を段階的に広げていくのが標準的な進め方です。スケジュールや費用の詳細はお問い合わせください。"
           }
         }
-      }
+      ]
     }
-  </script>
-  <style>
-    .icon { font-family: 'Material Symbols Rounded'; font-size: 24px; font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
-    .gradient-text { background: linear-gradient(135deg, #7C68FB 0%, #A78BFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(124,104,251,0.1), 0 8px 16px rgba(0,0,0,0.04); }
-    .btn-3d { box-shadow: 0 4px 14px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.08); transition: all 0.25s ease; }
-    .btn-3d:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.1); }
-    .btn-3d:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
-    .section-note { max-width: 1100px; margin: 1.5rem auto 0; font-size: 0.74rem; line-height: 1.6; text-align: center; color: #6B7280; }
-  </style>
+    </script>
 
-  <!-- Structured Data: SoftwareApplication -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "GBase Support AI電話受付・取次",
-    "operatingSystem": "Web",
-    "applicationCategory": "BusinessApplication",
-    "url": "https://cs.gbase.ai/ai-phone",
-    "isPartOf": {
-      "@type": "SoftwareApplication",
-      "name": "GBase Support",
-      "url": "https://cs.gbase.ai/"
-    },
-    "featureList": [
-      "AIによる電話の一次対応",
-      "意図判断による自動取次（転送）",
-      "自然文で設定できる取次ルール",
-      "転送前アナウンス・フォールバック",
-      "応答スタイルの3段階制御（取次優先・バランス・自己解決優先）",
-      "重要用件を必ず人へつなぐ安全設計"
-    ],
-    "description": "着信にAIが自然な音声で一次対応し、用件の意図を判断して最適な担当・部署へ自動で取次（転送）する、GBase Supportの電話AI機能です。"
-  }
-  </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <!-- Structured Data: Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Sparticle Inc.",
-    "url": "https://cs.gbase.ai",
-    "logo": "https://cs.gbase.ai/title-logo.png",
-    "sameAs": [
-      "https://x.com/sparticle_ai",
-      "https://note.com/sparticle",
-      "https://www.linkedin.com/company/sparticle-inc"
-    ]
-  }
-  </script>
+        :root {
+            --brand: #7C68FB;
+            --brand-deep: #5B45E0;
+            --primary: #6D55F5;
+            --primary-deep: #4C38C2;
+            --primary-soft: rgba(124, 104, 251, 0.08);
+            --primary-line: rgba(124, 104, 251, 0.28);
+            --accent: #7C68FB;
+            --accent-orange: #F97316;
+            --accent-orange-soft: rgba(249, 115, 22, 0.1);
+            --success: #10B981;
+            --bg-base: #FFFFFF;
+            --bg-surface: #F8FAFC;
+            --bg-soft: #F3F3FE;
+            --bg-card: #FFFFFF;
+            --border: #E2E8F0;
+            --border-strong: #CBD5E1;
+            --text: #0F172A;
+            --text-muted: #475569;
+            --text-dim: #94A3B8;
+            --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 10px 24px -4px rgba(76, 56, 194, 0.14);
+        }
 
-  <!-- Structured Data: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "AIはどこまで電話に回答しますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "応答スタイルは「取次優先」「バランス」「自己解決優先」の3段階から選べます。最初はAIが受付と取次に徹する「取次優先」で安全に開始し、運用データが蓄積されるにつれて、AIが直接回答する範囲を段階的に広げられます。設定はいつでも保守側へ戻せる可逆設計です。"
+        body {
+            font-family: 'Inter', 'Noto Sans JP', system-ui, -apple-system, 'Segoe UI', 'Yu Gothic UI', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg-base);
         }
-      },
-      {
-        "@type": "Question",
-        "name": "クレームや決済などの重要な用件はどうなりますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "クレーム・決済/課金・本人確認・予約や契約の確定・法的事項は、AIの確信度に関わらず必ずスタッフへ取次する設計です。AIが重要な判断を勝手に行うことは構造的にありません。"
+        img { max-width: 100%; display: block; }
+        a { color: inherit; }
+
+        /* ===== Navigation ===== */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0.8rem 0;
         }
-      },
-      {
-        "@type": "Question",
-        "name": "取次ルールはどのように設定しますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "「どんな用件のとき、どの担当につなぐか」を自然な文章とキーワードで登録するだけです。取次先は複数登録でき、優先順位の上から順に判定されます。どれにも当てはまらない場合の既定の取次先も設定できます。"
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
         }
-      },
-      {
-        "@type": "Question",
-        "name": "転送先が電話に出られなかった場合は？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "応答がない場合は、あらかじめ設定した固定メッセージを自動で案内し、取りこぼしを防ぎます。転送前には「担当におつなぎします」のアナウンスも自動で読み上げます。"
+        .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+        .nav-logo img { height: 32px; width: auto; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 0.92rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent-orange); }
+        .nav-links > li { position: relative; }
+        .nav-btn {
+            display: inline-flex; align-items: center; gap: 4px;
+            color: var(--text-muted); font-size: 0.92rem; font-weight: 500;
+            background: none; border: none; cursor: pointer; padding: 0;
+            font-family: inherit; transition: color 0.3s;
         }
-      },
-      {
-        "@type": "Question",
-        "name": "チャットボットと同じ知識を使えますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "はい。GBase Supportのナレッジベースをそのまま電話の応答に活用します。FAQや資料を一度登録すれば、Web・LINE・店頭端末・電話のすべての接点で共通利用でき、電話の通話データもナレッジの改善に活かせます。"
+        .nav-btn svg { width: 14px; height: 14px; }
+        .nav-btn:hover, .nav-dropdown:hover .nav-btn { color: var(--accent-orange); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute; top: calc(100% + 12px); left: 0;
+            background: #fff; border: 1px solid var(--border); border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            min-width: 230px; padding: 8px; z-index: 200;
         }
-      },
-      {
-        "@type": "Question",
-        "name": "導入はどのように進みますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "まずAIが受付と取次に徹する段階から運用を開始し、通話データを蓄積しながら、AIが直接回答する範囲を段階的に広げていくのが標準的な進め方です。スケジュールや費用の詳細はお問い合わせください。"
+        .nav-dropdown-menu::before {
+            content: ''; position: absolute; top: -16px; left: 0; right: 0; height: 16px;
         }
-      }
-    ]
-  }
-  </script>
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu-wide { min-width: 300px; }
+        .nav-dropdown-item {
+            display: block; padding: 9px 12px; border-radius: 8px;
+            text-decoration: none; color: var(--text); transition: background 0.15s;
+        }
+        .nav-dropdown-item:hover, .nav-dropdown-item.active { background: var(--bg-soft); }
+        .item-title { font-size: 13px; font-weight: 600; color: var(--text); }
+        .item-sub { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+        .badge-new {
+            display: inline-block; font-size: 10px; font-weight: 700; color: #fff;
+            background: var(--accent-orange); border-radius: 4px; padding: 1px 6px;
+            margin-left: 6px; vertical-align: middle;
+        }
+        .nav-buttons { display: flex; gap: 0.75rem; align-items: center; }
+        .nav-login { font-size: 0.92rem; font-weight: 500; color: var(--text-muted); text-decoration: none; margin-right: 0.25rem; }
+        .nav-login:hover { color: var(--accent-orange); }
+
+        .btn {
+            padding: 0.625rem 1.5rem; border-radius: 999px; font-weight: 700;
+            text-decoration: none; transition: all 0.25s; display: inline-block;
+            cursor: pointer; border: none; font-size: 0.95rem;
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #3B82F6, #A855F7);
+            color: #fff;
+        }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); filter: brightness(1.05); }
+        .btn-secondary { background: #fff; color: var(--text); border: 1.5px solid var(--border-strong); }
+        .btn-secondary:hover { border-color: var(--text); }
+        .cta-section .btn-secondary { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+        .cta-section .btn-secondary:hover { border-color: #fff; }
+
+        /* ===== Hero ===== */
+        .hero {
+            padding: 9.5rem 2rem 5rem;
+            background: linear-gradient(180deg, var(--bg-soft) 0%, #FFFFFF 100%);
+            text-align: center;
+        }
+        .hero-badges { display: flex; justify-content: center; gap: 0.6rem; margin-bottom: 1.6rem; flex-wrap: wrap; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.45rem 1.1rem; border-radius: 999px;
+            font-size: 0.85rem; font-weight: 700;
+        }
+        .hero-badge-new { background: var(--accent-orange-soft); color: var(--accent-orange); }
+        .hero-badge-prod { background: var(--primary-soft); color: var(--primary-deep); }
+        .hero h1 {
+            font-size: 3rem; font-weight: 800; line-height: 1.3; letter-spacing: -0.01em;
+            max-width: 900px; margin: 0 auto 1.4rem;
+        }
+        .hero h1 .accent {
+            background: linear-gradient(135deg, #7C68FB 0%, #A78BFA 100%);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem; color: var(--text-muted); line-height: 1.9;
+            max-width: 720px; margin: 0 auto 2.2rem;
+        }
+        .hero-cta { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+        .hero-cta .btn { padding: 0.85rem 2.2rem; font-size: 1.05rem; }
+        .hero-note { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 3.5rem; }
+        .hero-note .check { color: var(--success); font-weight: 700; margin-right: 0.25rem; }
+        .hero-note .sep { margin: 0 0.8rem; color: var(--border-strong); }
+
+        /* ===== Hero mockup (admin 電話受付) ===== */
+        .hero-mockup-wrap { max-width: 1000px; margin: 0 auto; }
+        .hero-mockup {
+            background: #fff; border: 1px solid var(--border); border-radius: 16px;
+            box-shadow: 0 24px 60px -12px rgba(76, 56, 194, 0.18);
+            overflow: hidden; text-align: left;
+        }
+        .mk-topbar {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 0.7rem 1.1rem; background: var(--bg-surface);
+            border-bottom: 1px solid var(--border); font-size: 0.78rem; color: var(--text-dim);
+        }
+        .mk-dots { display: flex; gap: 5px; }
+        .mk-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong); }
+        .mk-title { font-weight: 600; color: var(--text-muted); }
+        .mk-live {
+            margin-left: auto; display: inline-flex; align-items: center; gap: 0.35rem;
+            color: var(--success); font-weight: 700;
+        }
+        .mk-live::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--success); }
+        .mk-body { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; }
+        .mk-panel { padding: 1.3rem 1.4rem; }
+        .mk-panel + .mk-panel { border-left: 1px solid var(--border); background: var(--bg-surface); }
+        .mk-panel-title {
+            font-size: 0.8rem; font-weight: 700; color: var(--text-muted);
+            margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+        }
+        .mk-chip {
+            font-size: 0.68rem; font-weight: 600; color: var(--primary-deep);
+            background: var(--primary-soft); border-radius: 999px; padding: 2px 9px;
+        }
+        .mk-line { display: flex; gap: 0.65rem; margin-bottom: 0.9rem; }
+        .mk-speaker {
+            flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; font-weight: 700; color: #fff;
+        }
+        .mk-sp-c { background: var(--text-dim); }
+        .mk-sp-ai { background: var(--brand); }
+        .mk-utt { font-size: 0.85rem; color: var(--text); line-height: 1.6; }
+        .mk-utt .who { font-size: 0.68rem; color: var(--text-dim); font-weight: 600; display: block; }
+        .mk-transfer {
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            margin-left: 2.3rem; padding: 0.4rem 0.9rem;
+            background: var(--primary-soft); border: 1px dashed var(--primary-line);
+            border-radius: 999px; font-size: 0.78rem; font-weight: 700; color: var(--primary-deep);
+        }
+        .mk-rule {
+            display: flex; align-items: center; gap: 0.7rem;
+            background: #fff; border: 1px solid var(--border); border-radius: 10px;
+            padding: 0.65rem 0.85rem; margin-bottom: 0.6rem; font-size: 0.8rem;
+        }
+        .mk-rule-num {
+            flex-shrink: 0; width: 22px; height: 22px; border-radius: 6px;
+            background: var(--primary-soft); color: var(--primary-deep);
+            font-size: 0.68rem; font-weight: 700;
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+        .mk-rule-name { font-weight: 600; color: var(--text); }
+        .mk-rule-to { margin-left: auto; color: var(--text-dim); font-size: 0.75rem; white-space: nowrap; }
+        .mk-rule-to b { color: var(--primary-deep); font-weight: 700; }
+        .mk-slider { margin-top: 1.1rem; }
+        .mk-slider-label { font-size: 0.72rem; font-weight: 700; color: var(--text-dim); margin-bottom: 0.5rem; }
+        .mk-slider-track {
+            position: relative; height: 6px; border-radius: 999px;
+            background: linear-gradient(to right, var(--brand) 0%, var(--brand) 8%, var(--border) 8%);
+            margin-bottom: 0.4rem;
+        }
+        .mk-slider-knob {
+            position: absolute; top: 50%; left: 8%; transform: translate(-50%, -50%);
+            width: 16px; height: 16px; border-radius: 50%;
+            background: #fff; border: 3px solid var(--brand); box-shadow: var(--shadow-sm);
+        }
+        .mk-slider-marks { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-dim); }
+        .mk-slider-marks b { color: var(--primary-deep); }
+
+        /* ===== Sections common ===== */
+        .section { padding: 6rem 2rem; }
+        .section-surface { background: var(--bg-surface); }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-eyebrow {
+            display: block; text-align: center;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em;
+            color: var(--brand); text-transform: uppercase; margin-bottom: 0.9rem;
+        }
+        .section-title {
+            text-align: center; font-size: 2.1rem; font-weight: 800;
+            line-height: 1.4; margin-bottom: 1.1rem; letter-spacing: -0.01em;
+        }
+        .section-subtitle {
+            text-align: center; font-size: 1rem; color: var(--text-muted);
+            max-width: 760px; margin: 0 auto 3.5rem; line-height: 1.9;
+        }
+        .section-note {
+            max-width: 1100px; margin: 1.8rem auto 0; font-size: 0.74rem;
+            line-height: 1.6; text-align: center; color: var(--text-dim);
+        }
+        .cite { font-size: 0.55em; font-weight: 600; margin-left: 0.15em; color: var(--text-dim); vertical-align: super; }
+
+        /* ===== Pain + Solution ===== */
+        .ps-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+        .ps-pain-card {
+            background: var(--bg-surface); border: 1px solid var(--border);
+            border-radius: 14px; padding: 1.8rem;
+        }
+        .ps-pain-card h4 { font-size: 0.78rem; font-weight: 700; color: var(--text-dim); margin-bottom: 0.7rem; }
+        .ps-pain-card h3 { font-size: 1.08rem; font-weight: 700; line-height: 1.55; margin-bottom: 0.8rem; }
+        .ps-detail { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; }
+        .ps-middle-title { text-align: center; font-size: 1.35rem; font-weight: 800; margin: 2.6rem 0 1.2rem; }
+        .ps-middle-title .marker {
+            background: linear-gradient(transparent 62%, rgba(124, 104, 251, 0.22) 62%);
+            color: var(--primary-deep);
+        }
+        .ps-arrow-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-bottom: 1.2rem; }
+        .ps-arrow { display: flex; justify-content: center; color: var(--brand); }
+        .ps-arrow svg { width: 26px; height: 26px; }
+        .ps-sol-card {
+            background: #fff; border: 1px solid var(--primary-line);
+            border-radius: 14px; padding: 1.8rem;
+            box-shadow: var(--shadow-sm); transition: all 0.3s ease;
+        }
+        .ps-sol-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .sol-title { font-size: 1.05rem; font-weight: 800; line-height: 1.55; margin-bottom: 1rem; }
+        .sol-icon {
+            width: 44px; height: 44px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--brand), #A78BFA);
+            color: #fff; display: inline-flex; align-items: center; justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .sol-icon svg { width: 22px; height: 22px; }
+        .sol-bullets { list-style: none; font-size: 0.88rem; color: var(--text-muted); }
+        .sol-bullets li { padding-left: 1.2rem; position: relative; margin-bottom: 0.55rem; line-height: 1.7; }
+        .sol-bullets li::before { content: '✓'; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
+        .sol-cta {
+            display: inline-block; margin-top: 0.9rem; padding-top: 0.9rem;
+            border-top: 1px solid var(--border); width: 100%;
+            font-size: 0.88rem; font-weight: 700; color: var(--primary); text-decoration: none;
+        }
+        .sol-cta::after { content: ' →'; transition: margin 0.2s; }
+        .sol-cta:hover::after { margin-left: 4px; }
+
+        /* ===== Flow (user 2 steps + AI auto) ===== */
+        .flow2 {
+            display: grid; grid-template-columns: 1fr auto 1.35fr auto 1fr;
+            gap: 1.1rem; align-items: stretch; max-width: 1100px; margin: 0 auto;
+        }
+        .flow2-user {
+            background: #fff; border: 2px solid var(--brand); border-radius: 16px;
+            padding: 1.8rem 1.6rem; box-shadow: var(--shadow-md);
+        }
+        .step-num {
+            display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em;
+            color: #fff; background: var(--brand); border-radius: 999px;
+            padding: 0.25rem 0.85rem; margin-bottom: 0.9rem;
+        }
+        .flow2-user h3 { font-size: 1.12rem; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.5; }
+        .flow2-user p { font-size: 0.86rem; color: var(--text-muted); line-height: 1.75; }
+        .flow2-arrow { display: flex; align-items: center; color: var(--brand); }
+        .flow2-arrow svg { width: 24px; height: 24px; }
+        .flow2-auto {
+            border: 1.5px dashed var(--border-strong); border-radius: 16px;
+            background: var(--bg-surface); padding: 1.5rem 1.4rem;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .flow2-auto-tag {
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            font-size: 0.8rem; font-weight: 700; color: rgba(76, 56, 194, 0.55);
+            margin-bottom: 1rem;
+        }
+        .flow2-auto-tag::before, .flow2-auto-tag::after {
+            content: ''; width: 22px; height: 1px; background: rgba(76, 56, 194, 0.25);
+        }
+        .flow2-auto-tag svg { width: 15px; height: 15px; fill: currentColor; }
+        .flow2-chips { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; width: 100%; }
+        .flow2-chips span {
+            display: block; width: 100%; text-align: center;
+            background: #fff; border: 1px solid var(--border); border-radius: 999px;
+            padding: 0.5rem 1rem; font-size: 0.84rem; font-weight: 600; color: var(--text);
+        }
+        .flow2-chips i { font-style: normal; font-size: 0.65rem; color: rgba(76, 56, 194, 0.35); }
+        .flow-safety {
+            max-width: 1100px; margin: 2.2rem auto 0;
+            display: flex; align-items: flex-start; gap: 0.9rem;
+            background: var(--primary-soft); border-radius: 14px; padding: 1.3rem 1.6rem;
+        }
+        .flow-safety svg { width: 22px; height: 22px; color: var(--primary-deep); flex-shrink: 0; margin-top: 2px; }
+        .flow-safety p { font-size: 0.9rem; color: var(--text); line-height: 1.75; }
+
+        /* ===== 4 Pillars ===== */
+        .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
+        .pillar-card {
+            background: #fff; border: 1px solid var(--border); border-radius: 16px;
+            padding: 2.2rem; transition: all 0.3s ease;
+        }
+        .pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .pillar-icon {
+            width: 46px; height: 46px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--brand), #A78BFA);
+            color: #fff; display: inline-flex; align-items: center; justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+        .pillar-icon svg { width: 23px; height: 23px; }
+        .pillar-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.9rem; line-height: 1.5; }
+        .pillar-card > p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.2rem; }
+        .pillar-bullets { list-style: none; font-size: 0.88rem; color: var(--text-muted); }
+        .pillar-bullets li { padding-left: 1.2rem; position: relative; margin-bottom: 0.5rem; line-height: 1.7; }
+        .pillar-bullets li::before { content: '✓'; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
+
+        .diagram { background: var(--bg-surface); border-radius: 12px; padding: 1.3rem; }
+        .dg-slider-track {
+            position: relative; height: 8px; border-radius: 999px;
+            background: linear-gradient(to right, #DDD6FE, #A78BFA, var(--brand-deep));
+            margin-bottom: 1rem;
+        }
+        .dg-slider-knob {
+            position: absolute; top: 50%; left: 0; transform: translate(-30%, -50%);
+            width: 20px; height: 20px; border-radius: 50%;
+            background: #fff; border: 3px solid var(--brand-deep); box-shadow: var(--shadow-sm);
+        }
+        .dg-slider-marks { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); gap: 0.5rem; }
+        .dg-slider-marks > div { line-height: 1.55; }
+        .dg-slider-marks b { display: block; font-size: 0.8rem; }
+        .dg-slider-marks .now b { color: var(--primary-deep); }
+        .dg-slider-marks .mid { text-align: center; }
+        .dg-slider-marks .right { text-align: right; }
+        .dg-gate { display: flex; flex-direction: column; gap: 0.6rem; }
+        .dg-gate-row { display: flex; align-items: center; gap: 0.7rem; font-size: 0.85rem; color: var(--text); }
+        .dg-dot { flex-shrink: 0; width: 9px; height: 9px; border-radius: 50%; }
+        .dg-dot-gray { background: var(--text-dim); }
+        .dg-dot-green { background: var(--success); }
+        .dg-dot-purple { background: var(--brand); }
+        .safety-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 0.9rem; }
+        .safety-chips span {
+            padding: 0.42rem 0.95rem; background: var(--bg-surface);
+            border: 1px solid var(--border); border-radius: 999px;
+            font-size: 0.8rem; font-weight: 700; color: var(--text);
+        }
+        .pillar-note { font-size: 0.78rem; color: var(--text-dim); }
+
+        /* ===== Compare ===== */
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; max-width: 1000px; margin: 0 auto; }
+        .compare-card { border-radius: 16px; padding: 2.1rem; }
+        .compare-ng { background: var(--bg-surface); border: 1px solid var(--border); }
+        .compare-ok { background: #fff; border: 2px solid var(--brand); box-shadow: var(--shadow-md); }
+        .compare-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 1.2rem; }
+        .compare-ng h3 { color: var(--text-muted); }
+        .compare-ok h3 { color: var(--primary-deep); }
+        .compare-card ul { list-style: none; font-size: 0.9rem; }
+        .compare-card li { padding-left: 1.4rem; position: relative; margin-bottom: 0.7rem; line-height: 1.7; }
+        .compare-ng li { color: var(--text-muted); }
+        .compare-ng li::before { content: '−'; position: absolute; left: 0; color: var(--text-dim); font-weight: 700; }
+        .compare-ok li { color: var(--text); }
+        .compare-ok li::before { content: '✓'; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
+
+        /* ===== Effect cards ===== */
+        .ev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; max-width: 1050px; margin: 0 auto; }
+        .ev-card {
+            background: #fff; border: 1px solid var(--border); border-radius: 16px;
+            padding: 1.8rem; text-align: center; box-shadow: var(--shadow-sm);
+        }
+        .ev-tag {
+            display: inline-block; font-size: 0.76rem; font-weight: 700; color: var(--text-muted);
+            background: var(--bg-surface); border-radius: 999px; padding: 0.3rem 1rem; margin-bottom: 1.2rem;
+        }
+        .ev-center { min-height: 128px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .ev-lead { font-size: 0.95rem; font-weight: 700; color: var(--text-muted); }
+        .ev-word { font-size: 2.8rem; font-weight: 800; color: var(--primary-deep); line-height: 1.15; }
+        .ev-word small { font-size: 1.15rem; font-weight: 800; }
+        .ev-caption { font-size: 0.8rem; color: var(--text-dim); line-height: 1.65; margin-top: 1rem; }
+
+        /* ===== Synergy ===== */
+        .synergy { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
+        .synergy-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; color: var(--brand); text-transform: uppercase; margin-bottom: 0.9rem; }
+        .synergy h2 { font-size: 1.9rem; font-weight: 800; line-height: 1.45; margin-bottom: 1.2rem; }
+        .synergy-lead { font-size: 0.95rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.4rem; }
+        .synergy .pillar-bullets { margin-bottom: 1.6rem; }
+        .synergy-link { font-size: 0.9rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .synergy-link::after { content: ' →'; }
+        .synergy-visual {
+            background: linear-gradient(135deg, var(--bg-soft), #fff);
+            border: 1px solid var(--primary-line); border-radius: 20px;
+            padding: 2.5rem 2rem; text-align: center;
+        }
+        .synergy-visual-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 1.6rem; }
+        .synergy-db {
+            width: 88px; height: 88px; margin: 0 auto 1.8rem; border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand), #A78BFA);
+            display: flex; align-items: center; justify-content: center; color: #fff;
+        }
+        .synergy-db svg { width: 40px; height: 40px; }
+        .synergy-channels { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.7rem; font-size: 0.72rem; color: var(--text-muted); }
+        .sc-icon {
+            width: 46px; height: 46px; margin: 0 auto 0.45rem; border-radius: 12px;
+            background: #fff; border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center; color: var(--brand);
+        }
+        .sc-icon svg { width: 21px; height: 21px; }
+        .sc-phone .sc-icon { background: var(--accent-orange-soft); border-color: var(--accent-orange); color: var(--accent-orange); }
+        .sc-phone { font-weight: 700; color: var(--accent-orange); }
+
+        /* ===== Roadmap ===== */
+        .roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; max-width: 1100px; margin: 0 auto; }
+        .rm-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1.7rem; position: relative; }
+        .rm-phase { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; color: var(--brand); margin-bottom: 0.7rem; }
+        .rm-card h3 { font-size: 1.02rem; font-weight: 800; margin-bottom: 0.6rem; }
+        .rm-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.75; }
+
+        /* ===== FAQ ===== */
+        .faq-list { max-width: 860px; margin: 0 auto; }
+        .faq-list details {
+            background: var(--bg-surface); border: 1px solid var(--border);
+            border-radius: 14px; padding: 1.4rem 1.7rem; margin-bottom: 1rem;
+            transition: border-color 0.25s;
+        }
+        .faq-list details:hover { border-color: var(--primary-line); }
+        .faq-list summary {
+            cursor: pointer; font-weight: 700; font-size: 0.98rem;
+            display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+            list-style: none;
+        }
+        .faq-list summary::-webkit-details-marker { display: none; }
+        .faq-list summary::after { content: '＋'; color: var(--brand); font-weight: 700; flex-shrink: 0; }
+        .faq-list details[open] summary::after { content: '−'; }
+        .faq-list details p { margin-top: 1rem; font-size: 0.92rem; color: var(--text-muted); line-height: 1.85; }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            color: #fff; text-align: center;
+        }
+        .cta-section h2 { font-size: 2.1rem; font-weight: 800; line-height: 1.45; margin-bottom: 1.2rem; }
+        .cta-section h2 .accent {
+            background: linear-gradient(135deg, #A78BFA 0%, #C4B5FD 100%);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
+        }
+        .cta-section p { color: rgba(255, 255, 255, 0.65); margin-bottom: 2.4rem; line-height: 1.9; }
+        .cta-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .cta-buttons .btn { padding: 0.9rem 2.4rem; font-size: 1.05rem; }
+
+        /* ===== Footer ===== */
+        .footer { background: #fff; border-top: 1px solid var(--border); padding: 4rem 2rem 2rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem; margin-bottom: 3rem; }
+        .footer-col p.col-title { font-weight: 700; font-size: 0.85rem; margin-bottom: 1rem; color: var(--text); }
+        .footer-col p.col-title + ul + p.col-title { margin-top: 1.5rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.55rem; }
+        .footer-col a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.25s; }
+        .footer-col a:hover { color: var(--accent-orange); }
+        .footer-col a small { color: var(--text-dim); font-size: 0.72rem; margin-left: 4px; white-space: nowrap; }
+        .footer-sns { display: flex; gap: 0.8rem; margin-top: 1rem; }
+        .footer-sns a { color: var(--text-dim); }
+        .footer-sns a:hover { color: var(--accent-orange); }
+        .footer-sns svg { width: 19px; height: 19px; fill: currentColor; }
+        .footer-bottom {
+            border-top: 1px solid var(--border); padding-top: 1.8rem;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-bottom p { font-size: 0.75rem; color: var(--text-dim); }
+        .footer-legal { display: flex; gap: 1.4rem; }
+        .footer-legal a { font-size: 0.75rem; color: var(--text-dim); text-decoration: none; }
+        .footer-legal a:hover { color: var(--accent-orange); }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 960px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero h1 br, .hero-subtitle br { display: none; }
+            .mk-body { grid-template-columns: 1fr; }
+            .mk-panel + .mk-panel { border-left: none; border-top: 1px solid var(--border); }
+            .ps-row, .ps-arrow-row { grid-template-columns: 1fr; }
+            .ps-arrow-row { display: none; }
+            .flow2 { grid-template-columns: 1fr; }
+            .flow2-arrow { justify-content: center; transform: rotate(90deg); }
+            .pillars { grid-template-columns: 1fr; }
+            .compare-grid { grid-template-columns: 1fr; }
+            .ev-grid { grid-template-columns: 1fr; }
+            .synergy { grid-template-columns: 1fr; gap: 2.5rem; }
+            .roadmap { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .section-title { font-size: 1.6rem; }
+        }
+        @media (max-width: 560px) {
+            .roadmap { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-note .sep { display: block; visibility: hidden; height: 0.3rem; }
+        }
+    </style>
 </head>
-<body class="bg-white text-gray-900 font-sans antialiased">
+<body>
 
-  <!-- ===== NAVIGATION (GBase official style) ===== -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
-    <div class="px-4 md:px-10 lg:px-40 flex justify-center">
-      <div class="flex h-16 w-full max-w-[1200px] items-center justify-between">
-        <div class="flex items-center">
-          <a class="flex items-center hover:opacity-80 transition-opacity" href="https://cs.gbase.ai/">
-            <img src="https://cs.gbase.ai/title-logo.png" alt="GBase Support" class="h-8 w-auto">
-          </a>
-        </div>
-        <nav class="hidden md:flex items-center">
-          <nav class="flex items-center gap-8">
-            <a class="text-sm font-medium py-5 border-b-2 border-transparent hover:text-orange-500 transition-colors text-gray-700" href="https://cs.gbase.ai/">ホーム</a>
-            <div class="relative group">
-              <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-orange-500 py-5 border-b-2 border-transparent transition-colors">
-                ソリューション
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-              </button>
-              <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-56 z-50">
-                <div class="bg-white border border-gray-200 rounded-lg shadow-xl p-2 flex flex-col gap-1">
-                  <a class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors" href="https://cs.gbase.ai/solution">
-                    <div class="font-medium">商業施設・百貨店</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="relative group">
-              <button class="flex items-center gap-1 text-sm font-medium text-orange-500 py-5 border-b-2 border-orange-500 transition-colors">
-                製品／機能
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-              </button>
-              <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
-                <div class="bg-white border border-gray-200 rounded-lg shadow-xl p-5 grid grid-cols-2 gap-6 w-[620px]">
-                  <!-- 製品 Column -->
-                  <div>
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-3">製品</p>
-                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="./concierge.html">
-                      <div class="flex items-start gap-3">
-                        <span class="icon text-orange-500 mt-0.5">support_agent</span>
-                        <div>
-                          <div class="font-bold text-sm text-gray-900">GBase Concierge</div>
-                          <div class="text-xs text-gray-500 mt-0.5">多言語対応AIコンシェルジュ</div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <!-- 機能 Column -->
-                  <div>
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-3">機能</p>
-                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="https://cs.gbase.ai/solution#feature-faq">
-                      <div class="flex items-start gap-3">
-                        <span class="icon text-gray-500 mt-0.5">help</span>
-                        <div>
-                          <div class="font-bold text-sm text-gray-900">FAQ・施設案内AI</div>
-                          <div class="text-xs text-gray-500 mt-0.5">よくある質問を自動対応</div>
-                        </div>
-                      </div>
-                    </a>
-                    <a class="block px-3 py-2.5 bg-orange-50 rounded-lg transition-colors" href="./ai-phone.html">
-                      <div class="flex items-start gap-3">
-                        <span class="icon text-orange-500 mt-0.5">call</span>
-                        <div>
-                          <div class="font-bold text-sm text-gray-900">AI電話受付・取次 <span class="text-[10px] font-bold text-white bg-accent-500 rounded px-1.5 py-0.5 ml-1 align-middle">NEW</span></div>
-                          <div class="text-xs text-gray-500 mt-0.5">電話の一次対応と転送を自動化</div>
-                        </div>
-                      </div>
-                    </a>
-                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="https://cs.gbase.ai/solution#feature-floormap">
-                      <div class="flex items-start gap-3">
-                        <span class="icon text-gray-500 mt-0.5">map</span>
-                        <div>
-                          <div class="font-bold text-sm text-gray-900">フロアマップ・ナビゲーション</div>
-                          <div class="text-xs text-gray-500 mt-0.5">3Dマップで目的地まで案内</div>
-                        </div>
-                      </div>
-                    </a>
-                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="https://cs.gbase.ai/solution#feature-realtime">
-                      <div class="flex items-start gap-3">
-                        <span class="icon text-gray-500 mt-0.5">record_voice_over</span>
-                        <div>
-                          <div class="font-bold text-sm text-gray-900">リアルタイム会話</div>
-                          <div class="text-xs text-gray-500 mt-0.5">10言語以上の音声対話</div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a class="text-sm font-medium py-5 border-b-2 border-transparent hover:text-orange-500 transition-colors text-gray-700" href="https://cs.gbase.ai/price">料金</a>
-            <div class="relative group">
-              <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-orange-500 py-5 border-b-2 border-transparent transition-colors">
-                リソース
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-              </button>
-              <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-56 z-50">
-                <div class="bg-white border border-gray-200 rounded-lg shadow-xl p-2 flex flex-col gap-1">
-                  <a class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors" href="https://cs.gbase.ai/showcase/newoman-takanawa"><div class="font-medium">導入事例</div></a>
-                  <a class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors" href="https://cs.gbase.ai/blog"><div class="font-medium">ブログ</div></a>
-                  <a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors"><div class="font-medium">マニュアル</div></a>
-                  <a href="https://cs.gbase.ai/blog/release-notes/" class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors"><div class="font-medium">リリースノート</div></a>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </nav>
-        <div class="hidden md:flex items-center gap-3">
-          <a href="https://admin.gbase.ai" class="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors">ログイン</a>
-          <a class="flex items-center justify-center rounded-full h-10 px-5 border border-gray-300 hover:border-gray-700 transition-colors text-gray-700 text-sm font-medium" href="https://cs.gbase.ai/register">無料ではじめる</a>
-          <a href="https://cs.gbase.ai/contact" class="flex items-center justify-center rounded-full h-10 px-5 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 transition-all text-white text-sm font-medium">お問い合わせ</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ===== HERO ===== -->
-  <section class="pt-36 pb-24" style="background: linear-gradient(180deg, #F3F3FE 0%, #FFFFFF 100%);">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-500/10 text-accent-600 text-sm font-bold rounded-full mb-6">
-        <span class="icon text-base">call</span>
-        新機能 · GBase Support
-      </div>
-      <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-6">
-        <span class="gradient-text">AI電話受付・取次</span><br>
-        電話の一次対応から転送まで、AIが受ける。
-      </h1>
-      <p class="text-lg text-gray-600 leading-relaxed mb-10 max-w-2xl mx-auto">
-        GBase Supportのナレッジベースが、そのまま電話に。<br>
-        まずはAIが受付と取次に徹する「リスクゼロ」から始めて、<br>
-        運用データに合わせて対応範囲を広げられる、可逆設計の電話AIです。
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="https://cs.gbase.ai/contact" class="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-lg btn-3d">
-          お問い合わせ
-        </a>
-        <a href="https://cs.gbase.ai/register" class="px-8 py-3.5 bg-white text-gray-700 border border-gray-300 hover:border-gray-700 font-semibold rounded-full transition-all duration-300 cursor-pointer text-lg">
-          無料ではじめる
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PAIN + SOLUTION (3 personas) ===== -->
-  <section class="py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <p class="text-sm text-primary-500 font-semibold mb-3">こんな課題はありませんか</p>
-        <h2 class="text-3xl font-bold">電話は「取りこぼし」と「取次コスト」の宝庫</h2>
-      </div>
-
-      <!-- Pain cards -->
-      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-4">
-        <div class="bg-white rounded-2xl p-8 border border-gray-200">
-          <p class="text-xs font-bold text-gray-400 mb-3">ホテル・宿泊</p>
-          <h3 class="text-lg font-bold mb-3">夜間・繁忙期に、電話がつながらない</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">フロントの電話の多くは料金・チェックイン時間・館内案内などの定型の問い合わせ。人手に頼ると24時間対応は難しく、混雑時は取りこぼしと折返し対応の負担が重なります。</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 border border-gray-200">
-          <p class="text-xs font-bold text-gray-400 mb-3">商業施設・百貨店</p>
-          <h3 class="text-lg font-bold mb-3">「担当は誰か」を判断する取次が、そのままコストに</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">代表電話にかかってくる用件は多種多様。内容を聞き取り、該当部署や店舗を判断して転送する作業に、スタッフの時間が奪われ続けています。</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 border border-gray-200">
-          <p class="text-xs font-bold text-gray-400 mb-3">コールセンター・サポート窓口</p>
-          <h3 class="text-lg font-bold mb-3">同じ質問の繰り返しが、オペレーターを圧迫</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">FAQで解決できるはずの用件に応対時間が割かれ、本来注力すべき複雑な問い合わせへの対応品質に影響が出ています。</p>
-        </div>
-      </div>
-
-      <div class="text-center my-10">
-        <p class="text-xl font-bold">これらの課題を、<span class="gradient-text">AI電話受付・取次</span>が解決します</p>
-      </div>
-
-      <!-- Solution cards -->
-      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <div class="bg-white rounded-2xl p-8 border border-primary-200 card-hover">
-          <div class="w-12 h-12 mb-5 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
-            <span class="icon text-white">nights_stay</span>
-          </div>
-          <h3 class="text-lg font-bold mb-4">24時間の一次受付で、取りこぼしを防止</h3>
-          <ul class="space-y-2 text-sm text-gray-600 mb-5">
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>着信をAIが受け、自然な音声で一次対応。</li>
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>夜間・繁忙期も受付を継続。</li>
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>応答なし時はフォールバック案内で対応。</li>
-          </ul>
-          <a href="https://cs.gbase.ai/contact" class="text-sm font-semibold text-primary-600 hover:text-primary-700 border-t border-gray-100 pt-4 block">ホテルでの活用を相談する →</a>
-        </div>
-        <div class="bg-white rounded-2xl p-8 border border-primary-200 card-hover">
-          <div class="w-12 h-12 mb-5 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
-            <span class="icon text-white">alt_route</span>
-          </div>
-          <h3 class="text-lg font-bold mb-4">意図判断で、最適な部署へ自動取次</h3>
-          <ul class="space-y-2 text-sm text-gray-600 mb-5">
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>用件を聞き取り、取次ルールに自動照合。</li>
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>担当・部署ごとの直通番号へ転送。</li>
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>ルールは自然な文章で登録するだけ。</li>
-          </ul>
-          <a href="https://cs.gbase.ai/solution" class="text-sm font-semibold text-primary-600 hover:text-primary-700 border-t border-gray-100 pt-4 block">商業施設向けソリューションを見る →</a>
-        </div>
-        <div class="bg-white rounded-2xl p-8 border border-primary-200 card-hover">
-          <div class="w-12 h-12 mb-5 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
-            <span class="icon text-white">support_agent</span>
-          </div>
-          <h3 class="text-lg font-bold mb-4">定型はAIへ、複雑な用件は人へ分流</h3>
-          <ul class="space-y-2 text-sm text-gray-600 mb-5">
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>FAQ相当の用件は段階的にAIが回答。</li>
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>複雑・要対人の用件はオペレーターへ転送。</li>
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>人の回答データがAIの学習データに。</li>
-          </ul>
-          <a href="./case-study-his-mobile.html" class="text-sm font-semibold text-primary-600 hover:text-primary-700 border-t border-gray-100 pt-4 block">サポート窓口の導入事例を読む →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROCESS FLOW (5 steps) ===== -->
-  <section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <p class="text-sm text-primary-500 font-semibold mb-3">取次のプロセス</p>
-        <h2 class="text-3xl font-bold">着信から取次まで、5ステップ</h2>
-      </div>
-      <div class="grid md:grid-cols-5 gap-4 max-w-6xl mx-auto">
-        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
-          <p class="text-xs font-bold text-primary-500 mb-3">STEP 1</p>
-          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center"><span class="icon text-white">call</span></div>
-          <h3 class="font-bold mb-2">着信</h3>
-          <p class="text-xs text-gray-600">AIが電話を受ける</p>
-        </div>
-        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
-          <p class="text-xs font-bold text-primary-500 mb-3">STEP 2</p>
-          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center"><span class="icon text-white">psychology</span></div>
-          <h3 class="font-bold mb-2">意図理解</h3>
-          <p class="text-xs text-gray-600">用件を聞き取り解析</p>
-        </div>
-        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
-          <p class="text-xs font-bold text-primary-500 mb-3">STEP 3</p>
-          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center"><span class="icon text-white">alt_route</span></div>
-          <h3 class="font-bold mb-2">振り分け</h3>
-          <p class="text-xs text-gray-600">取次先ルールに照合</p>
-        </div>
-        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
-          <p class="text-xs font-bold text-primary-500 mb-3">STEP 4</p>
-          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center"><span class="icon text-white">campaign</span></div>
-          <h3 class="font-bold mb-2">アナウンス</h3>
-          <p class="text-xs text-gray-600">つなぎ先を一言案内</p>
-        </div>
-        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
-          <p class="text-xs font-bold text-primary-500 mb-3">STEP 5</p>
-          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center"><span class="icon text-white">phone_forwarded</span></div>
-          <h3 class="font-bold mb-2">取次</h3>
-          <p class="text-xs text-gray-600">担当の直通へ転送</p>
-        </div>
-      </div>
-      <div class="max-w-4xl mx-auto mt-10 bg-primary-50 rounded-2xl p-6 flex items-start gap-4">
-        <span class="icon text-primary-600 mt-0.5">shield</span>
-        <p class="text-sm text-gray-700 leading-relaxed"><strong>安全弁：</strong>クレーム・決済/課金・本人確認・予約の確定・法的事項は、AIの確信度に関わらず必ず人へ取次します。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 4 PILLARS ===== -->
-  <section class="py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <p class="text-sm text-primary-500 font-semibold mb-3">4つの特長</p>
-        <h2 class="text-3xl font-bold">「リスクゼロで始め、データで育てる」ための4つの柱</h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-
-        <!-- Pillar 1 -->
-        <div class="bg-white rounded-2xl p-10 border border-gray-200 card-hover">
-          <div class="w-12 h-12 mb-6 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
-            <span class="icon text-white">verified_user</span>
-          </div>
-          <h3 class="text-xl font-bold mb-4">取次に徹する、リスクゼロのスタート</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-5">最初はAIが受付と取次に専念し、すべての用件を人へつなぎます。AIが誤答するリスクがない状態で運用を始められ、その間も通話データは着実に蓄積されていきます。</p>
-          <ul class="space-y-2 text-sm text-gray-600">
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>全件を人へつなぐ「取次優先」で安全に開始。</li>
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>通話ログ・用件の傾向を運用しながら可視化。</li>
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>スタッフの回答が、AIの学習データに。</li>
-          </ul>
-        </div>
-
-        <!-- Pillar 2 -->
-        <div class="bg-white rounded-2xl p-10 border border-gray-200 card-hover">
-          <div class="w-12 h-12 mb-6 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
-            <span class="icon text-white">tune</span>
-          </div>
-          <h3 class="text-xl font-bold mb-4">スライダー1本で、3段階の可逆制御</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-5">応答スタイルは「取次優先」「バランス」「自己解決優先」の3段階。管理画面のスライダー1本でAIの対応範囲を制御でき、不安になればいつでも保守側へ戻せます。</p>
-          <!-- CSS slider diagram -->
-          <div class="bg-gray-50 rounded-xl p-5">
-            <div class="relative h-2 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-600 rounded-full mb-4">
-              <span class="absolute -top-1.5 left-0 w-5 h-5 bg-white border-2 border-primary-600 rounded-full shadow"></span>
-            </div>
-            <div class="flex justify-between text-xs text-gray-600">
-              <div class="text-left"><p class="font-bold text-primary-700">取次優先</p><p class="mt-1">全件を人へ。<br>まず安全に開始</p></div>
-              <div class="text-center"><p class="font-bold text-gray-700">バランス</p><p class="mt-1">簡単な質問はAI、<br>複雑・要対人は転送</p></div>
-              <div class="text-right"><p class="font-bold text-gray-700">自己解決優先</p><p class="mt-1">AIが極力対応。<br>例外だけ人へ</p></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pillar 3 -->
-        <div class="bg-white rounded-2xl p-10 border border-gray-200 card-hover">
-          <div class="w-12 h-12 mb-6 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
-            <span class="icon text-white">speed</span>
-          </div>
-          <h3 class="text-xl font-bold mb-4">確信度ゲートで、答える前に自己判定</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-5">AIは回答する前に、自分の回答候補の確信度を評価します。しきい値以上のときだけAIがその場で回答し、届かないときは「担当へおつなぎ」へ。任せる範囲を「勘」ではなくデータで広げられます。</p>
-          <!-- CSS gate diagram -->
-          <div class="bg-gray-50 rounded-xl p-5 space-y-3 text-sm">
-            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 shrink-0"></span><p class="text-gray-700">お客様の質問を受け、AIが回答案と確信度を生成</p></div>
-            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-success-500 shrink-0"></span><p class="text-gray-700">確信度がしきい値以上 → AIがその場で回答</p></div>
-            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-primary-500 shrink-0"></span><p class="text-gray-700">しきい値未満 → 「担当へおつなぎします」</p></div>
-          </div>
-        </div>
-
-        <!-- Pillar 4 -->
-        <div class="bg-white rounded-2xl p-10 border border-gray-200 card-hover">
-          <div class="w-12 h-12 mb-6 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
-            <span class="icon text-white">shield</span>
-          </div>
-          <h3 class="text-xl font-bold mb-4">重要な用件は、必ず人へつなぐ安全弁</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-5">確信度がどれほど高くても、AIに任せない領域をあらかじめ固定。重要な判断をAIが勝手に行うことを、設定ではなく構造で防ぎます。</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1.5 bg-gray-100 rounded-full text-xs font-semibold text-gray-700">クレーム</span>
-            <span class="px-3 py-1.5 bg-gray-100 rounded-full text-xs font-semibold text-gray-700">決済・課金</span>
-            <span class="px-3 py-1.5 bg-gray-100 rounded-full text-xs font-semibold text-gray-700">本人確認</span>
-            <span class="px-3 py-1.5 bg-gray-100 rounded-full text-xs font-semibold text-gray-700">予約・契約の確定</span>
-            <span class="px-3 py-1.5 bg-gray-100 rounded-full text-xs font-semibold text-gray-700">法的事項</span>
-          </div>
-          <p class="text-xs text-gray-500 mt-4">上記の用件は、確信度に関わらず必ずスタッフへ取次します。</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SYNERGY with GBase Support ===== -->
-  <section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <p class="text-sm text-primary-500 font-semibold mb-3">GBase Support との連携</p>
-          <h2 class="text-3xl font-bold leading-snug mb-6">1つのナレッジベースが、<br>チャットにも、電話にも</h2>
-          <p class="text-gray-600 leading-relaxed mb-6">
-            AI電話は独立したツールではなく、GBase Supportの1機能です。FAQや資料を一度登録すれば、Web・LINE・店頭端末に加えて電話でも同じ知識で応答。すでにチャットボットを運用中なら、蓄積したナレッジをそのまま電話に活かせます。
-          </p>
-          <ul class="space-y-3 text-sm text-gray-600">
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>ナレッジベース・管理画面はチャットボットと共通。</li>
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>電話の通話データも、ナレッジ改善の材料に。</li>
-            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>予約・カレンダーなどの業務システム連携に対応。</li>
-          </ul>
-          <div class="mt-8">
-            <a href="./index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
-              GBase Support の全体像を見る
-              <span class="icon text-base">arrow_forward</span>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a class="nav-logo" href="https://cs.gbase.ai/">
+                <img src="https://cs.gbase.ai/title-logo.png" alt="GBase Support">
             </a>
-          </div>
-        </div>
-        <div class="bg-gradient-to-br from-primary-50 to-white rounded-3xl border border-primary-100 p-10 text-center">
-          <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6">1つのナレッジベース、5つの接点</p>
-          <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-primary-500 to-primary-400 mb-8">
-            <span class="icon text-white" style="font-size:40px;">database</span>
-          </div>
-          <div class="grid grid-cols-5 gap-3 text-xs text-gray-600">
-            <div><div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-white border border-gray-200 flex items-center justify-center"><span class="icon text-primary-500">storefront</span></div>店頭端末</div>
-            <div><div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-white border border-gray-200 flex items-center justify-center"><span class="icon text-primary-500">chat</span></div>LINE</div>
-            <div><div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-white border border-gray-200 flex items-center justify-center"><span class="icon text-primary-500">qr_code_2</span></div>QRコード</div>
-            <div><div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-white border border-gray-200 flex items-center justify-center"><span class="icon text-primary-500">language</span></div>Web</div>
-            <div><div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-accent-500/10 border border-accent-500 flex items-center justify-center"><span class="icon text-accent-600">call</span></div>電話</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ROADMAP ===== -->
-  <section class="py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <p class="text-sm text-primary-500 font-semibold mb-3">導入ロードマップ（モデルケース）</p>
-        <h2 class="text-3xl font-bold">月単位で、無理なく対応範囲を広げる</h2>
-      </div>
-      <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-        <div class="bg-white rounded-2xl p-8 border border-gray-200">
-          <p class="text-xs font-bold text-primary-500 mb-3">PHASE 1</p>
-          <h3 class="font-bold mb-3">取次で稼働開始</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">AI取次で運用を開始し、通話データの収集をスタートします。</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 border border-gray-200">
-          <p class="text-xs font-bold text-primary-500 mb-3">PHASE 2</p>
-          <h3 class="font-bold mb-3">ナレッジ拡充・学習</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">ナレッジを拡充しながら、用件ごとの確信度の実績を観察します。</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 border border-gray-200">
-          <p class="text-xs font-bold text-primary-500 mb-3">PHASE 3</p>
-          <h3 class="font-bold mb-3">高確信カテゴリを解禁</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">確信度の高い用件から、AIによる直接回答を段階的に解禁します。</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 border border-gray-200">
-          <p class="text-xs font-bold text-primary-500 mb-3">PHASE 4</p>
-          <h3 class="font-bold mb-3">自己解決を主体に</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">しきい値を調整しながら、AIが応対しきる範囲を広げていきます。</p>
-        </div>
-      </div>
-      <p class="section-note">※ 進め方はモデルケースです。実際のスケジュールは、用件の傾向・ナレッジの整備状況に合わせて設計します。</p>
-    </div>
-  </section>
-
-  <!-- ===== FAQ ===== -->
-  <section class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <p class="text-sm text-primary-500 font-semibold mb-3">FAQ</p>
-        <h2 class="text-3xl font-bold">よくあるご質問</h2>
-      </div>
-      <div class="space-y-4">
-        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
-          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
-            <span>AIはどこまで電話に回答しますか？</span>
-            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
-          </summary>
-          <p class="mt-4 text-gray-600 leading-relaxed">
-            応答スタイルは「取次優先」「バランス」「自己解決優先」の3段階から選べます。最初はAIが受付と取次に徹する「取次優先」で安全に開始し、運用データが蓄積されるにつれて、AIが直接回答する範囲を段階的に広げられます。設定はいつでも保守側へ戻せる可逆設計です。
-          </p>
-        </details>
-        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
-          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
-            <span>クレームや決済などの重要な用件はどうなりますか？</span>
-            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
-          </summary>
-          <p class="mt-4 text-gray-600 leading-relaxed">
-            クレーム・決済/課金・本人確認・予約や契約の確定・法的事項は、AIの確信度に関わらず必ずスタッフへ取次する設計です。AIが重要な判断を勝手に行うことは構造的にありません。
-          </p>
-        </details>
-        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
-          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
-            <span>取次ルールはどのように設定しますか？</span>
-            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
-          </summary>
-          <p class="mt-4 text-gray-600 leading-relaxed">
-            「どんな用件のとき、どの担当につなぐか」を自然な文章とキーワードで登録するだけです。取次先は複数登録でき、優先順位の上から順に判定されます。どれにも当てはまらない場合の既定の取次先も設定できます。
-          </p>
-        </details>
-        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
-          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
-            <span>転送先が電話に出られなかった場合は？</span>
-            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
-          </summary>
-          <p class="mt-4 text-gray-600 leading-relaxed">
-            応答がない場合は、あらかじめ設定した固定メッセージを自動で案内し、取りこぼしを防ぎます。転送前には「担当におつなぎします」のアナウンスも自動で読み上げます。
-          </p>
-        </details>
-        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
-          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
-            <span>チャットボットと同じ知識を使えますか？</span>
-            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
-          </summary>
-          <p class="mt-4 text-gray-600 leading-relaxed">
-            はい。GBase Supportのナレッジベースをそのまま電話の応答に活用します。FAQや資料を一度登録すれば、Web・LINE・店頭端末・電話のすべての接点で共通利用でき、電話の通話データもナレッジの改善に活かせます。
-          </p>
-        </details>
-        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
-          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
-            <span>導入はどのように進みますか？</span>
-            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
-          </summary>
-          <p class="mt-4 text-gray-600 leading-relaxed">
-            まずAIが受付と取次に徹する段階から運用を開始し、通話データを蓄積しながら、AIが直接回答する範囲を段階的に広げていくのが標準的な進め方です。スケジュールや費用の詳細はお問い合わせください。
-          </p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FINAL CTA ===== -->
-  <section id="contact" class="py-24 bg-gradient-to-br from-dark-800 to-dark-900 text-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl lg:text-4xl font-bold mb-6">
-        電話対応の自動化、<span class="gradient-text">リスクゼロ</span>から始めませんか
-      </h2>
-      <p class="text-gray-400 mb-10 max-w-3xl mx-auto">
-        まずはAIが受付と取次に徹する段階から。<br>
-        貴社の電話対応の課題に合わせた進め方を、ご提案します。
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="https://cs.gbase.ai/contact" class="px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold rounded-full cursor-pointer text-lg btn-3d transition-all">
-          お問い合わせ
-        </a>
-        <a href="https://cs.gbase.ai/register" class="px-10 py-4 border-2 border-white/20 text-white font-semibold rounded-full cursor-pointer text-lg btn-3d">
-          無料ではじめる
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER (GBase official style) ===== -->
-  <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
-    <div class="px-4 md:px-10 lg:px-40 flex justify-center">
-      <div class="w-full max-w-[1200px]">
-        <div class="grid md:grid-cols-5 gap-8 mb-12">
-          <div>
-            <p class="font-semibold text-gray-900 text-sm mb-4">ソリューション</p>
-            <ul class="space-y-2 text-sm">
-              <li><a href="https://cs.gbase.ai/solution" class="text-gray-600 hover:text-orange-500 transition-colors">商業施設・百貨店</a></li>
+            <ul class="nav-links">
+                <li><a href="https://cs.gbase.ai/">ホーム</a></li>
+                <li class="nav-dropdown">
+                    <button class="nav-btn" type="button">ソリューション
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/solution">
+                            <span class="item-title">商業施設・百貨店</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <button class="nav-btn" type="button">製品／機能
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu nav-dropdown-menu-wide">
+                        <a class="nav-dropdown-item" href="./concierge.html">
+                            <span class="item-title">GBase Concierge</span>
+                            <span class="item-sub">多言語対応AIコンシェルジュ</span>
+                        </a>
+                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/solution#feature-faq">
+                            <span class="item-title">FAQ・施設案内AI</span>
+                            <span class="item-sub">よくある質問を自動対応</span>
+                        </a>
+                        <a class="nav-dropdown-item active" href="./ai-phone.html">
+                            <span class="item-title">AI電話受付・取次<span class="badge-new">NEW</span></span>
+                            <span class="item-sub">電話の一次対応と転送を自動化</span>
+                        </a>
+                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/solution#feature-floormap">
+                            <span class="item-title">フロアマップ・ナビゲーション</span>
+                            <span class="item-sub">3Dマップで目的地まで案内</span>
+                        </a>
+                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/solution#feature-realtime">
+                            <span class="item-title">リアルタイム会話</span>
+                            <span class="item-sub">10言語以上の音声対話</span>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="https://cs.gbase.ai/price">料金</a></li>
+                <li class="nav-dropdown">
+                    <button class="nav-btn" type="button">リソース
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/showcase/newoman-takanawa"><span class="item-title">導入事例</span></a>
+                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/blog"><span class="item-title">ブログ</span></a>
+                        <a class="nav-dropdown-item" href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener noreferrer"><span class="item-title">マニュアル</span></a>
+                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/blog/release-notes/"><span class="item-title">リリースノート</span></a>
+                    </div>
+                </li>
             </ul>
-            <p class="font-semibold text-gray-900 text-sm mt-6 mb-4">製品</p>
-            <ul class="space-y-2 text-sm">
-              <li><a href="./concierge.html" class="text-gray-600 hover:text-orange-500 transition-colors">GBase Concierge</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm mb-4">機能</p>
-            <ul class="space-y-2 text-sm">
-              <li><a href="https://cs.gbase.ai/solution#feature-faq" class="text-gray-600 hover:text-orange-500 transition-colors">FAQ・施設案内AI</a></li>
-              <li><a href="./ai-phone.html" class="text-gray-600 hover:text-orange-500 transition-colors">AI電話受付・取次</a></li>
-              <li><a href="https://cs.gbase.ai/solution#feature-floormap" class="text-gray-600 hover:text-orange-500 transition-colors">フロアマップ・ナビゲーション</a></li>
-              <li><a href="https://cs.gbase.ai/solution#feature-realtime" class="text-gray-600 hover:text-orange-500 transition-colors">リアルタイム会話</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm mb-4">リソース</p>
-            <ul class="space-y-2 text-sm">
-              <li><a href="https://cs.gbase.ai/showcase/newoman-takanawa" class="text-gray-600 hover:text-orange-500 transition-colors">導入事例</a></li>
-              <li><a href="https://cs.gbase.ai/blog" class="text-gray-600 hover:text-orange-500 transition-colors">ブログ</a></li>
-              <li><a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-orange-500 transition-colors">マニュアル</a></li>
-              <li><a href="https://cs.gbase.ai/blog/release-notes/" class="text-gray-600 hover:text-orange-500 transition-colors">リリースノート</a></li>
-              <li><a href="https://cs.gbase.ai/price" class="text-gray-600 hover:text-orange-500 transition-colors">料金</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm mb-4">その他のプロダクト</p>
-            <ul class="space-y-2 text-sm">
-              <li><a href="https://gbase.ai/" target="_blank" rel="noopener" class="text-gray-600 hover:text-orange-500 transition-colors whitespace-nowrap">GBase<span class="text-gray-400 ml-1 text-xs">（ナレッジ AI）</span></a></li>
-              <li><a href="https://onprem.gbase.ai/" target="_blank" rel="noopener" class="text-gray-600 hover:text-orange-500 transition-colors whitespace-nowrap">GBase OnPrem<span class="text-gray-400 ml-1 text-xs">（オンプレ AI）</span></a></li>
-              <li><a href="https://subtitles.felo.me/" target="_blank" rel="noopener" class="text-gray-600 hover:text-orange-500 transition-colors whitespace-nowrap">Felo Subtitles<span class="text-gray-400 ml-1 text-xs">（多言語字幕）</span></a></li>
-              <li><a href="https://s.gbase.ai/" target="_blank" rel="noopener" class="text-gray-600 hover:text-orange-500 transition-colors whitespace-nowrap">GBase GTM<span class="text-gray-400 ml-1 text-xs">（顧客獲得 AI）</span></a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-semibold text-gray-900 text-sm mb-4">Sparticle について</p>
-            <ul class="space-y-2 text-sm">
-              <li><a href="https://www.sparticle.com/" target="_blank" rel="noopener" class="text-gray-600 hover:text-orange-500 transition-colors">会社概要</a></li>
-            </ul>
-            <div class="flex gap-3 mt-4">
-              <a href="https://x.com/sparticle_ai" target="_blank" rel="noopener" aria-label="X" title="X (Twitter)" class="text-gray-500 hover:text-orange-500 transition-colors">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </a>
-              <a href="https://note.com/sparticle" target="_blank" rel="noopener" aria-label="note" title="note" class="text-gray-500 hover:text-orange-500 transition-colors">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg>
-              </a>
-              <a href="https://www.linkedin.com/company/sparticle-inc" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn" class="text-gray-500 hover:text-orange-500 transition-colors">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-              </a>
+            <div class="nav-buttons">
+                <a href="https://admin.gbase.ai" class="nav-login">ログイン</a>
+                <a href="https://cs.gbase.ai/register" class="btn btn-secondary">無料ではじめる</a>
+                <a href="https://cs.gbase.ai/contact" class="btn btn-primary">お問い合わせ</a>
             </div>
-          </div>
         </div>
-        <div class="border-t border-gray-200 pt-8 flex flex-wrap justify-between items-center gap-4">
-          <p class="text-xs text-gray-500">&copy; 2026 Sparticle Inc. All rights reserved.</p>
-          <div class="flex gap-6 text-xs">
-            <a href="https://cs.gbase.ai/privacy-policy" class="text-gray-500 hover:text-orange-500 transition-colors">プライバシーポリシー</a>
-            <a href="https://cs.gbase.ai/terms-of-use" class="text-gray-500 hover:text-orange-500 transition-colors">利用規約</a>
-            <a href="https://cs.gbase.ai/legal/specific-based" class="text-gray-500 hover:text-orange-500 transition-colors">特定商取引法</a>
-          </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-badges">
+            <span class="hero-badge hero-badge-new">NEW · 新機能</span>
+            <span class="hero-badge hero-badge-prod">GBase Support</span>
         </div>
-      </div>
-    </div>
-  </footer>
+        <h1>電話の一次対応から取次まで、<br><span class="accent">AIが受ける</span>。</h1>
+        <p class="hero-subtitle">
+            GBase Supportのナレッジベースが、そのまま電話に。<br>
+            まずはAIが受付と取次に徹する「リスクゼロ」から始めて、<br>
+            運用データに合わせて対応範囲を広げられる、可逆設計の電話AIです。
+        </p>
+        <div class="hero-cta">
+            <a href="https://cs.gbase.ai/contact" class="btn btn-primary">お問い合わせ</a>
+            <a href="https://cs.gbase.ai/register" class="btn btn-secondary">無料ではじめる</a>
+        </div>
+        <p class="hero-note">
+            <span class="check">✓</span>取次専用モードから安全に開始<span class="sep">|</span>
+            <span class="check">✓</span>重要用件は必ず人へ（安全弁）<span class="sep">|</span>
+            <span class="check">✓</span>ナレッジはチャットボットと共通
+        </p>
+        <div class="hero-mockup-wrap">
+            <div class="hero-mockup" role="img" aria-label="GBase Support 電話受付の画面イメージ：左に通話の一次対応と転送、右に取次ルールと応答スタイルのスライダー">
+                <div class="mk-topbar">
+                    <div class="mk-dots"><span></span><span></span><span></span></div>
+                    <span class="mk-title">admin.gbase.ai · 電話受付 › 転送</span>
+                    <span class="mk-live">通話中</span>
+                </div>
+                <div class="mk-body">
+                    <div class="mk-panel">
+                        <div class="mk-panel-title">AIによる一次対応 <span class="mk-chip">自然な音声で応答</span></div>
+                        <div class="mk-line">
+                            <span class="mk-speaker mk-sp-c">客</span>
+                            <div class="mk-utt"><span class="who">お客様</span>製品の導入について相談したいのですが。</div>
+                        </div>
+                        <div class="mk-line">
+                            <span class="mk-speaker mk-sp-ai">AI</span>
+                            <div class="mk-utt"><span class="who">AI</span>導入のご相談ですね。担当の営業チームにおつなぎいたします。少々お待ちください。</div>
+                        </div>
+                        <span class="mk-transfer">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            営業チーム直通へ転送中…
+                        </span>
+                    </div>
+                    <div class="mk-panel">
+                        <div class="mk-panel-title">取次ルール <span class="mk-chip">自然文で登録</span></div>
+                        <div class="mk-rule">
+                            <span class="mk-rule-num">01</span>
+                            <span class="mk-rule-name">製品の導入・お見積もり</span>
+                            <span class="mk-rule-to">→ <b>営業チーム</b></span>
+                        </div>
+                        <div class="mk-rule">
+                            <span class="mk-rule-num">02</span>
+                            <span class="mk-rule-name">不具合・使い方のご相談</span>
+                            <span class="mk-rule-to">→ <b>サポート窓口</b></span>
+                        </div>
+                        <div class="mk-rule">
+                            <span class="mk-rule-num">既定</span>
+                            <span class="mk-rule-name">上記以外のご用件</span>
+                            <span class="mk-rule-to">→ <b>総合受付</b></span>
+                        </div>
+                        <div class="mk-slider">
+                            <div class="mk-slider-label">応答スタイル</div>
+                            <div class="mk-slider-track"><span class="mk-slider-knob"></span></div>
+                            <div class="mk-slider-marks"><b>取次優先</b><span>バランス</span><span>自己解決優先</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAIN + SOLUTION ===== -->
+    <section class="section" id="pain-solution">
+        <div class="container">
+            <span class="section-eyebrow">Challenges</span>
+            <h2 class="section-title">電話は「取りこぼし」と「取次コスト」の宝庫</h2>
+            <p class="section-subtitle">
+                ホテルのフロントから、商業施設の代表電話、サポート窓口まで。<br>電話対応の現場に共通する、3つの構造的な悩み。
+            </p>
+            <div class="ps-row">
+                <div class="ps-pain-card">
+                    <h4>ホテル・宿泊</h4>
+                    <h3>夜間・繁忙期に、電話がつながらない</h3>
+                    <p class="ps-detail">フロントの電話の多くは料金・チェックイン時間・館内案内などの定型の問い合わせ。人手に頼ると24時間対応は難しく、混雑時は取りこぼしと折返し対応の負担が重なります。</p>
+                </div>
+                <div class="ps-pain-card">
+                    <h4>商業施設・百貨店</h4>
+                    <h3>「担当は誰か」を判断する取次が、そのままコストに</h3>
+                    <p class="ps-detail">代表電話にかかってくる用件は多種多様。内容を聞き取り、該当部署や店舗を判断して転送する作業に、スタッフの時間が奪われ続けています。</p>
+                </div>
+                <div class="ps-pain-card">
+                    <h4>コールセンター・サポート窓口</h4>
+                    <h3>同じ質問の繰り返しが、オペレーターを圧迫</h3>
+                    <p class="ps-detail">FAQで解決できるはずの用件に応対時間が割かれ、本来注力すべき複雑な問い合わせへの対応品質に影響が出ています。</p>
+                </div>
+            </div>
+
+            <div class="ps-middle-title">これらの悩みを、<span class="marker">AI電話受付・取次</span>が解決します</div>
+
+            <div class="ps-arrow-row" aria-hidden="true">
+                <div class="ps-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 19 19 12"/></svg></div>
+                <div class="ps-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 19 19 12"/></svg></div>
+                <div class="ps-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 19 19 12"/></svg></div>
+            </div>
+
+            <div class="ps-row">
+                <div class="ps-sol-card">
+                    <div class="sol-title">24時間の一次受付で、取りこぼしを防止</div>
+                    <div class="sol-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </div>
+                    <ul class="sol-bullets">
+                        <li>着信をAIが受け、自然な音声で一次対応。</li>
+                        <li>夜間・繁忙期も受付を継続。</li>
+                        <li>応答なし時はフォールバック案内で対応。</li>
+                    </ul>
+                    <a href="https://cs.gbase.ai/contact" class="sol-cta">ホテルでの活用を相談する</a>
+                </div>
+                <div class="ps-sol-card">
+                    <div class="sol-title">意図判断で、最適な部署へ自動取次</div>
+                    <div class="sol-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><line x1="21" y1="3" x2="12" y2="12"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="15 16 21 16 21 21"/><line x1="21" y1="16" x2="14" y2="9"/></svg>
+                    </div>
+                    <ul class="sol-bullets">
+                        <li>用件を聞き取り、取次ルールに自動照合。</li>
+                        <li>担当・部署ごとの直通番号へ転送。</li>
+                        <li>ルールは自然な文章で登録するだけ。</li>
+                    </ul>
+                    <a href="https://cs.gbase.ai/solution" class="sol-cta">商業施設向けソリューションを見る</a>
+                </div>
+                <div class="ps-sol-card">
+                    <div class="sol-title">定型はAIへ、複雑な用件は人へ分流</div>
+                    <div class="sol-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <ul class="sol-bullets">
+                        <li>FAQ相当の用件は、段階的にAIが回答。</li>
+                        <li>複雑・要対人の用件はオペレーターへ転送。</li>
+                        <li>人の回答データが、AIの学習データに。</li>
+                    </ul>
+                    <a href="./case-study-his-mobile.html" class="sol-cta">サポート窓口の導入事例を読む</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FLOW (user steps + AI auto) ===== -->
+    <section class="section section-surface" id="flow">
+        <div class="container">
+            <span class="section-eyebrow">How it works</span>
+            <h2 class="section-title">貴社の作業は、ルールを登録して、電話に出るだけ</h2>
+            <p class="section-subtitle">
+                着信の受付から意図判断、転送までは、すべてAIが自動で実行。<br>ご利用者様の作業は2ステップで完結します。
+            </p>
+            <div class="flow2">
+                <div class="flow2-user">
+                    <span class="step-num">STEP 1</span>
+                    <h3>取次ルールを登録</h3>
+                    <p>「どんな用件のとき、誰につなぐか」を自然な文章とキーワードで登録。プログラミングやシナリオ設計は不要です。</p>
+                </div>
+                <div class="flow2-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+                <div class="flow2-auto">
+                    <span class="flow2-auto-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.7 5.3L19 9l-5.3 1.7L12 16l-1.7-5.3L5 9l5.3-1.7L12 2z"/><path d="M19 15l0.9 2.6L22.5 18.5l-2.6 0.9L19 22l-0.9-2.6L15.5 18.5l2.6-0.9L19 15z"/></svg>ここからはAIにおまかせ</span>
+                    <div class="flow2-chips">
+                        <span>着信をAIが受け、一次対応</span>
+                        <i aria-hidden="true">▼</i>
+                        <span>用件を聞き取り、意図を判断</span>
+                        <i aria-hidden="true">▼</i>
+                        <span>取次ルールに照合して振り分け</span>
+                        <i aria-hidden="true">▼</i>
+                        <span>アナウンスして、担当直通へ転送</span>
+                    </div>
+                </div>
+                <div class="flow2-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+                <div class="flow2-user">
+                    <span class="step-num">STEP 2</span>
+                    <h3>つながれた電話に対応</h3>
+                    <p>担当者は、AIが振り分けた用件に応対するだけ。転送前アナウンスと、応答なし時のフォールバック案内も自動です。</p>
+                </div>
+            </div>
+            <div class="flow-safety">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                <p><strong>安全弁：</strong>クレーム・決済/課金・本人確認・予約の確定・法的事項は、AIの確信度に関わらず必ず人へ取次します。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 4 PILLARS ===== -->
+    <section class="section" id="features">
+        <div class="container">
+            <span class="section-eyebrow">Features</span>
+            <h2 class="section-title">「リスクゼロで始め、データで育てる」ための4つの特長</h2>
+            <p class="section-subtitle">
+                いきなりAIに答えさせない。段階的に、可逆的に、データで広げる。<br>電話という「失敗できない接点」のための設計です。
+            </p>
+            <div class="pillars">
+
+                <div class="pillar-card">
+                    <div class="pillar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>取次に徹する、リスクゼロのスタート</h3>
+                    <p>最初はAIが受付と取次に専念し、すべての用件を人へつなぎます。AIが誤答するリスクがない状態で運用を始められ、その間も通話データは着実に蓄積されていきます。</p>
+                    <ul class="pillar-bullets">
+                        <li>全件を人へつなぐ「取次優先」で安全に開始。</li>
+                        <li>通話ログ・用件の傾向を運用しながら可視化。</li>
+                        <li>スタッフの回答が、AIの学習データに。</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                    </div>
+                    <h3>スライダー1本で、3段階の可逆制御</h3>
+                    <p>応答スタイルは「取次優先」「バランス」「自己解決優先」の3段階。管理画面のスライダー1本でAIの対応範囲を制御でき、不安になればいつでも保守側へ戻せます。</p>
+                    <div class="diagram">
+                        <div class="dg-slider-track"><span class="dg-slider-knob"></span></div>
+                        <div class="dg-slider-marks">
+                            <div class="now"><b>取次優先</b>全件を人へ。<br>まず安全に開始</div>
+                            <div class="mid"><b>バランス</b>簡単な質問はAI、<br>複雑・要対人は転送</div>
+                            <div class="right"><b>自己解決優先</b>AIが極力対応。<br>例外だけ人へ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+                    </div>
+                    <h3>確信度ゲートで、答える前に自己判定</h3>
+                    <p>AIは回答する前に、自分の回答候補の確信度を評価します。しきい値以上のときだけAIがその場で回答し、届かないときは「担当へおつなぎ」へ。任せる範囲を「勘」ではなくデータで広げられます。</p>
+                    <div class="diagram dg-gate">
+                        <div class="dg-gate-row"><span class="dg-dot dg-dot-gray"></span>お客様の質問を受け、AIが回答案と確信度を生成</div>
+                        <div class="dg-gate-row"><span class="dg-dot dg-dot-green"></span>確信度がしきい値以上 → AIがその場で回答</div>
+                        <div class="dg-gate-row"><span class="dg-dot dg-dot-purple"></span>しきい値未満 → 「担当へおつなぎします」</div>
+                    </div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    </div>
+                    <h3>重要な用件は、必ず人へつなぐ安全弁</h3>
+                    <p>確信度がどれほど高くても、AIに任せない領域をあらかじめ固定。重要な判断をAIが勝手に行うことを、設定ではなく構造で防ぎます。</p>
+                    <div class="safety-chips">
+                        <span>クレーム</span>
+                        <span>決済・課金</span>
+                        <span>本人確認</span>
+                        <span>予約・契約の確定</span>
+                        <span>法的事項</span>
+                    </div>
+                    <p class="pillar-note">上記の用件は、確信度に関わらず必ずスタッフへ取次します。</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMPARE ===== -->
+    <section class="section section-surface" id="compare">
+        <div class="container">
+            <span class="section-eyebrow">Why AI Phone</span>
+            <h2 class="section-title">番号プッシュ式の自動応答と、ここが違います</h2>
+            <p class="section-subtitle">
+                「1番を押してください」の分岐でも、いきなり全部AIに答えさせるのでもなく。<br>意図理解による取次から始める、段階設計のアプローチです。
+            </p>
+            <div class="compare-grid">
+                <div class="compare-card compare-ng">
+                    <h3>従来の自動音声応答（IVR）</h3>
+                    <ul>
+                        <li>お客様が番号プッシュで用件を選ぶ必要がある</li>
+                        <li>分岐に当てはまらない用件は行き場を失う</li>
+                        <li>分岐シナリオの設計・修正に手間がかかる</li>
+                        <li>結局オペレーターにつながるまでが長い</li>
+                    </ul>
+                </div>
+                <div class="compare-card compare-ok">
+                    <h3>GBase Support のAI電話受付・取次</h3>
+                    <ul>
+                        <li>お客様は用件を話すだけ。AIが意図を判断</li>
+                        <li>どれにも当てはまらない用件は既定の取次先へ</li>
+                        <li>取次ルールは自然な文章で登録・変更</li>
+                        <li>取次専用から始めて、AI回答へ段階的に拡大</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EFFECT ===== -->
+    <section class="section" id="effect">
+        <div class="container">
+            <span class="section-eyebrow">Value</span>
+            <h2 class="section-title">「失敗できない電話」だから、確実な設計で</h2>
+            <p class="section-subtitle">
+                効果を数字で誇張するのではなく、仕組みそのものに確実性を持たせました。
+            </p>
+            <div class="ev-grid">
+                <div class="ev-card">
+                    <span class="ev-tag">導入時のAI誤答リスク</span>
+                    <div class="ev-center">
+                        <div class="ev-lead">取次専用モードなら</div>
+                        <div class="ev-word">ゼロ</div>
+                    </div>
+                    <p class="ev-caption">「取次優先」ではAIは回答せず、受付と取次に徹するため、誤答が発生する余地がありません</p>
+                </div>
+                <div class="ev-card">
+                    <span class="ev-tag">電話の一次受付</span>
+                    <div class="ev-center">
+                        <div class="ev-word">24<small>時間</small>365<small>日</small></div>
+                    </div>
+                    <p class="ev-caption">夜間・繁忙期もAIが着信を受け、フォールバック案内まで自動で実行</p>
+                </div>
+                <div class="ev-card">
+                    <span class="ev-tag">シナリオ開発・プログラミング</span>
+                    <div class="ev-center">
+                        <div class="ev-word">不要</div>
+                    </div>
+                    <p class="ev-caption">取次ルールは「どんな用件のとき、誰につなぐか」を自然な文章で登録するだけ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SYNERGY ===== -->
+    <section class="section section-surface" id="synergy">
+        <div class="container">
+            <div class="synergy">
+                <div>
+                    <p class="synergy-eyebrow">With GBase Support</p>
+                    <h2>1つのナレッジベースが、<br>チャットにも、電話にも</h2>
+                    <p class="synergy-lead">
+                        AI電話は独立したツールではなく、GBase Supportの1機能です。FAQや資料を一度登録すれば、Web・LINE・店頭端末に加えて電話でも同じ知識で応答。すでにチャットボットを運用中なら、蓄積したナレッジをそのまま電話に活かせます。
+                    </p>
+                    <ul class="pillar-bullets">
+                        <li>ナレッジベース・管理画面はチャットボットと共通。</li>
+                        <li>電話の通話データも、ナレッジ改善の材料に。</li>
+                        <li>予約・カレンダーなどの業務システム連携に対応。</li>
+                    </ul>
+                    <a href="./index.html" class="synergy-link">GBase Support の全体像を見る</a>
+                </div>
+                <div class="synergy-visual">
+                    <p class="synergy-visual-label">One knowledge base, five channels</p>
+                    <div class="synergy-db" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    </div>
+                    <div class="synergy-channels">
+                        <div><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>店頭端末</div>
+                        <div><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>LINE</div>
+                        <div><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><line x1="14" y1="14" x2="17" y2="14"/><line x1="20" y1="14" x2="21" y2="14"/><line x1="14" y1="17" x2="14" y2="21"/><line x1="17" y1="17" x2="21" y2="17"/><line x1="21" y1="21" x2="21" y2="21"/></svg></div>QRコード</div>
+                        <div><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"/></svg></div>Web</div>
+                        <div class="sc-phone"><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>電話</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ROADMAP ===== -->
+    <section class="section" id="roadmap">
+        <div class="container">
+            <span class="section-eyebrow">Roadmap</span>
+            <h2 class="section-title">段階的に、無理なく対応範囲を広げる</h2>
+            <p class="section-subtitle">
+                取次で始めて、データを貯めて、確信度の高い用件から解禁する。<br>導入ロードマップのモデルケースです。
+            </p>
+            <div class="roadmap">
+                <div class="rm-card">
+                    <p class="rm-phase">PHASE 1</p>
+                    <h3>取次で稼働開始</h3>
+                    <p>AI取次で運用を開始し、通話データの収集をスタートします。</p>
+                </div>
+                <div class="rm-card">
+                    <p class="rm-phase">PHASE 2</p>
+                    <h3>ナレッジ拡充・学習</h3>
+                    <p>ナレッジを拡充しながら、用件ごとの確信度の実績を観察します。</p>
+                </div>
+                <div class="rm-card">
+                    <p class="rm-phase">PHASE 3</p>
+                    <h3>高確信カテゴリを解禁</h3>
+                    <p>確信度の高い用件から、AIによる直接回答を段階的に解禁します。</p>
+                </div>
+                <div class="rm-card">
+                    <p class="rm-phase">PHASE 4</p>
+                    <h3>自己解決を主体に</h3>
+                    <p>しきい値を調整しながら、AIが応対しきる範囲を広げていきます。</p>
+                </div>
+            </div>
+            <p class="section-note">※ 進め方はモデルケースです。実際のスケジュールは、用件の傾向・ナレッジの整備状況に合わせて設計します。</p>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section section-surface" id="faq">
+        <div class="container">
+            <span class="section-eyebrow">FAQ</span>
+            <h2 class="section-title">AI電話受付・取次によくあるご質問</h2>
+            <p class="section-subtitle">応答範囲・安全設計・設定方法について、よくいただくご質問にお答えします。</p>
+            <div class="faq-list">
+                <details>
+                    <summary>AIはどこまで電話に回答しますか？</summary>
+                    <p>応答スタイルは「取次優先」「バランス」「自己解決優先」の3段階から選べます。最初はAIが受付と取次に徹する「取次優先」で安全に開始し、運用データが蓄積されるにつれて、AIが直接回答する範囲を段階的に広げられます。設定はいつでも保守側へ戻せる可逆設計です。</p>
+                </details>
+                <details>
+                    <summary>クレームや決済などの重要な用件はどうなりますか？</summary>
+                    <p>クレーム・決済/課金・本人確認・予約や契約の確定・法的事項は、AIの確信度に関わらず必ずスタッフへ取次する設計です。AIが重要な判断を勝手に行うことは構造的にありません。</p>
+                </details>
+                <details>
+                    <summary>取次ルールはどのように設定しますか？</summary>
+                    <p>「どんな用件のとき、どの担当につなぐか」を自然な文章とキーワードで登録するだけです。取次先は複数登録でき、優先順位の上から順に判定されます。どれにも当てはまらない場合の既定の取次先も設定できます。</p>
+                </details>
+                <details>
+                    <summary>転送先が電話に出られなかった場合は？</summary>
+                    <p>応答がない場合は、あらかじめ設定した固定メッセージを自動で案内し、取りこぼしを防ぎます。転送前には「担当におつなぎします」のアナウンスも自動で読み上げます。</p>
+                </details>
+                <details>
+                    <summary>チャットボットと同じ知識を使えますか？</summary>
+                    <p>はい。GBase Supportのナレッジベースをそのまま電話の応答に活用します。FAQや資料を一度登録すれば、Web・LINE・店頭端末・電話のすべての接点で共通利用でき、電話の通話データもナレッジの改善に活かせます。</p>
+                </details>
+                <details>
+                    <summary>導入はどのように進みますか？</summary>
+                    <p>まずAIが受付と取次に徹する段階から運用を開始し、通話データを蓄積しながら、AIが直接回答する範囲を段階的に広げていくのが標準的な進め方です。スケジュールや費用の詳細はお問い合わせください。</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>電話対応の自動化、<span class="accent">リスクゼロ</span>から始めませんか</h2>
+            <p>まずはAIが受付と取次に徹する段階から。<br>貴社の電話対応の課題に合わせた進め方を、ご提案します。</p>
+            <div class="cta-buttons">
+                <a href="https://cs.gbase.ai/contact" class="btn btn-primary">お問い合わせ</a>
+                <a href="https://cs.gbase.ai/register" class="btn btn-secondary">無料ではじめる</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p class="col-title">ソリューション</p>
+                    <ul>
+                        <li><a href="https://cs.gbase.ai/solution">商業施設・百貨店</a></li>
+                    </ul>
+                    <p class="col-title">製品</p>
+                    <ul>
+                        <li><a href="./concierge.html">GBase Concierge</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="col-title">機能</p>
+                    <ul>
+                        <li><a href="https://cs.gbase.ai/solution#feature-faq">FAQ・施設案内AI</a></li>
+                        <li><a href="./ai-phone.html">AI電話受付・取次</a></li>
+                        <li><a href="https://cs.gbase.ai/solution#feature-floormap">フロアマップ・ナビゲーション</a></li>
+                        <li><a href="https://cs.gbase.ai/solution#feature-realtime">リアルタイム会話</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="col-title">リソース</p>
+                    <ul>
+                        <li><a href="https://cs.gbase.ai/showcase/newoman-takanawa">導入事例</a></li>
+                        <li><a href="https://cs.gbase.ai/blog">ブログ</a></li>
+                        <li><a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener noreferrer">マニュアル</a></li>
+                        <li><a href="https://cs.gbase.ai/blog/release-notes/">リリースノート</a></li>
+                        <li><a href="https://cs.gbase.ai/price">料金</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="col-title">その他のプロダクト</p>
+                    <ul>
+                        <li><a href="https://gbase.ai/" target="_blank" rel="noopener">GBase<small>（ナレッジ AI）</small></a></li>
+                        <li><a href="https://onprem.gbase.ai/" target="_blank" rel="noopener">GBase OnPrem<small>（オンプレ AI）</small></a></li>
+                        <li><a href="https://subtitles.felo.me/" target="_blank" rel="noopener">Felo Subtitles<small>（多言語字幕）</small></a></li>
+                        <li><a href="https://s.gbase.ai/" target="_blank" rel="noopener">GBase GTM<small>（顧客獲得 AI）</small></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="col-title">Sparticle について</p>
+                    <ul>
+                        <li><a href="https://www.sparticle.com/" target="_blank" rel="noopener">会社概要</a></li>
+                    </ul>
+                    <div class="footer-sns">
+                        <a href="https://x.com/sparticle_ai" target="_blank" rel="noopener" aria-label="X" title="X (Twitter)">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://note.com/sparticle" target="_blank" rel="noopener" aria-label="note" title="note">
+                            <svg viewBox="0 0 24 24"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/sparticle-inc" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sparticle Inc. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="https://cs.gbase.ai/privacy-policy">プライバシーポリシー</a>
+                    <a href="https://cs.gbase.ai/terms-of-use">利用規約</a>
+                    <a href="https://cs.gbase.ai/legal/specific-based">特定商取引法</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
