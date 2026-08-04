@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI電話受付・取次｜電話の一次対応と転送を自動化｜GBase Support</title>
+  <meta name="description" content="GBase SupportのAI電話受付・取次は、着信にAIが自然な音声で一次対応し、用件の意図を判断して最適な担当・部署へ自動で転送。取次専用の「リスクゼロ」から始めて、AIの対応範囲を段階的に広げられる可逆設計です。">
+  <meta name="keywords" content="AI電話, 電話自動応答, AI電話受付, 電話取次 自動化, 電話転送 AI, ボイスボット, IVR, GBase Support">
+  <link rel="canonical" href="https://cs.gbase.ai/ai-phone">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI電話受付・取次｜電話の一次対応と転送を自動化｜GBase Support">
+  <meta property="og:description" content="着信にAIが一次対応し、用件の意図を判断して最適な担当へ自動で取次。取次専用の「リスクゼロ」から始められる、可逆設計の電話AIです。">
+  <meta property="og:image" content="https://cs.gbase.ai/title-logo.png">
+  <meta property="og:url" content="https://cs.gbase.ai/ai-phone">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="GBase Support">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI電話受付・取次｜GBase Support">
+  <meta name="twitter:description" content="着信にAIが一次対応し、意図を判断して最適な担当へ自動で取次。リスクゼロから始められる可逆設計の電話AI。">
+  <meta name="twitter:image" content="https://cs.gbase.ai/title-logo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#F5F3FF', 100:'#EDE9FE', 200:'#DDD6FE', 300:'#C4B5FD', 400:'#A78BFA', 500:'#7C68FB', 600:'#6D55F5', 700:'#5B45E0', 800:'#4C38C2', 900:'#3B2D8F' },
+            accent: { 400:'#FB923C', 500:'#F97316', 600:'#EA580C' },
+            success: { 50:'#F0FDF4', 500:'#22C55E', 600:'#16A34A' },
+            dark: { 800:'#1F2937', 900:'#111827' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .icon { font-family: 'Material Symbols Rounded'; font-size: 24px; font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
+    .gradient-text { background: linear-gradient(135deg, #7C68FB 0%, #A78BFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(124,104,251,0.1), 0 8px 16px rgba(0,0,0,0.04); }
+    .btn-3d { box-shadow: 0 4px 14px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.08); transition: all 0.25s ease; }
+    .btn-3d:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.1); }
+    .btn-3d:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+    .section-note { max-width: 1100px; margin: 1.5rem auto 0; font-size: 0.74rem; line-height: 1.6; text-align: center; color: #6B7280; }
+  </style>
+
+  <!-- Structured Data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GBase Support AI電話受付・取次",
+    "operatingSystem": "Web",
+    "applicationCategory": "BusinessApplication",
+    "url": "https://cs.gbase.ai/ai-phone",
+    "isPartOf": {
+      "@type": "SoftwareApplication",
+      "name": "GBase Support",
+      "url": "https://cs.gbase.ai/"
+    },
+    "featureList": [
+      "AIによる電話の一次対応",
+      "意図判断による自動取次（転送）",
+      "自然文で設定できる取次ルール",
+      "転送前アナウンス・フォールバック",
+      "応答スタイルの3段階制御（取次優先・バランス・自己解決優先）",
+      "重要用件を必ず人へつなぐ安全設計"
+    ],
+    "description": "着信にAIが自然な音声で一次対応し、用件の意図を判断して最適な担当・部署へ自動で取次（転送）する、GBase Supportの電話AI機能です。"
+  }
+  </script>
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sparticle Inc.",
+    "url": "https://cs.gbase.ai",
+    "logo": "https://cs.gbase.ai/title-logo.png",
+    "sameAs": [
+      "https://x.com/sparticle_ai",
+      "https://note.com/sparticle",
+      "https://www.linkedin.com/company/sparticle-inc"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "AIはどこまで電話に回答しますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "応答スタイルは「取次優先」「バランス」「自己解決優先」の3段階から選べます。最初はAIが受付と取次に徹する「取次優先」で安全に開始し、運用データが蓄積されるにつれて、AIが直接回答する範囲を段階的に広げられます。設定はいつでも保守側へ戻せる可逆設計です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "クレームや決済などの重要な用件はどうなりますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "クレーム・決済/課金・本人確認・予約や契約の確定・法的事項は、AIの確信度に関わらず必ずスタッフへ取次する設計です。AIが重要な判断を勝手に行うことは構造的にありません。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "取次ルールはどのように設定しますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "「どんな用件のとき、どの担当につなぐか」を自然な文章とキーワードで登録するだけです。取次先は複数登録でき、優先順位の上から順に判定されます。どれにも当てはまらない場合の既定の取次先も設定できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "転送先が電話に出られなかった場合は？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "応答がない場合は、あらかじめ設定した固定メッセージを自動で案内し、取りこぼしを防ぎます。転送前には「担当におつなぎします」のアナウンスも自動で読み上げます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "チャットボットと同じ知識を使えますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。GBase Supportのナレッジベースをそのまま電話の応答に活用します。FAQや資料を一度登録すれば、Web・LINE・店頭端末・電話のすべての接点で共通利用でき、電話の通話データもナレッジの改善に活かせます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "導入はどのように進みますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "まずAIが受付と取次に徹する段階から運用を開始し、通話データを蓄積しながら、AIが直接回答する範囲を段階的に広げていくのが標準的な進め方です。スケジュールや費用の詳細はお問い合わせください。"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+  <!-- ===== NAVIGATION (GBase official style) ===== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+    <div class="px-4 md:px-10 lg:px-40 flex justify-center">
+      <div class="flex h-16 w-full max-w-[1200px] items-center justify-between">
+        <div class="flex items-center">
+          <a class="flex items-center hover:opacity-80 transition-opacity" href="https://cs.gbase.ai/">
+            <img src="https://cs.gbase.ai/title-logo.png" alt="GBase Support" class="h-8 w-auto">
+          </a>
+        </div>
+        <nav class="hidden md:flex items-center">
+          <nav class="flex items-center gap-8">
+            <a class="text-sm font-medium py-5 border-b-2 border-transparent hover:text-orange-500 transition-colors text-gray-700" href="https://cs.gbase.ai/">ホーム</a>
+            <div class="relative group">
+              <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-orange-500 py-5 border-b-2 border-transparent transition-colors">
+                ソリューション
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-56 z-50">
+                <div class="bg-white border border-gray-200 rounded-lg shadow-xl p-2 flex flex-col gap-1">
+                  <a class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors" href="https://cs.gbase.ai/solution">
+                    <div class="font-medium">商業施設・百貨店</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="relative group">
+              <button class="flex items-center gap-1 text-sm font-medium text-orange-500 py-5 border-b-2 border-orange-500 transition-colors">
+                製品／機能
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
+                <div class="bg-white border border-gray-200 rounded-lg shadow-xl p-5 grid grid-cols-2 gap-6 w-[620px]">
+                  <!-- 製品 Column -->
+                  <div>
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-3">製品</p>
+                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="./concierge.html">
+                      <div class="flex items-start gap-3">
+                        <span class="icon text-orange-500 mt-0.5">support_agent</span>
+                        <div>
+                          <div class="font-bold text-sm text-gray-900">GBase Concierge</div>
+                          <div class="text-xs text-gray-500 mt-0.5">多言語対応AIコンシェルジュ</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <!-- 機能 Column -->
+                  <div>
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-3">機能</p>
+                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="https://cs.gbase.ai/solution#feature-faq">
+                      <div class="flex items-start gap-3">
+                        <span class="icon text-gray-500 mt-0.5">help</span>
+                        <div>
+                          <div class="font-bold text-sm text-gray-900">FAQ・施設案内AI</div>
+                          <div class="text-xs text-gray-500 mt-0.5">よくある質問を自動対応</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="block px-3 py-2.5 bg-orange-50 rounded-lg transition-colors" href="./ai-phone.html">
+                      <div class="flex items-start gap-3">
+                        <span class="icon text-orange-500 mt-0.5">call</span>
+                        <div>
+                          <div class="font-bold text-sm text-gray-900">AI電話受付・取次 <span class="text-[10px] font-bold text-white bg-accent-500 rounded px-1.5 py-0.5 ml-1 align-middle">NEW</span></div>
+                          <div class="text-xs text-gray-500 mt-0.5">電話の一次対応と転送を自動化</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="https://cs.gbase.ai/solution#feature-floormap">
+                      <div class="flex items-start gap-3">
+                        <span class="icon text-gray-500 mt-0.5">map</span>
+                        <div>
+                          <div class="font-bold text-sm text-gray-900">フロアマップ・ナビゲーション</div>
+                          <div class="text-xs text-gray-500 mt-0.5">3Dマップで目的地まで案内</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="block px-3 py-2.5 hover:bg-orange-50 rounded-lg transition-colors" href="https://cs.gbase.ai/solution#feature-realtime">
+                      <div class="flex items-start gap-3">
+                        <span class="icon text-gray-500 mt-0.5">record_voice_over</span>
+                        <div>
+                          <div class="font-bold text-sm text-gray-900">リアルタイム会話</div>
+                          <div class="text-xs text-gray-500 mt-0.5">10言語以上の音声対話</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="text-sm font-medium py-5 border-b-2 border-transparent hover:text-orange-500 transition-colors text-gray-700" href="https://cs.gbase.ai/price">料金</a>
+            <div class="relative group">
+              <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-orange-500 py-5 border-b-2 border-transparent transition-colors">
+                リソース
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-56 z-50">
+                <div class="bg-white border border-gray-200 rounded-lg shadow-xl p-2 flex flex-col gap-1">
+                  <a class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors" href="https://cs.gbase.ai/showcase/newoman-takanawa"><div class="font-medium">導入事例</div></a>
+                  <a class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors" href="https://cs.gbase.ai/blog"><div class="font-medium">ブログ</div></a>
+                  <a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors"><div class="font-medium">マニュアル</div></a>
+                  <a href="https://cs.gbase.ai/blog/release-notes/" class="block px-4 py-2 text-sm hover:bg-orange-50 rounded text-gray-700 transition-colors"><div class="font-medium">リリースノート</div></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
+          <a href="https://admin.gbase.ai" class="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors">ログイン</a>
+          <a class="flex items-center justify-center rounded-full h-10 px-5 border border-gray-300 hover:border-gray-700 transition-colors text-gray-700 text-sm font-medium" href="https://cs.gbase.ai/register">無料ではじめる</a>
+          <a href="https://cs.gbase.ai/contact" class="flex items-center justify-center rounded-full h-10 px-5 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 transition-all text-white text-sm font-medium">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="pt-36 pb-24" style="background: linear-gradient(180deg, #F3F3FE 0%, #FFFFFF 100%);">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-500/10 text-accent-600 text-sm font-bold rounded-full mb-6">
+        <span class="icon text-base">call</span>
+        新機能 · GBase Support
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-6">
+        <span class="gradient-text">AI電話受付・取次</span><br>
+        電話の一次対応から転送まで、AIが受ける。
+      </h1>
+      <p class="text-lg text-gray-600 leading-relaxed mb-10 max-w-2xl mx-auto">
+        GBase Supportのナレッジベースが、そのまま電話に。<br>
+        まずはAIが受付と取次に徹する「リスクゼロ」から始めて、<br>
+        運用データに合わせて対応範囲を広げられる、可逆設計の電話AIです。
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://cs.gbase.ai/contact" class="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-lg btn-3d">
+          お問い合わせ
+        </a>
+        <a href="https://cs.gbase.ai/register" class="px-8 py-3.5 bg-white text-gray-700 border border-gray-300 hover:border-gray-700 font-semibold rounded-full transition-all duration-300 cursor-pointer text-lg">
+          無料ではじめる
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAIN + SOLUTION (3 personas) ===== -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-sm text-primary-500 font-semibold mb-3">こんな課題はありませんか</p>
+        <h2 class="text-3xl font-bold">電話は「取りこぼし」と「取次コスト」の宝庫</h2>
+      </div>
+
+      <!-- Pain cards -->
+      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-4">
+        <div class="bg-white rounded-2xl p-8 border border-gray-200">
+          <p class="text-xs font-bold text-gray-400 mb-3">ホテル・宿泊</p>
+          <h3 class="text-lg font-bold mb-3">夜間・繁忙期に、電話がつながらない</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">フロントの電話の多くは料金・チェックイン時間・館内案内などの定型の問い合わせ。人手に頼ると24時間対応は難しく、混雑時は取りこぼしと折返し対応の負担が重なります。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-gray-200">
+          <p class="text-xs font-bold text-gray-400 mb-3">商業施設・百貨店</p>
+          <h3 class="text-lg font-bold mb-3">「担当は誰か」を判断する取次が、そのままコストに</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">代表電話にかかってくる用件は多種多様。内容を聞き取り、該当部署や店舗を判断して転送する作業に、スタッフの時間が奪われ続けています。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-gray-200">
+          <p class="text-xs font-bold text-gray-400 mb-3">コールセンター・サポート窓口</p>
+          <h3 class="text-lg font-bold mb-3">同じ質問の繰り返しが、オペレーターを圧迫</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">FAQで解決できるはずの用件に応対時間が割かれ、本来注力すべき複雑な問い合わせへの対応品質に影響が出ています。</p>
+        </div>
+      </div>
+
+      <div class="text-center my-10">
+        <p class="text-xl font-bold">これらの課題を、<span class="gradient-text">AI電話受付・取次</span>が解決します</p>
+      </div>
+
+      <!-- Solution cards -->
+      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div class="bg-white rounded-2xl p-8 border border-primary-200 card-hover">
+          <div class="w-12 h-12 mb-5 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
+            <span class="icon text-white">nights_stay</span>
+          </div>
+          <h3 class="text-lg font-bold mb-4">24時間の一次受付で、取りこぼしを防止</h3>
+          <ul class="space-y-2 text-sm text-gray-600 mb-5">
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>着信をAIが受け、自然な音声で一次対応。</li>
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>夜間・繁忙期も受付を継続。</li>
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>応答なし時はフォールバック案内で対応。</li>
+          </ul>
+          <a href="https://cs.gbase.ai/contact" class="text-sm font-semibold text-primary-600 hover:text-primary-700 border-t border-gray-100 pt-4 block">ホテルでの活用を相談する →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-primary-200 card-hover">
+          <div class="w-12 h-12 mb-5 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
+            <span class="icon text-white">alt_route</span>
+          </div>
+          <h3 class="text-lg font-bold mb-4">意図判断で、最適な部署へ自動取次</h3>
+          <ul class="space-y-2 text-sm text-gray-600 mb-5">
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>用件を聞き取り、取次ルールに自動照合。</li>
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>担当・部署ごとの直通番号へ転送。</li>
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>ルールは自然な文章で登録するだけ。</li>
+          </ul>
+          <a href="https://cs.gbase.ai/solution" class="text-sm font-semibold text-primary-600 hover:text-primary-700 border-t border-gray-100 pt-4 block">商業施設向けソリューションを見る →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-primary-200 card-hover">
+          <div class="w-12 h-12 mb-5 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
+            <span class="icon text-white">support_agent</span>
+          </div>
+          <h3 class="text-lg font-bold mb-4">定型はAIへ、複雑な用件は人へ分流</h3>
+          <ul class="space-y-2 text-sm text-gray-600 mb-5">
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>FAQ相当の用件は段階的にAIが回答。</li>
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>複雑・要対人の用件はオペレーターへ転送。</li>
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>人の回答データがAIの学習データに。</li>
+          </ul>
+          <a href="./case-study-his-mobile.html" class="text-sm font-semibold text-primary-600 hover:text-primary-700 border-t border-gray-100 pt-4 block">サポート窓口の導入事例を読む →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS FLOW (5 steps) ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-sm text-primary-500 font-semibold mb-3">取次のプロセス</p>
+        <h2 class="text-3xl font-bold">着信から取次まで、5ステップ</h2>
+      </div>
+      <div class="grid md:grid-cols-5 gap-4 max-w-6xl mx-auto">
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
+          <p class="text-xs font-bold text-primary-500 mb-3">STEP 1</p>
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center"><span class="icon text-white">call</span></div>
+          <h3 class="font-bold mb-2">着信</h3>
+          <p class="text-xs text-gray-600">AIが電話を受ける</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
+          <p class="text-xs font-bold text-primary-500 mb-3">STEP 2</p>
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center"><span class="icon text-white">psychology</span></div>
+          <h3 class="font-bold mb-2">意図理解</h3>
+          <p class="text-xs text-gray-600">用件を聞き取り解析</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
+          <p class="text-xs font-bold text-primary-500 mb-3">STEP 3</p>
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center"><span class="icon text-white">alt_route</span></div>
+          <h3 class="font-bold mb-2">振り分け</h3>
+          <p class="text-xs text-gray-600">取次先ルールに照合</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
+          <p class="text-xs font-bold text-primary-500 mb-3">STEP 4</p>
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center"><span class="icon text-white">campaign</span></div>
+          <h3 class="font-bold mb-2">アナウンス</h3>
+          <p class="text-xs text-gray-600">つなぎ先を一言案内</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
+          <p class="text-xs font-bold text-primary-500 mb-3">STEP 5</p>
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center"><span class="icon text-white">phone_forwarded</span></div>
+          <h3 class="font-bold mb-2">取次</h3>
+          <p class="text-xs text-gray-600">担当の直通へ転送</p>
+        </div>
+      </div>
+      <div class="max-w-4xl mx-auto mt-10 bg-primary-50 rounded-2xl p-6 flex items-start gap-4">
+        <span class="icon text-primary-600 mt-0.5">shield</span>
+        <p class="text-sm text-gray-700 leading-relaxed"><strong>安全弁：</strong>クレーム・決済/課金・本人確認・予約の確定・法的事項は、AIの確信度に関わらず必ず人へ取次します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4 PILLARS ===== -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-sm text-primary-500 font-semibold mb-3">4つの特長</p>
+        <h2 class="text-3xl font-bold">「リスクゼロで始め、データで育てる」ための4つの柱</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+
+        <!-- Pillar 1 -->
+        <div class="bg-white rounded-2xl p-10 border border-gray-200 card-hover">
+          <div class="w-12 h-12 mb-6 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
+            <span class="icon text-white">verified_user</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">取次に徹する、リスクゼロのスタート</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-5">最初はAIが受付と取次に専念し、すべての用件を人へつなぎます。AIが誤答するリスクがない状態で運用を始められ、その間も通話データは着実に蓄積されていきます。</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>全件を人へつなぐ「取次優先」で安全に開始。</li>
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>通話ログ・用件の傾向を運用しながら可視化。</li>
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>スタッフの回答が、AIの学習データに。</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-white rounded-2xl p-10 border border-gray-200 card-hover">
+          <div class="w-12 h-12 mb-6 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
+            <span class="icon text-white">tune</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">スライダー1本で、3段階の可逆制御</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-5">応答スタイルは「取次優先」「バランス」「自己解決優先」の3段階。管理画面のスライダー1本でAIの対応範囲を制御でき、不安になればいつでも保守側へ戻せます。</p>
+          <!-- CSS slider diagram -->
+          <div class="bg-gray-50 rounded-xl p-5">
+            <div class="relative h-2 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-600 rounded-full mb-4">
+              <span class="absolute -top-1.5 left-0 w-5 h-5 bg-white border-2 border-primary-600 rounded-full shadow"></span>
+            </div>
+            <div class="flex justify-between text-xs text-gray-600">
+              <div class="text-left"><p class="font-bold text-primary-700">取次優先</p><p class="mt-1">全件を人へ。<br>まず安全に開始</p></div>
+              <div class="text-center"><p class="font-bold text-gray-700">バランス</p><p class="mt-1">簡単な質問はAI、<br>複雑・要対人は転送</p></div>
+              <div class="text-right"><p class="font-bold text-gray-700">自己解決優先</p><p class="mt-1">AIが極力対応。<br>例外だけ人へ</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-white rounded-2xl p-10 border border-gray-200 card-hover">
+          <div class="w-12 h-12 mb-6 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
+            <span class="icon text-white">speed</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">確信度ゲートで、答える前に自己判定</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-5">AIは回答する前に、自分の回答候補の確信度を評価します。しきい値以上のときだけAIがその場で回答し、届かないときは「担当へおつなぎ」へ。任せる範囲を「勘」ではなくデータで広げられます。</p>
+          <!-- CSS gate diagram -->
+          <div class="bg-gray-50 rounded-xl p-5 space-y-3 text-sm">
+            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 shrink-0"></span><p class="text-gray-700">お客様の質問を受け、AIが回答案と確信度を生成</p></div>
+            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-success-500 shrink-0"></span><p class="text-gray-700">確信度がしきい値以上 → AIがその場で回答</p></div>
+            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-primary-500 shrink-0"></span><p class="text-gray-700">しきい値未満 → 「担当へおつなぎします」</p></div>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="bg-white rounded-2xl p-10 border border-gray-200 card-hover">
+          <div class="w-12 h-12 mb-6 rounded-xl bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
+            <span class="icon text-white">shield</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">重要な用件は、必ず人へつなぐ安全弁</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-5">確信度がどれほど高くても、AIに任せない領域をあらかじめ固定。重要な判断をAIが勝手に行うことを、設定ではなく構造で防ぎます。</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-gray-100 rounded-full text-xs font-semibold text-gray-700">クレーム</span>
+            <span class="px-3 py-1.5 bg-gray-100 rounded-full text-xs font-semibold text-gray-700">決済・課金</span>
+            <span class="px-3 py-1.5 bg-gray-100 rounded-full text-xs font-semibold text-gray-700">本人確認</span>
+            <span class="px-3 py-1.5 bg-gray-100 rounded-full text-xs font-semibold text-gray-700">予約・契約の確定</span>
+            <span class="px-3 py-1.5 bg-gray-100 rounded-full text-xs font-semibold text-gray-700">法的事項</span>
+          </div>
+          <p class="text-xs text-gray-500 mt-4">上記の用件は、確信度に関わらず必ずスタッフへ取次します。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SYNERGY with GBase Support ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-sm text-primary-500 font-semibold mb-3">GBase Support との連携</p>
+          <h2 class="text-3xl font-bold leading-snug mb-6">1つのナレッジベースが、<br>チャットにも、電話にも</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            AI電話は独立したツールではなく、GBase Supportの1機能です。FAQや資料を一度登録すれば、Web・LINE・店頭端末に加えて電話でも同じ知識で応答。すでにチャットボットを運用中なら、蓄積したナレッジをそのまま電話に活かせます。
+          </p>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>ナレッジベース・管理画面はチャットボットと共通。</li>
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>電話の通話データも、ナレッジ改善の材料に。</li>
+            <li class="flex items-start gap-2"><span class="icon text-primary-500 text-base mt-0.5">check</span>予約・カレンダーなどの業務システム連携に対応。</li>
+          </ul>
+          <div class="mt-8">
+            <a href="./index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700">
+              GBase Support の全体像を見る
+              <span class="icon text-base">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-primary-50 to-white rounded-3xl border border-primary-100 p-10 text-center">
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6">1つのナレッジベース、5つの接点</p>
+          <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-primary-500 to-primary-400 mb-8">
+            <span class="icon text-white" style="font-size:40px;">database</span>
+          </div>
+          <div class="grid grid-cols-5 gap-3 text-xs text-gray-600">
+            <div><div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-white border border-gray-200 flex items-center justify-center"><span class="icon text-primary-500">storefront</span></div>店頭端末</div>
+            <div><div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-white border border-gray-200 flex items-center justify-center"><span class="icon text-primary-500">chat</span></div>LINE</div>
+            <div><div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-white border border-gray-200 flex items-center justify-center"><span class="icon text-primary-500">qr_code_2</span></div>QRコード</div>
+            <div><div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-white border border-gray-200 flex items-center justify-center"><span class="icon text-primary-500">language</span></div>Web</div>
+            <div><div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-accent-500/10 border border-accent-500 flex items-center justify-center"><span class="icon text-accent-600">call</span></div>電話</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROADMAP ===== -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-sm text-primary-500 font-semibold mb-3">導入ロードマップ（モデルケース）</p>
+        <h2 class="text-3xl font-bold">月単位で、無理なく対応範囲を広げる</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div class="bg-white rounded-2xl p-8 border border-gray-200">
+          <p class="text-xs font-bold text-primary-500 mb-3">PHASE 1</p>
+          <h3 class="font-bold mb-3">取次で稼働開始</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">AI取次で運用を開始し、通話データの収集をスタートします。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-gray-200">
+          <p class="text-xs font-bold text-primary-500 mb-3">PHASE 2</p>
+          <h3 class="font-bold mb-3">ナレッジ拡充・学習</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">ナレッジを拡充しながら、用件ごとの確信度の実績を観察します。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-gray-200">
+          <p class="text-xs font-bold text-primary-500 mb-3">PHASE 3</p>
+          <h3 class="font-bold mb-3">高確信カテゴリを解禁</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">確信度の高い用件から、AIによる直接回答を段階的に解禁します。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-gray-200">
+          <p class="text-xs font-bold text-primary-500 mb-3">PHASE 4</p>
+          <h3 class="font-bold mb-3">自己解決を主体に</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">しきい値を調整しながら、AIが応対しきる範囲を広げていきます。</p>
+        </div>
+      </div>
+      <p class="section-note">※ 進め方はモデルケースです。実際のスケジュールは、用件の傾向・ナレッジの整備状況に合わせて設計します。</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-sm text-primary-500 font-semibold mb-3">FAQ</p>
+        <h2 class="text-3xl font-bold">よくあるご質問</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
+            <span>AIはどこまで電話に回答しますか？</span>
+            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            応答スタイルは「取次優先」「バランス」「自己解決優先」の3段階から選べます。最初はAIが受付と取次に徹する「取次優先」で安全に開始し、運用データが蓄積されるにつれて、AIが直接回答する範囲を段階的に広げられます。設定はいつでも保守側へ戻せる可逆設計です。
+          </p>
+        </details>
+        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
+            <span>クレームや決済などの重要な用件はどうなりますか？</span>
+            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            クレーム・決済/課金・本人確認・予約や契約の確定・法的事項は、AIの確信度に関わらず必ずスタッフへ取次する設計です。AIが重要な判断を勝手に行うことは構造的にありません。
+          </p>
+        </details>
+        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
+            <span>取次ルールはどのように設定しますか？</span>
+            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            「どんな用件のとき、どの担当につなぐか」を自然な文章とキーワードで登録するだけです。取次先は複数登録でき、優先順位の上から順に判定されます。どれにも当てはまらない場合の既定の取次先も設定できます。
+          </p>
+        </details>
+        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
+            <span>転送先が電話に出られなかった場合は？</span>
+            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            応答がない場合は、あらかじめ設定した固定メッセージを自動で案内し、取りこぼしを防ぎます。転送前には「担当におつなぎします」のアナウンスも自動で読み上げます。
+          </p>
+        </details>
+        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
+            <span>チャットボットと同じ知識を使えますか？</span>
+            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            はい。GBase Supportのナレッジベースをそのまま電話の応答に活用します。FAQや資料を一度登録すれば、Web・LINE・店頭端末・電話のすべての接点で共通利用でき、電話の通話データもナレッジの改善に活かせます。
+          </p>
+        </details>
+        <details class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-primary-300 transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-gray-900">
+            <span>導入はどのように進みますか？</span>
+            <span class="icon text-primary-500 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            まずAIが受付と取次に徹する段階から運用を開始し、通話データを蓄積しながら、AIが直接回答する範囲を段階的に広げていくのが標準的な進め方です。スケジュールや費用の詳細はお問い合わせください。
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section id="contact" class="py-24 bg-gradient-to-br from-dark-800 to-dark-900 text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+        電話対応の自動化、<span class="gradient-text">リスクゼロ</span>から始めませんか
+      </h2>
+      <p class="text-gray-400 mb-10 max-w-3xl mx-auto">
+        まずはAIが受付と取次に徹する段階から。<br>
+        貴社の電話対応の課題に合わせた進め方を、ご提案します。
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://cs.gbase.ai/contact" class="px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold rounded-full cursor-pointer text-lg btn-3d transition-all">
+          お問い合わせ
+        </a>
+        <a href="https://cs.gbase.ai/register" class="px-10 py-4 border-2 border-white/20 text-white font-semibold rounded-full cursor-pointer text-lg btn-3d">
+          無料ではじめる
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (GBase official style) ===== -->
+  <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+    <div class="px-4 md:px-10 lg:px-40 flex justify-center">
+      <div class="w-full max-w-[1200px]">
+        <div class="grid md:grid-cols-5 gap-8 mb-12">
+          <div>
+            <p class="font-semibold text-gray-900 text-sm mb-4">ソリューション</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="https://cs.gbase.ai/solution" class="text-gray-600 hover:text-orange-500 transition-colors">商業施設・百貨店</a></li>
+            </ul>
+            <p class="font-semibold text-gray-900 text-sm mt-6 mb-4">製品</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="./concierge.html" class="text-gray-600 hover:text-orange-500 transition-colors">GBase Concierge</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-900 text-sm mb-4">機能</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="https://cs.gbase.ai/solution#feature-faq" class="text-gray-600 hover:text-orange-500 transition-colors">FAQ・施設案内AI</a></li>
+              <li><a href="./ai-phone.html" class="text-gray-600 hover:text-orange-500 transition-colors">AI電話受付・取次</a></li>
+              <li><a href="https://cs.gbase.ai/solution#feature-floormap" class="text-gray-600 hover:text-orange-500 transition-colors">フロアマップ・ナビゲーション</a></li>
+              <li><a href="https://cs.gbase.ai/solution#feature-realtime" class="text-gray-600 hover:text-orange-500 transition-colors">リアルタイム会話</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-900 text-sm mb-4">リソース</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="https://cs.gbase.ai/showcase/newoman-takanawa" class="text-gray-600 hover:text-orange-500 transition-colors">導入事例</a></li>
+              <li><a href="https://cs.gbase.ai/blog" class="text-gray-600 hover:text-orange-500 transition-colors">ブログ</a></li>
+              <li><a href="https://docs.gbase.ai/user-manual/quickstart" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-orange-500 transition-colors">マニュアル</a></li>
+              <li><a href="https://cs.gbase.ai/blog/release-notes/" class="text-gray-600 hover:text-orange-500 transition-colors">リリースノート</a></li>
+              <li><a href="https://cs.gbase.ai/price" class="text-gray-600 hover:text-orange-500 transition-colors">料金</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-900 text-sm mb-4">その他のプロダクト</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="https://gbase.ai/" target="_blank" rel="noopener" class="text-gray-600 hover:text-orange-500 transition-colors whitespace-nowrap">GBase<span class="text-gray-400 ml-1 text-xs">（ナレッジ AI）</span></a></li>
+              <li><a href="https://onprem.gbase.ai/" target="_blank" rel="noopener" class="text-gray-600 hover:text-orange-500 transition-colors whitespace-nowrap">GBase OnPrem<span class="text-gray-400 ml-1 text-xs">（オンプレ AI）</span></a></li>
+              <li><a href="https://subtitles.felo.me/" target="_blank" rel="noopener" class="text-gray-600 hover:text-orange-500 transition-colors whitespace-nowrap">Felo Subtitles<span class="text-gray-400 ml-1 text-xs">（多言語字幕）</span></a></li>
+              <li><a href="https://s.gbase.ai/" target="_blank" rel="noopener" class="text-gray-600 hover:text-orange-500 transition-colors whitespace-nowrap">GBase GTM<span class="text-gray-400 ml-1 text-xs">（顧客獲得 AI）</span></a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-900 text-sm mb-4">Sparticle について</p>
+            <ul class="space-y-2 text-sm">
+              <li><a href="https://www.sparticle.com/" target="_blank" rel="noopener" class="text-gray-600 hover:text-orange-500 transition-colors">会社概要</a></li>
+            </ul>
+            <div class="flex gap-3 mt-4">
+              <a href="https://x.com/sparticle_ai" target="_blank" rel="noopener" aria-label="X" title="X (Twitter)" class="text-gray-500 hover:text-orange-500 transition-colors">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://note.com/sparticle" target="_blank" rel="noopener" aria-label="note" title="note" class="text-gray-500 hover:text-orange-500 transition-colors">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/company/sparticle-inc" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn" class="text-gray-500 hover:text-orange-500 transition-colors">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-200 pt-8 flex flex-wrap justify-between items-center gap-4">
+          <p class="text-xs text-gray-500">&copy; 2026 Sparticle Inc. All rights reserved.</p>
+          <div class="flex gap-6 text-xs">
+            <a href="https://cs.gbase.ai/privacy-policy" class="text-gray-500 hover:text-orange-500 transition-colors">プライバシーポリシー</a>
+            <a href="https://cs.gbase.ai/terms-of-use" class="text-gray-500 hover:text-orange-500 transition-colors">利用規約</a>
+            <a href="https://cs.gbase.ai/legal/specific-based" class="text-gray-500 hover:text-orange-500 transition-colors">特定商取引法</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
