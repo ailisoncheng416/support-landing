@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI電話受付・取次｜電話の一次対応と転送を自動化 | GBase Support</title>
-    <meta name="description" content="GBase SupportのAI電話受付・取次は、着信にAIが自然な音声で一次対応し、用件の意図を判断して最適な担当・部署へ自動で転送。取次専用の「リスクゼロ」から始めて、AIの対応範囲を段階的に広げられる可逆設計です。">
-    <meta name="keywords" content="AI電話, 電話自動応答, AI電話受付, 電話取次 自動化, 電話転送 AI, ボイスボット, IVR, GBase Support">
+    <meta name="description" content="GBase SupportのAI電話受付・取次は、チャットボットと共通のナレッジで着信に一次対応し、意図を判断して最適な担当へ自動転送。10言語以上の多言語対応、通話コストの1件単位可視化、AIコパイロットを備え、取次専用モードから段階的に広げられる可逆設計です。">
+    <meta name="keywords" content="AI電話, 電話自動応答, AI電話受付, 電話取次 自動化, 電話転送 AI, ボイスボット, IVR, 多言語 電話対応, AIコパイロット, GBase Support">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://cs.gbase.ai/ai-phone">
 
     <!-- Open Graph -->
     <meta property="og:title" content="AI電話受付・取次｜電話の一次対応と転送を自動化 | GBase Support">
-    <meta property="og:description" content="着信にAIが一次対応し、用件の意図を判断して最適な担当へ自動で取次。取次専用の「リスクゼロ」から始められる、可逆設計の電話AIです。">
+    <meta property="og:description" content="着信にAIが一次対応し、用件の意図を判断して最適な担当へ自動で取次。取次専用モードから始められる、可逆設計の電話AIです。">
     <meta property="og:image" content="https://cs.gbase.ai/title-logo.png">
     <meta property="og:url" content="https://cs.gbase.ai/ai-phone">
     <meta property="og:type" content="website">
@@ -21,12 +21,13 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI電話受付・取次｜GBase Support">
-    <meta name="twitter:description" content="着信にAIが一次対応し、意図を判断して最適な担当へ自動で取次。リスクゼロから始められる可逆設計の電話AI。">
+    <meta name="twitter:description" content="着信にAIが一次対応し、意図を判断して最適な担当へ自動で取次。取次専用モードから始められる可逆設計の電話AI。">
     <meta name="twitter:image" content="https://cs.gbase.ai/title-logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
 
     <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
@@ -43,12 +44,17 @@
         "url": "https://cs.gbase.ai/"
       },
       "featureList": [
-        "AIによる電話の一次対応",
+        "AIによる電話の一次対応（リアルタイム音声対話）",
         "意図判断による自動取次（転送）",
         "自然文で設定できる取次ルール",
         "転送前アナウンス・フォールバック",
         "応答スタイルの3段階制御（取次優先・バランス・自己解決優先）",
-        "重要用件を必ず人へつなぐ安全設計"
+        "重要用件を必ず人へつなぐ安全設計",
+        "10言語以上の多言語対応",
+        "通話コストの1件単位での可視化",
+        "録音同意フローの標準装備",
+        "Bot単位で選べる10種類以上の音声エンジン",
+        "AIコパイロット（有人対応のリアルタイム支援）"
       ],
       "description": "着信にAIが自然な音声で一次対応し、用件の意図を判断して最適な担当・部署へ自動で取次（転送）する、GBase Supportの電話AI機能です。"
     }
@@ -130,6 +136,30 @@
         },
         {
           "@type": "Question",
+          "name": "費用はどのように決まりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "料金はご利用規模・用途に応じてご案内します。特長として、通話ごとのAIコストが管理画面で1件単位に自動計算・可視化されるため、導入後は「この電話にいくらかかったか」を確認しながら費用対効果を判断できます。詳細はお問い合わせください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "外国語の電話にも対応できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。リアルタイム音声対話は10言語以上に対応しており、訪日のお客様や外国人のお客様からの着信もAIがそのまま一次対応します。言語別のガイダンスを別途録音する必要はありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "オペレーターが対応する通話をAIが支援できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。AIコパイロットモードでは、オペレーターの通話をAIがリアルタイムに文字起こしし、回答候補の提示や通話後の要約生成を行います。完全自動応答とAI支援付きの有人対応を、同じ基盤で使い分けられます。"
+          }
+        },
+        {
+          "@type": "Question",
           "name": "導入はどのように進みますか？",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -142,6 +172,8 @@
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        #trial { scroll-margin-top: 80px; }
 
         :root {
             --brand: #7C68FB;
@@ -177,76 +209,116 @@
         img { max-width: 100%; display: block; }
         a { color: inherit; }
 
-        /* ===== Navigation ===== */
+        /* ===== Navigation (pulled from concierge.html / GBase official style) ===== */
         .nav {
             position: fixed; top: 0; left: 0; right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
+            background: #fff;
+            border-bottom: 1px solid #E5E7EB;
             z-index: 1000;
-            padding: 0.8rem 0;
         }
         .nav-container {
-            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem; height: 64px;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+        .nav-logo { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.2s; }
+        .nav-logo:hover { opacity: 0.8; }
         .nav-logo img { height: 32px; width: auto; }
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 0.92rem; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--accent-orange); }
         .nav-links > li { position: relative; }
+        .nav-links > li > a {
+            display: inline-block; color: #374151; text-decoration: none; font-weight: 500; font-size: 14px;
+            padding: 20px 0; border-bottom: 2px solid transparent; transition: color 0.3s;
+        }
+        .nav-links > li > a:hover { color: #F97316; }
         .nav-btn {
             display: inline-flex; align-items: center; gap: 4px;
-            color: var(--text-muted); font-size: 0.92rem; font-weight: 500;
-            background: none; border: none; cursor: pointer; padding: 0;
+            color: #374151; font-size: 14px; font-weight: 500;
+            background: none; border: none; border-bottom: 2px solid transparent;
+            cursor: pointer; padding: 20px 0;
             font-family: inherit; transition: color 0.3s;
         }
-        .nav-btn svg { width: 14px; height: 14px; }
-        .nav-btn:hover, .nav-dropdown:hover .nav-btn { color: var(--accent-orange); }
+        .nav-btn svg { width: 16px; height: 16px; }
+        .nav-btn:hover, .nav-dropdown:hover .nav-btn { color: #F97316; }
+        .nav-btn-active { color: #F97316; border-bottom-color: #F97316; }
         .nav-dropdown { position: relative; }
         .nav-dropdown-menu {
             display: none;
-            position: absolute; top: calc(100% + 12px); left: 0;
-            background: #fff; border: 1px solid var(--border); border-radius: 10px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            min-width: 230px; padding: 8px; z-index: 200;
+            position: absolute; top: 100%; left: 0; margin-top: 8px;
+            background: #fff; border: 1px solid #E5E7EB; border-radius: 8px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            width: 224px; padding: 8px; z-index: 200;
         }
         .nav-dropdown-menu::before {
-            content: ''; position: absolute; top: -16px; left: 0; right: 0; height: 16px;
+            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
         }
         .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-        .nav-dropdown-menu-wide { min-width: 300px; }
-        .nav-dropdown-item {
-            display: block; padding: 9px 12px; border-radius: 8px;
-            text-decoration: none; color: var(--text); transition: background 0.15s;
+        .nav-dropdown-menu-cols { width: 620px; padding: 20px; }
+        .nav-dropdown:hover .nav-dropdown-menu.nav-dropdown-menu-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .nav-col-label {
+            font-size: 12px; font-weight: 700; color: #9CA3AF; text-transform: uppercase;
+            letter-spacing: 0.05em; margin-bottom: 12px; padding: 0 12px;
         }
-        .nav-dropdown-item:hover, .nav-dropdown-item.active { background: var(--bg-soft); }
-        .item-title { font-size: 13px; font-weight: 600; color: var(--text); }
-        .item-sub { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+        .nav-dropdown-item.nav-item-ico { display: flex; align-items: flex-start; gap: 12px; }
+        .nav-ico {
+            font-family: 'Material Symbols Rounded';
+            font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px; line-height: 1; color: #6B7280; flex-shrink: 0; margin-top: 2px;
+            font-weight: normal; font-style: normal; letter-spacing: normal; text-transform: none;
+            display: inline-block; white-space: nowrap; direction: ltr;
+            -webkit-font-smoothing: antialiased;
+        }
+        .nav-ico-brand { color: #F97316; }
+        .item-text { display: block; min-width: 0; }
+        .nav-dropdown-item {
+            display: block; padding: 10px 12px; border-radius: 8px;
+            text-decoration: none; color: #374151; transition: background 0.15s;
+        }
+        .nav-dropdown-item:hover, .nav-dropdown-item.active { background: #FFF7ED; }
+        .item-title { display: block; font-size: 14px; font-weight: 700; color: #111827; }
+        .item-sub { display: block; font-size: 12px; color: #6B7280; margin-top: 2px; }
+        .nav-dropdown-menu:not(.nav-dropdown-menu-cols) .nav-dropdown-item { padding: 8px 16px; border-radius: 4px; }
+        .nav-dropdown-menu:not(.nav-dropdown-menu-cols) .item-title { font-weight: 500; color: #374151; }
         .badge-new {
             display: inline-block; font-size: 10px; font-weight: 700; color: #fff;
             background: var(--accent-orange); border-radius: 4px; padding: 1px 6px;
             margin-left: 6px; vertical-align: middle;
         }
-        .nav-buttons { display: flex; gap: 0.75rem; align-items: center; }
-        .nav-login { font-size: 0.92rem; font-weight: 500; color: var(--text-muted); text-decoration: none; margin-right: 0.25rem; }
-        .nav-login:hover { color: var(--accent-orange); }
+        .nav-buttons { display: flex; gap: 12px; align-items: center; }
+        .nav-login { font-size: 14px; font-weight: 500; color: #374151; text-decoration: none; transition: color 0.3s; }
+        .nav-login:hover { color: #F97316; }
 
         .btn {
-            padding: 0.625rem 1.5rem; border-radius: 999px; font-weight: 700;
-            text-decoration: none; transition: all 0.25s; display: inline-block;
-            cursor: pointer; border: none; font-size: 0.95rem;
+            padding: 0.55rem 1.25rem; border-radius: 999px; font-weight: 500;
+            text-decoration: none; transition: all 0.25s; display: inline-flex;
+            align-items: center; justify-content: center;
+            cursor: pointer; border: none; font-size: 14px;
         }
+        /* Primary: solid fill (cs.gbase.ai/price style) */
         .btn-primary {
-            background: linear-gradient(to right, #3B82F6, #A855F7);
+            background: var(--primary);
             color: #fff;
+            box-shadow: 0 4px 12px rgba(124, 104, 251, 0.28);
         }
-        .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); filter: brightness(1.05); }
-        .btn-secondary { background: #fff; color: var(--text); border: 1.5px solid var(--border-strong); }
-        .btn-secondary:hover { border-color: var(--text); }
+        .btn-primary:hover {
+            background: var(--brand-deep);
+            box-shadow: 0 6px 16px rgba(124, 104, 251, 0.35);
+        }
+        /* Keep header button unchanged (original gradient) */
+        .nav-buttons .btn-primary {
+            background: linear-gradient(135deg, #8278F4 0%, #A093F6 100%);
+        }
+        .nav-buttons .btn-primary:hover {
+            background: linear-gradient(135deg, #7266EE 0%, #9184F2 100%);
+        }
+        /* Secondary: outline / wireframe (cs.gbase.ai/concierge style) */
+        .btn-secondary { background: #fff; color: var(--primary); border: 2px solid var(--brand); }
+        .btn-secondary:hover { border-color: var(--brand-deep); background: var(--primary-soft); color: var(--primary-deep); }
+        .btn-tel { gap: 0.5rem; }
+        .btn-tel:hover { color: var(--brand-deep); }
+        .btn-tel svg { width: 17px; height: 17px; }
         .cta-section .btn-secondary { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
         .cta-section .btn-secondary:hover { border-color: #fff; }
+        .cta-note { font-size: 0.82rem; margin-top: 1.1rem; color: rgba(255,255,255,0.65); }
 
         /* ===== Hero ===== */
         .hero {
@@ -254,14 +326,6 @@
             background: linear-gradient(180deg, var(--bg-soft) 0%, #FFFFFF 100%);
             text-align: center;
         }
-        .hero-badges { display: flex; justify-content: center; gap: 0.6rem; margin-bottom: 1.6rem; flex-wrap: wrap; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            padding: 0.45rem 1.1rem; border-radius: 999px;
-            font-size: 0.85rem; font-weight: 700;
-        }
-        .hero-badge-new { background: var(--accent-orange-soft); color: var(--accent-orange); }
-        .hero-badge-prod { background: var(--primary-soft); color: var(--primary-deep); }
         .hero h1 {
             font-size: 3rem; font-weight: 800; line-height: 1.3; letter-spacing: -0.01em;
             max-width: 900px; margin: 0 auto 1.4rem;
@@ -275,11 +339,8 @@
             font-size: 1.1rem; color: var(--text-muted); line-height: 1.9;
             max-width: 720px; margin: 0 auto 2.2rem;
         }
-        .hero-cta { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+        .hero-cta { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
         .hero-cta .btn { padding: 0.85rem 2.2rem; font-size: 1.05rem; }
-        .hero-note { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 3.5rem; }
-        .hero-note .check { color: var(--success); font-weight: 700; margin-right: 0.25rem; }
-        .hero-note .sep { margin: 0 0.8rem; color: var(--border-strong); }
 
         /* ===== Hero mockup (admin 電話受付) ===== */
         .hero-mockup-wrap { max-width: 1000px; margin: 0 auto; }
@@ -288,6 +349,52 @@
             box-shadow: 0 24px 60px -12px rgba(76, 56, 194, 0.18);
             overflow: hidden; text-align: left;
         }
+        /* ===== Hero video-style placeholder（実動画への差し替え用） ===== */
+        .hero-video {
+            position: relative; border-radius: 16px; overflow: hidden; cursor: pointer;
+            box-shadow: 0 24px 60px -12px rgba(76, 56, 194, 0.18);
+        }
+        .hero-video .hero-mockup { box-shadow: none; border-radius: 0; border: none; }
+        .hero-video video.hero-mockup { display: block; width: 100%; height: auto; }
+        .hero-video::before {
+            content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+            background: linear-gradient(180deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.16) 100%);
+            transition: background 0.3s;
+        }
+        .hero-video:hover::before { background: rgba(15,23,42,0.24); }
+        .hero-play {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+            z-index: 3; width: 84px; height: 84px; border-radius: 50%;
+            background: rgba(255,255,255,0.94); box-shadow: 0 12px 32px rgba(15,23,42,0.28);
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.25s, background 0.25s;
+        }
+        .hero-video:hover .hero-play { transform: translate(-50%,-50%) scale(1.08); background: #fff; }
+        .hero-play::after {
+            content: ''; margin-left: 6px;
+            border-style: solid; border-width: 14px 0 14px 24px;
+            border-color: transparent transparent transparent var(--brand);
+        }
+        .hero-play::before {
+            content: ''; position: absolute; inset: -10px; border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.7); animation: heroPulse 2.4s ease-out infinite;
+        }
+        @keyframes heroPulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+        .hero-video-bar {
+            position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; pointer-events: none;
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 1.4rem 1.1rem 0.85rem;
+            background: linear-gradient(0deg, rgba(15,23,42,0.5) 0%, rgba(15,23,42,0) 100%);
+        }
+        .hero-video-bar .hvb-play { color: #fff; display: flex; flex-shrink: 0; }
+        .hero-video-bar .hvb-play svg { width: 18px; height: 18px; }
+        .hero-video-bar .hvb-track { flex: 1; height: 4px; border-radius: 999px; background: rgba(255,255,255,0.35); position: relative; }
+        .hero-video-bar .hvb-track::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 26%; border-radius: 999px; background: #fff; }
+        .hero-video-bar .hvb-track::after { content: ''; position: absolute; left: 26%; top: 50%; width: 11px; height: 11px; border-radius: 50%; background: #fff; transform: translate(-50%,-50%); }
+        .hero-video-bar .hvb-time { color: #fff; font-size: 0.74rem; font-weight: 600; flex-shrink: 0; }
         .mk-topbar {
             display: flex; align-items: center; gap: 1rem;
             padding: 0.7rem 1.1rem; background: var(--bg-surface);
@@ -363,8 +470,8 @@
         .container { max-width: 1200px; margin: 0 auto; }
         .section-eyebrow {
             display: block; text-align: center;
-            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em;
-            color: var(--brand); text-transform: uppercase; margin-bottom: 0.9rem;
+            font-size: 0.875rem; font-weight: 600;
+            color: var(--brand); margin-bottom: 0.75rem;
         }
         .section-title {
             text-align: center; font-size: 2.1rem; font-weight: 800;
@@ -385,6 +492,10 @@
         .ps-pain-card {
             background: var(--bg-surface); border: 1px solid var(--border);
             border-radius: 14px; padding: 1.8rem;
+        }
+        .ps-pain-card img {
+            width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+            border-radius: 10px; margin-bottom: 1.1rem; display: block;
         }
         .ps-pain-card h4 { font-size: 0.78rem; font-weight: 700; color: var(--text-dim); margin-bottom: 0.7rem; }
         .ps-pain-card h3 { font-size: 1.08rem; font-weight: 700; line-height: 1.55; margin-bottom: 0.8rem; }
@@ -411,175 +522,24 @@
             margin-bottom: 1rem;
         }
         .sol-icon svg { width: 22px; height: 22px; }
+        /* solution-card icon accents (blue / green / orange) */
+        .ps-sol-card:nth-child(1) .sol-icon { background: linear-gradient(135deg, #3B82F6, #60A5FA); }
+        .ps-sol-card:nth-child(2) .sol-icon { background: linear-gradient(135deg, #10B981, #34D399); }
+        .ps-sol-card:nth-child(3) .sol-icon { background: linear-gradient(135deg, #F97316, #FB923C); }
         .sol-bullets { list-style: none; font-size: 0.88rem; color: var(--text-muted); }
         .sol-bullets li { padding-left: 1.2rem; position: relative; margin-bottom: 0.55rem; line-height: 1.7; }
         .sol-bullets li::before { content: '✓'; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
         .sol-cta {
-            display: inline-block; margin-top: 0.9rem; padding-top: 0.9rem;
-            border-top: 1px solid var(--border); width: 100%;
-            font-size: 0.88rem; font-weight: 700; color: var(--primary); text-decoration: none;
+            display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.2rem;
+            padding: 0.5rem 1.15rem; border-radius: 999px;
+            background: #fff; border: 1.5px solid var(--primary-line);
+            font-size: 0.85rem; font-weight: 700; color: var(--primary); text-decoration: none;
+            transition: all 0.2s;
         }
-        .sol-cta::after { content: ' →'; transition: margin 0.2s; }
-        .sol-cta:hover::after { margin-left: 4px; }
+        .sol-cta:hover { border-color: var(--brand); background: var(--primary-soft); }
+        .sol-cta::after { content: '→'; transition: margin 0.2s; }
+        .sol-cta:hover::after { margin-left: 3px; }
 
-        /* ===== Flow (user 2 steps + AI auto) ===== */
-        .flow2 {
-            display: grid; grid-template-columns: 1fr auto 1.35fr auto 1fr;
-            gap: 1.1rem; align-items: stretch; max-width: 1100px; margin: 0 auto;
-        }
-        .flow2-user {
-            background: #fff; border: 2px solid var(--brand); border-radius: 16px;
-            padding: 1.8rem 1.6rem; box-shadow: var(--shadow-md);
-        }
-        .step-num {
-            display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em;
-            color: #fff; background: var(--brand); border-radius: 999px;
-            padding: 0.25rem 0.85rem; margin-bottom: 0.9rem;
-        }
-        .flow2-user h3 { font-size: 1.12rem; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.5; }
-        .flow2-user p { font-size: 0.86rem; color: var(--text-muted); line-height: 1.75; }
-        .flow2-arrow { display: flex; align-items: center; color: var(--brand); }
-        .flow2-arrow svg { width: 24px; height: 24px; }
-        .flow2-auto {
-            border: 1.5px dashed var(--border-strong); border-radius: 16px;
-            background: var(--bg-surface); padding: 1.5rem 1.4rem;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-        }
-        .flow2-auto-tag {
-            display: inline-flex; align-items: center; gap: 0.45rem;
-            font-size: 0.8rem; font-weight: 700; color: rgba(76, 56, 194, 0.55);
-            margin-bottom: 1rem;
-        }
-        .flow2-auto-tag::before, .flow2-auto-tag::after {
-            content: ''; width: 22px; height: 1px; background: rgba(76, 56, 194, 0.25);
-        }
-        .flow2-auto-tag svg { width: 15px; height: 15px; fill: currentColor; }
-        .flow2-chips { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; width: 100%; }
-        .flow2-chips span {
-            display: block; width: 100%; text-align: center;
-            background: #fff; border: 1px solid var(--border); border-radius: 999px;
-            padding: 0.5rem 1rem; font-size: 0.84rem; font-weight: 600; color: var(--text);
-        }
-        .flow2-chips i { font-style: normal; font-size: 0.65rem; color: rgba(76, 56, 194, 0.35); }
-        .flow-safety {
-            max-width: 1100px; margin: 2.2rem auto 0;
-            display: flex; align-items: flex-start; gap: 0.9rem;
-            background: var(--primary-soft); border-radius: 14px; padding: 1.3rem 1.6rem;
-        }
-        .flow-safety svg { width: 22px; height: 22px; color: var(--primary-deep); flex-shrink: 0; margin-top: 2px; }
-        .flow-safety p { font-size: 0.9rem; color: var(--text); line-height: 1.75; }
-
-        /* ===== 4 Pillars ===== */
-        .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
-        .pillar-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 16px;
-            padding: 2.2rem; transition: all 0.3s ease;
-        }
-        .pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-        .pillar-icon {
-            width: 46px; height: 46px; border-radius: 12px;
-            background: linear-gradient(135deg, var(--brand), #A78BFA);
-            color: #fff; display: inline-flex; align-items: center; justify-content: center;
-            margin-bottom: 1.2rem;
-        }
-        .pillar-icon svg { width: 23px; height: 23px; }
-        .pillar-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.9rem; line-height: 1.5; }
-        .pillar-card > p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.2rem; }
-        .pillar-bullets { list-style: none; font-size: 0.88rem; color: var(--text-muted); }
-        .pillar-bullets li { padding-left: 1.2rem; position: relative; margin-bottom: 0.5rem; line-height: 1.7; }
-        .pillar-bullets li::before { content: '✓'; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
-
-        .diagram { background: var(--bg-surface); border-radius: 12px; padding: 1.3rem; }
-        .dg-slider-track {
-            position: relative; height: 8px; border-radius: 999px;
-            background: linear-gradient(to right, #DDD6FE, #A78BFA, var(--brand-deep));
-            margin-bottom: 1rem;
-        }
-        .dg-slider-knob {
-            position: absolute; top: 50%; left: 0; transform: translate(-30%, -50%);
-            width: 20px; height: 20px; border-radius: 50%;
-            background: #fff; border: 3px solid var(--brand-deep); box-shadow: var(--shadow-sm);
-        }
-        .dg-slider-marks { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); gap: 0.5rem; }
-        .dg-slider-marks > div { line-height: 1.55; }
-        .dg-slider-marks b { display: block; font-size: 0.8rem; }
-        .dg-slider-marks .now b { color: var(--primary-deep); }
-        .dg-slider-marks .mid { text-align: center; }
-        .dg-slider-marks .right { text-align: right; }
-        .dg-gate { display: flex; flex-direction: column; gap: 0.6rem; }
-        .dg-gate-row { display: flex; align-items: center; gap: 0.7rem; font-size: 0.85rem; color: var(--text); }
-        .dg-dot { flex-shrink: 0; width: 9px; height: 9px; border-radius: 50%; }
-        .dg-dot-gray { background: var(--text-dim); }
-        .dg-dot-green { background: var(--success); }
-        .dg-dot-purple { background: var(--brand); }
-        .safety-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 0.9rem; }
-        .safety-chips span {
-            padding: 0.42rem 0.95rem; background: var(--bg-surface);
-            border: 1px solid var(--border); border-radius: 999px;
-            font-size: 0.8rem; font-weight: 700; color: var(--text);
-        }
-        .pillar-note { font-size: 0.78rem; color: var(--text-dim); }
-
-        /* ===== Compare ===== */
-        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; max-width: 1000px; margin: 0 auto; }
-        .compare-card { border-radius: 16px; padding: 2.1rem; }
-        .compare-ng { background: var(--bg-surface); border: 1px solid var(--border); }
-        .compare-ok { background: #fff; border: 2px solid var(--brand); box-shadow: var(--shadow-md); }
-        .compare-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 1.2rem; }
-        .compare-ng h3 { color: var(--text-muted); }
-        .compare-ok h3 { color: var(--primary-deep); }
-        .compare-card ul { list-style: none; font-size: 0.9rem; }
-        .compare-card li { padding-left: 1.4rem; position: relative; margin-bottom: 0.7rem; line-height: 1.7; }
-        .compare-ng li { color: var(--text-muted); }
-        .compare-ng li::before { content: '−'; position: absolute; left: 0; color: var(--text-dim); font-weight: 700; }
-        .compare-ok li { color: var(--text); }
-        .compare-ok li::before { content: '✓'; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
-
-        /* ===== Effect cards ===== */
-        .ev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; max-width: 1050px; margin: 0 auto; }
-        .ev-card {
-            background: #fff; border: 1px solid var(--border); border-radius: 16px;
-            padding: 1.8rem; text-align: center; box-shadow: var(--shadow-sm);
-        }
-        .ev-tag {
-            display: inline-block; font-size: 0.76rem; font-weight: 700; color: var(--text-muted);
-            background: var(--bg-surface); border-radius: 999px; padding: 0.3rem 1rem; margin-bottom: 1.2rem;
-        }
-        .ev-center { min-height: 128px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .ev-lead { font-size: 0.95rem; font-weight: 700; color: var(--text-muted); }
-        .ev-word { font-size: 2.8rem; font-weight: 800; color: var(--primary-deep); line-height: 1.15; }
-        .ev-word small { font-size: 1.15rem; font-weight: 800; }
-        .ev-caption { font-size: 0.8rem; color: var(--text-dim); line-height: 1.65; margin-top: 1rem; }
-
-        /* ===== Synergy ===== */
-        .synergy { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
-        .synergy-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; color: var(--brand); text-transform: uppercase; margin-bottom: 0.9rem; }
-        .synergy h2 { font-size: 1.9rem; font-weight: 800; line-height: 1.45; margin-bottom: 1.2rem; }
-        .synergy-lead { font-size: 0.95rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.4rem; }
-        .synergy .pillar-bullets { margin-bottom: 1.6rem; }
-        .synergy-link { font-size: 0.9rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        .synergy-link::after { content: ' →'; }
-        .synergy-visual {
-            background: linear-gradient(135deg, var(--bg-soft), #fff);
-            border: 1px solid var(--primary-line); border-radius: 20px;
-            padding: 2.5rem 2rem; text-align: center;
-        }
-        .synergy-visual-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 1.6rem; }
-        .synergy-db {
-            width: 88px; height: 88px; margin: 0 auto 1.8rem; border-radius: 50%;
-            background: linear-gradient(135deg, var(--brand), #A78BFA);
-            display: flex; align-items: center; justify-content: center; color: #fff;
-        }
-        .synergy-db svg { width: 40px; height: 40px; }
-        .synergy-channels { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.7rem; font-size: 0.72rem; color: var(--text-muted); }
-        .sc-icon {
-            width: 46px; height: 46px; margin: 0 auto 0.45rem; border-radius: 12px;
-            background: #fff; border: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: center; color: var(--brand);
-        }
-        .sc-icon svg { width: 21px; height: 21px; }
-        .sc-phone .sc-icon { background: var(--accent-orange-soft); border-color: var(--accent-orange); color: var(--accent-orange); }
-        .sc-phone { font-weight: 700; color: var(--accent-orange); }
 
         /* ===== Roadmap ===== */
         .roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; max-width: 1100px; margin: 0 auto; }
@@ -587,11 +547,281 @@
         .rm-phase { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; color: var(--brand); margin-bottom: 0.7rem; }
         .rm-card h3 { font-size: 1.02rem; font-weight: 800; margin-bottom: 0.6rem; }
         .rm-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.75; }
+        .roadmap.steps3 { grid-template-columns: repeat(3, 1fr); max-width: 1000px; }
+        #onboarding .rm-card { background: #FFF7ED; border-color: rgba(249, 115, 22, 0.28); }
+        #onboarding .rm-phase { color: var(--accent-orange); }
+
+
+        /* comparison / spec tables */
+        .cmp-table-wrap { max-width: 1020px; margin: 0 auto; overflow-x: auto; }
+        .cmp-table-title { font-size: 1.15rem; font-weight: 800; text-align: center; margin-bottom: 1.4rem; }
+        .cmp-table { width: 100%; min-width: 720px; border-collapse: separate; border-spacing: 0; font-size: 0.86rem; background: #fff; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+        .cmp-table th, .cmp-table td { padding: 0.95rem 1.1rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.65; }
+        .cmp-table thead th { background: var(--bg-surface); font-weight: 800; font-size: 0.85rem; }
+        .cmp-table tbody tr:last-child th, .cmp-table tbody tr:last-child td { border-bottom: none; }
+        .cmp-table tbody th { font-weight: 700; color: var(--text-muted); background: var(--bg-surface); width: 20%; font-size: 0.82rem; }
+        .cmp-table .col-us { background: var(--primary-soft); font-weight: 600; }
+        .cmp-table thead th.col-us { background: var(--primary-soft); color: var(--primary-deep); }
+        .cmp-table td.col-dim { color: var(--text-muted); }
+
+        .fn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+        .fn-grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .fn-card-hl { border-color: var(--primary-line); background: #FBFAFF; }
+        .fn-card {
+            background: #fff; border: 1px solid var(--border); border-radius: 14px;
+            padding: 1.5rem 1.4rem; transition: all 0.3s ease;
+        }
+        .fn-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--primary-line); }
+        .fn-ico {
+            font-family: 'Material Symbols Rounded';
+            font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px; line-height: 1; color: var(--brand);
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 46px; height: 46px; border-radius: 12px; background: var(--primary-soft);
+            margin-bottom: 0.9rem;
+            font-weight: normal; font-style: normal; letter-spacing: normal; text-transform: none;
+            white-space: nowrap; direction: ltr; -webkit-font-smoothing: antialiased;
+        }
+        /* premium (GBase独自) trio: filled brand chip */
+        .fn-card-hl .fn-ico { background: linear-gradient(135deg, #7C68FB, #A78BFA); color: #fff; }
+        /* standard grid: unified blue chips */
+        .fn-grid:not(.fn-grid-3) .fn-card .fn-ico { background: rgba(59, 130, 246, 0.1); color: #2563EB; }
+        .fn-card h3 { font-size: 0.98rem; font-weight: 800; line-height: 1.5; margin-bottom: 0.45rem; }
+        .fn-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.7; }
+        .fn-group-title {
+            font-size: 1.02rem; font-weight: 800; margin: 2.4rem 0 1rem;
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .fn-group-title::before {
+            content: ''; width: 4px; height: 1.05em; border-radius: 2px; background: var(--brand);
+        }
+        .fn-group-title:first-of-type { margin-top: 0; }
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; max-width: 1000px; margin: 0 auto; }
+        .stat-card {
+            background: #fff; border: 1px solid var(--border); border-radius: 16px;
+            padding: 2rem 1.6rem; text-align: center;
+        }
+        .stat-value { font-size: 2.6rem; font-weight: 800; color: var(--primary-deep); line-height: 1.2; }
+        .stat-value small { font-size: 1.2rem; font-weight: 800; }
+        .stat-label { font-size: 0.98rem; font-weight: 700; margin-top: 0.4rem; }
+        .stat-note { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; margin-top: 0.6rem; }
+        .try-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; max-width: 900px; margin: 0 auto; }
+        .try-card {
+            background: #fff; border: 1px solid var(--border); border-radius: 16px;
+            padding: 2.2rem 2rem; text-align: center;
+        }
+        .try-card .fn-ico { display: inline-block; font-size: 32px; margin-bottom: 0.5rem; }
+        .try-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.7rem; }
+        .try-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.4rem; text-align: left; }
+
+        /* ===== Demo call (nomoca-style) ===== */
+        .demo-call { background: linear-gradient(180deg, #F3F3FE 0%, #FFFFFF 100%); }
+        .demo-call-title { text-align: center; font-size: 2rem; font-weight: 800; letter-spacing: 0.01em; margin-bottom: 1.6rem; }
+        .demo-badge-wrap { text-align: center; margin-bottom: 1.5rem; }
+        .demo-badge {
+            position: relative; display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center;
+            padding: 0.7rem 2rem; border-radius: 999px; font-size: 1.15rem; font-weight: 800; color: var(--primary-deep);
+            background: #fff; border: 2px dashed var(--brand);
+        }
+        .demo-badge .msr { font-size: 1.25rem; color: var(--brand); }
+        /* outlined speech-bubble tail pointing down to the phone number */
+        .demo-badge::before {
+            content: ''; position: absolute; left: 50%; bottom: -14px; transform: translateX(-50%);
+            border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 13px solid var(--brand);
+        }
+        .demo-badge::after {
+            content: ''; position: absolute; left: 50%; bottom: -10px; transform: translateX(-50%);
+            border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 11px solid #fff;
+        }
+        .demo-number {
+            display: block; text-align: center; text-decoration: none; font-family: 'Inter', sans-serif;
+            font-size: 4rem; font-weight: 800; letter-spacing: 0.02em; line-height: 1.1;
+            color: var(--accent-orange); transition: opacity 0.2s;
+        }
+        .demo-number:hover { opacity: 0.82; }
+        .demo-hint { text-align: center; font-size: 0.82rem; color: var(--text-dim); margin-top: 0.9rem; }
+        .demo-qlabel { text-align: center; font-size: 1.5rem; font-weight: 800; color: var(--text); margin: 2.6rem 0 1.6rem; }
+        .demo-stage { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.6rem; max-width: 1040px; margin: 0 auto; }
+        .demo-bubbles { display: flex; flex-direction: column; gap: 1.3rem; }
+        .demo-bubble {
+            position: relative; background: #EEEBFF; color: #3B2E8F; border-radius: 16px;
+            padding: 0.85rem 1.4rem; font-size: 0.92rem; font-weight: 600;
+            line-height: 1.5; box-shadow: 0 2px 6px rgba(124, 104, 251, 0.12);
+        }
+        .demo-bubbles-left .demo-bubble { text-align: right; border-radius: 16px 16px 4px 16px; }
+        .demo-bubbles-right .demo-bubble { text-align: left; border-radius: 16px 16px 16px 4px; }
+        .demo-figure { position: relative; width: 240px; display: flex; justify-content: center; align-items: flex-end; }
+        .demo-figure img { position: relative; z-index: 1; width: auto; height: 360px; }
+        .demo-figure-tip {
+            position: absolute; z-index: 2; right: -18px; top: 8px; max-width: 150px;
+            background: #fff; border: 1px solid var(--primary-line); border-radius: 12px;
+            padding: 0.55rem 0.75rem; font-size: 0.72rem; font-weight: 700; line-height: 1.45;
+            color: var(--primary-deep); box-shadow: var(--shadow-lg);
+        }
+        .demo-figure-tip b { color: var(--accent-orange); }
+        .demo-next { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 3.2rem; }
+        .demo-next .btn { padding: 0.85rem 2.2rem; font-size: 1rem; }
+        @media (max-width: 960px) {
+            .demo-number { font-size: 2.7rem; }
+            .demo-stage { grid-template-columns: 1fr; gap: 0.9rem; max-width: 480px; }
+            .demo-figure { order: -1; width: 100%; margin-bottom: 0.6rem; }
+            .demo-figure img { height: 300px; }
+            .demo-figure-tip { right: auto; left: 50%; transform: translateX(30px); }
+            .demo-bubbles-left .demo-bubble, .demo-bubbles-right .demo-bubble { text-align: left; border-radius: 14px; }
+        }
+        /* ===== Abstract feature visuals ===== */
+        .feat-rows { display: flex; flex-direction: column; gap: 2.6rem; margin: 1.8rem 0 3.2rem; }
+        .feat-row { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3.2rem; align-items: center; }
+        .feat-row-rev .feat-text { order: 2; }
+        .feat-row-rev .uif-panel { order: 1; }
+        .feat-text .fn-ico { margin-bottom: 0.4rem; }
+        .feat-text h3 { font-size: 1.3rem; font-weight: 800; line-height: 1.5; margin-bottom: 0.7rem; }
+        .feat-text p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.9; }
+        @media (max-width: 960px) {
+            .feat-row { grid-template-columns: 1fr; gap: 1.4rem; }
+            .feat-row-rev .feat-text { order: 1; }
+            .feat-row-rev .uif-panel { order: 2; }
+        }
+        .uif-panel {
+            background: #F7F6FE; border: 1px solid #E8E5FA; border-radius: 16px;
+            padding: 1.4rem 1.2rem;
+        }
+        .uif-panel img { width: 100%; height: auto; display: block; }
+        .abs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; margin-top: 2.4rem; }
+        .abs-card {
+            position: relative; background: #F7F6FE; border: 1px solid #E8E5FA; border-radius: 16px;
+            padding: 1.8rem 1.6rem 1.5rem; box-shadow: var(--shadow-md);
+        }
+        .abs-badge {
+            position: absolute; top: -13px; right: 18px;
+            font-size: 0.72rem; font-weight: 700; color: #fff;
+            background: var(--brand); border-radius: 999px; padding: 0.3rem 0.95rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .abs-title { font-size: 0.78rem; font-weight: 700; color: var(--text-dim); margin-bottom: 1rem; }
+        .abs-row {
+            display: flex; align-items: flex-start; gap: 0.7rem;
+            background: var(--bg-surface); border: 1px solid var(--border); border-radius: 10px;
+            padding: 0.8rem 0.95rem; margin-bottom: 0.65rem;
+        }
+        .abs-row .tag { flex-shrink: 0; font-size: 0.68rem; font-weight: 800; border-radius: 6px; padding: 0.22rem 0.6rem; margin-top: 2px; white-space: nowrap; }
+        .tag-sug { background: var(--primary-soft); color: var(--primary-deep); }
+        .tag-kb { background: rgba(16, 185, 129, 0.12); color: #0B815A; }
+        .tag-warn { background: var(--accent-orange-soft); color: var(--accent-orange); }
+        .abs-row p { font-size: 0.84rem; line-height: 1.65; color: var(--text); }
+        .abs-gate-row { display: flex; align-items: center; gap: 0.65rem; font-size: 0.85rem; padding: 0.5rem 0.2rem; }
+        .abs-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+        .abs-dot-green { background: var(--success); }
+        .abs-dot-purple { background: var(--brand); }
+        .abs-dot-gray { background: var(--text-dim); }
+        .abs-caption { font-size: 0.8rem; color: var(--text-dim); text-align: center; margin-top: 1rem; }
+        .abs-single { max-width: 640px; margin: 2.6rem auto 0; }
+        .abs-field { margin-bottom: 0.9rem; }
+        .abs-label { display: block; font-size: 0.72rem; font-weight: 700; color: var(--text-dim); margin-bottom: 0.35rem; }
+        .abs-input { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 0.95rem; font-size: 0.9rem; }
+        .abs-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+        .abs-chips span { background: var(--primary-soft); color: var(--primary-deep); border-radius: 999px; padding: 0.28rem 0.85rem; font-size: 0.8rem; font-weight: 600; }
+        .mk-slider-knob.mid { left: 50%; }
+        .msr {
+            font-family: 'Material Symbols Rounded';
+            font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+            line-height: 1; font-style: normal; letter-spacing: normal;
+            display: inline-block; -webkit-font-smoothing: antialiased;
+        }
+        .ico-tile {
+            flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px;
+            display: inline-flex; align-items: center; justify-content: center; color: #fff;
+        }
+        .ico-tile .msr { font-size: 20px; }
+        .t-purple { background: linear-gradient(135deg, #7C68FB, #A78BFA); }
+        .t-green { background: linear-gradient(135deg, #10B981, #34D399); }
+        .t-orange { background: linear-gradient(135deg, #F97316, #FB923C); }
+        .abs-avatar {
+            flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 0.8rem; font-weight: 800;
+        }
+        .abs-avatar.sm { width: 26px; height: 26px; font-size: 0.68rem; }
+        .av-orange { background: linear-gradient(135deg, #F97316, #FB923C); }
+        .av-blue { background: linear-gradient(135deg, #3B82F6, #60A5FA); }
+        .route-bubble {
+            background: #fff; border: 1px solid var(--border);
+            border-radius: 12px 12px 12px 4px; padding: 0.65rem 0.9rem;
+            font-size: 0.85rem; line-height: 1.6;
+        }
+        .route-caller { display: flex; align-items: flex-start; gap: 0.6rem; }
+        .abs-wave { display: flex; align-items: center; justify-content: center; gap: 4px; height: 24px; margin: 0.9rem 0; }
+        .abs-wave span { width: 4px; border-radius: 2px; background: var(--brand); }
+        .abs-wave span:nth-child(1) { height: 8px; opacity: 0.5; }
+        .abs-wave span:nth-child(2) { height: 16px; opacity: 0.7; }
+        .abs-wave span:nth-child(3) { height: 22px; }
+        .abs-wave span:nth-child(4) { height: 12px; opacity: 0.8; }
+        .abs-wave span:nth-child(5) { height: 18px; opacity: 0.7; }
+        .abs-wave span:nth-child(6) { height: 8px; opacity: 0.5; }
+        .sug-row {
+            display: flex; gap: 0.75rem; align-items: flex-start;
+            background: #fff; border: 1px solid var(--border);
+            border-radius: 12px; padding: 0.75rem 0.9rem; margin-bottom: 0.6rem;
+        }
+        .sug-row .sug-label { display: block; font-size: 0.7rem; font-weight: 800; color: var(--text-dim); margin-bottom: 2px; }
+        .sug-row p { font-size: 0.84rem; line-height: 1.6; }
+        .abs-toast {
+            position: absolute; right: 16px; bottom: -15px;
+            display: inline-flex; align-items: center; gap: 7px;
+            background: #fff; border: 1px solid var(--border); border-radius: 999px;
+            padding: 6px 14px; font-size: 0.74rem; font-weight: 700;
+            box-shadow: var(--shadow-lg);
+        }
+        .abs-toast .dot-check {
+            width: 17px; height: 17px; border-radius: 50%; background: var(--success);
+            color: #fff; display: inline-flex; align-items: center; justify-content: center;
+        }
+        .abs-toast .dot-check .msr { font-size: 12px; }
+        .badge-live { display: inline-flex; align-items: center; gap: 6px; }
+        .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.35); }
+        .gate-pill {
+            display: flex; align-items: center; gap: 0.6rem; border-radius: 10px;
+            padding: 0.6rem 0.9rem; font-size: 0.83rem; font-weight: 600; margin-bottom: 0.5rem;
+        }
+        .gate-pill .msr { font-size: 17px; }
+        .gp-green { background: rgba(16, 185, 129, 0.1); color: #0B815A; }
+        .gp-purple { background: var(--primary-soft); color: var(--primary-deep); }
+        .gp-orange { background: var(--accent-orange-soft); color: var(--accent-orange); }
+        .abs-bars-wrap { margin-top: 1rem; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem 0.9rem 0.7rem; }
+        .abs-bars { display: flex; align-items: flex-end; gap: 8px; height: 54px; }
+        .abs-bars i { flex: 1; border-radius: 5px 5px 0 0; background: linear-gradient(180deg, #A78BFA, #7C68FB); }
+        .abs-bars i:nth-child(1) { height: 30%; opacity: 0.45; }
+        .abs-bars i:nth-child(2) { height: 46%; opacity: 0.6; }
+        .abs-bars i:nth-child(3) { height: 64%; opacity: 0.8; }
+        .abs-bars i:nth-child(4) { height: 82%; }
+        .abs-bars-label { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.5rem; text-align: center; }
+        .abs-input.inp-flex { display: flex; align-items: center; gap: 0.55rem; }
+        .route-dest {
+            position: relative;
+            display: flex; align-items: center; gap: 0.55rem;
+            background: #fff; border: 1.5px solid var(--brand); border-radius: 999px;
+            padding: 0.55rem 1rem; font-size: 0.85rem; font-weight: 700;
+            box-shadow: 0 0 0 3px var(--primary-soft); margin-top: 0.2rem;
+        }
+        .abs-cursor {
+            position: absolute; right: 36px; bottom: -17px; font-size: 32px; color: #1F2937;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25)); transform: rotate(-10deg); z-index: 2;
+        }
+        .dest-tag { margin-left: auto; font-size: 0.66rem; font-weight: 800; color: #fff; background: var(--success); border-radius: 999px; padding: 0.16rem 0.6rem; }
+        .route-arrow-down { text-align: center; color: var(--brand); margin: 0.7rem 0 0.5rem; }
+        .route-arrow-down .msr { font-size: 20px; }
+        @media (max-width: 960px) { .stat-grid, .try-grid, .abs-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 960px) { .fn-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .fn-grid { grid-template-columns: 1fr; } }
+
+
+        @media (max-width: 960px) {
+        }
 
         /* ===== FAQ ===== */
         .faq-list { max-width: 860px; margin: 0 auto; }
         .faq-list details {
-            background: var(--bg-surface); border: 1px solid var(--border);
+            background: #fff; border: 1px solid var(--border);
             border-radius: 14px; padding: 1.4rem 1.7rem; margin-bottom: 1rem;
             transition: border-color 0.25s;
         }
@@ -655,20 +885,13 @@
             .mk-panel + .mk-panel { border-left: none; border-top: 1px solid var(--border); }
             .ps-row, .ps-arrow-row { grid-template-columns: 1fr; }
             .ps-arrow-row { display: none; }
-            .flow2 { grid-template-columns: 1fr; }
-            .flow2-arrow { justify-content: center; transform: rotate(90deg); }
-            .pillars { grid-template-columns: 1fr; }
-            .compare-grid { grid-template-columns: 1fr; }
-            .ev-grid { grid-template-columns: 1fr; }
-            .synergy { grid-template-columns: 1fr; gap: 2.5rem; }
-            .roadmap { grid-template-columns: 1fr 1fr; }
+            .roadmap, .roadmap.steps3 { grid-template-columns: 1fr 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .section-title { font-size: 1.6rem; }
         }
         @media (max-width: 560px) {
-            .roadmap { grid-template-columns: 1fr; }
+            .roadmap, .roadmap.steps3 { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
-            .hero-note .sep { display: block; visibility: hidden; height: 0.3rem; }
         }
     </style>
 </head>
@@ -687,36 +910,55 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <div class="nav-dropdown-menu">
-                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/solution">
-                            <span class="item-title">商業施設・百貨店</span>
-                        </a>
+                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/solution#case-study"><span class="item-title">商業施設・百貨店</span></a>
                     </div>
                 </li>
                 <li class="nav-dropdown">
-                    <button class="nav-btn" type="button">製品／機能
+                    <button class="nav-btn nav-btn-active" type="button">製品／機能
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div class="nav-dropdown-menu nav-dropdown-menu-wide">
-                        <a class="nav-dropdown-item" href="./concierge.html">
-                            <span class="item-title">GBase Concierge</span>
-                            <span class="item-sub">多言語対応AIコンシェルジュ</span>
-                        </a>
-                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/solution#feature-faq">
-                            <span class="item-title">FAQ・施設案内AI</span>
-                            <span class="item-sub">よくある質問を自動対応</span>
-                        </a>
-                        <a class="nav-dropdown-item active" href="./ai-phone.html">
-                            <span class="item-title">AI電話受付・取次<span class="badge-new">NEW</span></span>
-                            <span class="item-sub">電話の一次対応と転送を自動化</span>
-                        </a>
-                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/solution#feature-floormap">
-                            <span class="item-title">フロアマップ・ナビゲーション</span>
-                            <span class="item-sub">3Dマップで目的地まで案内</span>
-                        </a>
-                        <a class="nav-dropdown-item" href="https://cs.gbase.ai/solution#feature-realtime">
-                            <span class="item-title">リアルタイム会話</span>
-                            <span class="item-sub">10言語以上の音声対話</span>
-                        </a>
+                    <div class="nav-dropdown-menu nav-dropdown-menu-cols">
+                        <div class="nav-col">
+                            <p class="nav-col-label">製品</p>
+                            <a class="nav-dropdown-item nav-item-ico" href="./concierge.html">
+                                <span class="nav-ico nav-ico-brand" aria-hidden="true">support_agent</span>
+                                <span class="item-text">
+                                    <span class="item-title">GBase Concierge</span>
+                                    <span class="item-sub">多言語対応AIコンシェルジュ</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="nav-col">
+                            <p class="nav-col-label">機能</p>
+                            <a class="nav-dropdown-item nav-item-ico active" href="./ai-phone.html">
+                                <span class="nav-ico" aria-hidden="true">phone_in_talk</span>
+                                <span class="item-text">
+                                    <span class="item-title">AI電話受付・取次<span class="badge-new">NEW</span></span>
+                                    <span class="item-sub">電話の一次対応と転送を自動化</span>
+                                </span>
+                            </a>
+                            <a class="nav-dropdown-item nav-item-ico" href="https://cs.gbase.ai/solution#feature-faq">
+                                <span class="nav-ico" aria-hidden="true">help</span>
+                                <span class="item-text">
+                                    <span class="item-title">FAQ・施設案内AI</span>
+                                    <span class="item-sub">よくある質問を自動対応</span>
+                                </span>
+                            </a>
+                            <a class="nav-dropdown-item nav-item-ico" href="https://cs.gbase.ai/solution#feature-floormap">
+                                <span class="nav-ico" aria-hidden="true">map</span>
+                                <span class="item-text">
+                                    <span class="item-title">フロアマップ・ナビゲーション</span>
+                                    <span class="item-sub">3Dマップで目的地まで案内</span>
+                                </span>
+                            </a>
+                            <a class="nav-dropdown-item nav-item-ico" href="https://cs.gbase.ai/solution#feature-realtime">
+                                <span class="nav-ico" aria-hidden="true">record_voice_over</span>
+                                <span class="item-text">
+                                    <span class="item-title">リアルタイム会話</span>
+                                    <span class="item-sub">10言語以上の音声対話</span>
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </li>
                 <li><a href="https://cs.gbase.ai/price">料金</a></li>
@@ -734,7 +976,6 @@
             </ul>
             <div class="nav-buttons">
                 <a href="https://admin.gbase.ai" class="nav-login">ログイン</a>
-                <a href="https://cs.gbase.ai/register" class="btn btn-secondary">無料ではじめる</a>
                 <a href="https://cs.gbase.ai/contact" class="btn btn-primary">お問い合わせ</a>
             </div>
         </div>
@@ -742,27 +983,25 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero">
-        <div class="hero-badges">
-            <span class="hero-badge hero-badge-new">NEW · 新機能</span>
-            <span class="hero-badge hero-badge-prod">GBase Support</span>
-        </div>
-        <h1>電話の一次対応から取次まで、<br><span class="accent">AIが受ける</span>。</h1>
+        <h1><span class="accent">“取次だけ”</span>から始めて、<br>電話対応をまるごとAIへ。</h1>
         <p class="hero-subtitle">
-            GBase Supportのナレッジベースが、そのまま電話に。<br>
-            まずはAIが受付と取次に徹する「リスクゼロ」から始めて、<br>
-            運用データに合わせて対応範囲を広げられる、可逆設計の電話AIです。
+            Web・LINE・店頭で使っているナレッジが、そのまま電話に。<br>
+            着信の一次対応から、意図判断による取次まで自動化。<br>
+            対応範囲は運用データで拡大でき、いつでも戻せる可逆設計です。
         </p>
         <div class="hero-cta">
-            <a href="https://cs.gbase.ai/contact" class="btn btn-primary">お問い合わせ</a>
-            <a href="https://cs.gbase.ai/register" class="btn btn-secondary">無料ではじめる</a>
+            <a href="https://cs.gbase.ai/contact" class="btn btn-primary">オンラインデモを予約する</a>
+            <a href="#trial" class="btn btn-secondary btn-tel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                デモ電話を試す
+            </a>
         </div>
-        <p class="hero-note">
-            <span class="check">✓</span>取次専用モードから安全に開始<span class="sep">|</span>
-            <span class="check">✓</span>重要用件は必ず人へ（安全弁）<span class="sep">|</span>
-            <span class="check">✓</span>ナレッジはチャットボットと共通
-        </p>
         <div class="hero-mockup-wrap">
-            <div class="hero-mockup" role="img" aria-label="GBase Support 電話受付の画面イメージ：左に通話の一次対応と転送、右に取次ルールと応答スタイルのスライダー">
+            <!-- 動画プレイヤー風プレースホルダー。実動画ができたら .hero-video の中身を
+                 <video class="hero-mockup" poster="./images/ai-phone/hero-poster.webp" controls preload="none" playsinline><source src="./videos/ai-phone-demo.mp4" type="video/mp4"></video>
+                 に差し替え、.hero-play と .hero-video-bar を削除してください。 -->
+            <div class="hero-video" role="img" aria-label="GBase Support 電話受付のデモ動画（近日公開）のプレビュー">
+            <div class="hero-mockup">
                 <div class="mk-topbar">
                     <div class="mk-dots"><span></span><span></span><span></span></div>
                     <span class="mk-title">admin.gbase.ai · 電話受付 › 転送</span>
@@ -809,29 +1048,39 @@
                     </div>
                 </div>
             </div>
+            <div class="hero-play" aria-hidden="true"></div>
+            <div class="hero-video-bar" aria-hidden="true">
+                <span class="hvb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                <span class="hvb-track"></span>
+                <span class="hvb-time">0:00 / 1:12</span>
+            </div>
+            </div>
         </div>
     </section>
 
     <!-- ===== PAIN + SOLUTION ===== -->
     <section class="section" id="pain-solution">
         <div class="container">
-            <span class="section-eyebrow">Challenges</span>
-            <h2 class="section-title">電話は「取りこぼし」と「取次コスト」の宝庫</h2>
+            <span class="section-eyebrow">お客様の課題</span>
+            <h2 class="section-title">電話対応に、こんなお悩みはありませんか？</h2>
             <p class="section-subtitle">
                 商業施設の代表電話から、サポート窓口、ホテルのフロントまで。<br>電話対応の現場に共通する、3つの構造的な悩み。
             </p>
             <div class="ps-row">
                 <div class="ps-pain-card">
+                    <img src="./images/ai-phone/pain-transfer.webp" alt="組織図を見上げながら、電話の取次先が分からず困る受付スタッフ" loading="lazy" decoding="async" width="960" height="717">
                     <h4>商業施設・百貨店</h4>
                     <h3>「担当は誰か」を判断する取次が、そのままコストに</h3>
                     <p class="ps-detail">代表電話にかかってくる用件は多種多様。内容を聞き取り、該当部署や店舗を判断して転送する作業に、スタッフの時間が奪われ続けています。</p>
                 </div>
                 <div class="ps-pain-card">
+                    <img src="./images/ai-phone/pain-repeat.webp" alt="同じ質問の吹き出しに囲まれて疲れた様子のオペレーター" loading="lazy" decoding="async" width="960" height="717">
                     <h4>コールセンター・サポート窓口</h4>
                     <h3>同じ質問の繰り返しが、オペレーターを圧迫</h3>
                     <p class="ps-detail">FAQで解決できるはずの用件に応対時間が割かれ、本来注力すべき複雑な問い合わせへの対応品質に影響が出ています。</p>
                 </div>
                 <div class="ps-pain-card">
+                    <img src="./images/ai-phone/pain-hotel.webp" alt="鳴り続ける複数の電話に困るホテルフロントのスタッフ" loading="lazy" decoding="async" width="960" height="717">
                     <h4>ホテル・宿泊</h4>
                     <h3>夜間・繁忙期に、電話がつながらない</h3>
                     <p class="ps-detail">フロントの電話の多くは料金・チェックイン時間・館内案内などの定型の問い合わせ。人手に頼ると24時間対応は難しく、混雑時は取りこぼしと折返し対応の負担が重なります。</p>
@@ -860,7 +1109,7 @@
                     <a href="https://cs.gbase.ai/solution" class="sol-cta">商業施設向けソリューションを見る</a>
                 </div>
                 <div class="ps-sol-card">
-                    <div class="sol-title">定型はAIへ、複雑な用件は人へ分流</div>
+                    <div class="sol-title">定型はAIへ、複雑な用件は人へ振り分け</div>
                     <div class="sol-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
@@ -887,254 +1136,261 @@
         </div>
     </section>
 
-    <!-- ===== FLOW (user steps + AI auto) ===== -->
-    <section class="section section-surface" id="flow">
+    <!-- ===== EFFECTS ===== -->
+    <section class="section section-surface" id="effects">
         <div class="container">
-            <span class="section-eyebrow">How it works</span>
-            <h2 class="section-title">貴社の作業は、ルールを登録して、電話に出るだけ</h2>
-            <p class="section-subtitle">
-                着信の受付から意図判断、転送までは、すべてAIが自動で実行。<br>ご利用者様の作業は2ステップで完結します。
-            </p>
-            <div class="flow2">
-                <div class="flow2-user">
-                    <span class="step-num">STEP 1</span>
-                    <h3>取次ルールを登録</h3>
-                    <p>「どんな用件のとき、誰につなぐか」を自然な文章とキーワードで登録。プログラミングやシナリオ設計は不要です。</p>
+            <span class="section-eyebrow">導入効果</span>
+            <h2 class="section-title">数字で見る導入効果</h2>
+            <p class="section-subtitle">AI電話受付・取次の導入で見込める、代表的な効果です。</p>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <p class="stat-value">70<small>〜</small>90<small>%</small></p>
+                    <p class="stat-label">定型問い合わせをAIが自動処理</p>
+                    <p class="stat-note">営業時間・料金・アクセスなどの定型的な用件は、AIがその場で回答します。</p>
                 </div>
-                <div class="flow2-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <div class="stat-card">
+                    <p class="stat-value">50<small>〜</small>70<small>%</small></p>
+                    <p class="stat-label">電話対応の人員配置を削減</p>
+                    <p class="stat-note">一次対応と取次をAIに任せることで、スタッフは本来の業務に集中できます。</p>
                 </div>
-                <div class="flow2-auto">
-                    <span class="flow2-auto-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.7 5.3L19 9l-5.3 1.7L12 16l-1.7-5.3L5 9l5.3-1.7L12 2z"/><path d="M19 15l0.9 2.6L22.5 18.5l-2.6 0.9L19 22l-0.9-2.6L15.5 18.5l2.6-0.9L19 15z"/></svg>ここからはAIにおまかせ</span>
-                    <div class="flow2-chips">
-                        <span>着信をAIが受け、一次対応</span>
-                        <i aria-hidden="true">▼</i>
-                        <span>用件を聞き取り、意図を判断</span>
-                        <i aria-hidden="true">▼</i>
-                        <span>取次ルールに照合して振り分け</span>
-                        <i aria-hidden="true">▼</i>
-                        <span>アナウンスして、担当直通へ転送</span>
-                    </div>
-                </div>
-                <div class="flow2-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </div>
-                <div class="flow2-user">
-                    <span class="step-num">STEP 2</span>
-                    <h3>つながれた電話に対応</h3>
-                    <p>担当者は、AIが振り分けた用件に応対するだけ。転送前アナウンスと、応答なし時のフォールバック案内も自動です。</p>
+                <div class="stat-card">
+                    <p class="stat-value">24<small>時間</small>365<small>日</small></p>
+                    <p class="stat-label">夜間・繁忙期も取りこぼさない</p>
+                    <p class="stat-note">営業時間外の着信もAIが受付。機会損失と折返し対応の負担を減らします。</p>
                 </div>
             </div>
-            <div class="flow-safety">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                <p><strong>安全弁：</strong>クレーム・決済/課金・本人確認・予約の確定・法的事項は、AIの確信度に関わらず必ず人へ取次します。</p>
-            </div>
+            <p class="section-note">※ 数値は想定される導入効果の目安です。業種・コール内容・運用条件により異なります。</p>
         </div>
     </section>
 
-    <!-- ===== 4 PILLARS ===== -->
-    <section class="section" id="features">
+    <!-- ===== FUNCTIONS ===== -->
+    <section class="section" id="functions">
         <div class="container">
-            <span class="section-eyebrow">Features</span>
-            <h2 class="section-title">「リスクゼロで始め、データで育てる」ための4つの特長</h2>
-            <p class="section-subtitle">
-                いきなりAIに答えさせない。段階的に、可逆的に、データで広げる。<br>電話という「失敗できない接点」のための設計です。
-            </p>
-            <div class="pillars">
+            <span class="section-eyebrow">機能</span>
+            <h2 class="section-title">AI電話受付・取次の機能一覧</h2>
+            <p class="section-subtitle">AI電話受付・取次で提供する主な機能です。</p>
 
-                <div class="pillar-card">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>取次に徹する、リスクゼロのスタート</h3>
-                    <p>最初はAIが受付と取次に専念し、すべての用件を人へつなぎます。AIが誤答するリスクがない状態で運用を始められ、その間も通話データは着実に蓄積されていきます。</p>
-                    <ul class="pillar-bullets">
-                        <li>全件を人へつなぐ「取次優先」で安全に開始。</li>
-                        <li>通話ログ・用件の傾向を運用しながら可視化。</li>
-                        <li>スタッフの回答が、AIの学習データに。</li>
-                    </ul>
+            <h3 class="fn-group-title">GBase独自の機能</h3>
+            <div class="fn-grid fn-grid-3">
+                <div class="fn-card fn-card-hl">
+                    <span class="fn-ico" aria-hidden="true">paid</span>
+                    <h3>通話コスト可視化</h3>
+                    <p>「この電話にいくらかかったか」を通話1件ごとに自動計算し、管理画面に表示。月額のブラックボックスではなく、費用対効果を数字で確認しながら運用可能。</p>
                 </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-                    </div>
-                    <h3>スライダー1本で、3段階の可逆制御</h3>
-                    <p>応答スタイルは「取次優先」「バランス」「自己解決優先」の3段階。管理画面のスライダー1本でAIの対応範囲を制御でき、不安になればいつでも保守側へ戻せます。</p>
-                    <div class="diagram">
-                        <div class="dg-slider-track"><span class="dg-slider-knob"></span></div>
-                        <div class="dg-slider-marks">
-                            <div class="now"><b>取次優先</b>全件を人へ。<br>まず安全に開始</div>
-                            <div class="mid"><b>バランス</b>簡単な質問はAI、<br>複雑・要対人は転送</div>
-                            <div class="right"><b>自己解決優先</b>AIが極力対応。<br>例外だけ人へ</div>
-                        </div>
-                    </div>
+                <div class="fn-card fn-card-hl">
+                    <span class="fn-ico" aria-hidden="true">support_agent</span>
+                    <h3>AIコパイロット</h3>
+                    <p>オペレーターの通話をAIが画面上で支援。会話をリアルタイムに文字起こしし、ナレッジから回答候補を提示。通話後の要約まで自動化。完全自動応答と有人対応を、同じ基盤で使い分け。</p>
                 </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
-                    </div>
-                    <h3>確信度ゲートで、答える前に自己判定</h3>
-                    <p>AIは回答する前に、自分の回答候補の確信度を評価します。しきい値以上のときだけAIがその場で回答し、届かないときは「担当へおつなぎ」へ。任せる範囲を「勘」ではなくデータで広げられます。</p>
-                    <div class="diagram dg-gate">
-                        <div class="dg-gate-row"><span class="dg-dot dg-dot-gray"></span>お客様の質問を受け、AIが回答案と確信度を生成</div>
-                        <div class="dg-gate-row"><span class="dg-dot dg-dot-green"></span>確信度がしきい値以上 → AIがその場で回答</div>
-                        <div class="dg-gate-row"><span class="dg-dot dg-dot-purple"></span>しきい値未満 → 「担当へおつなぎします」</div>
-                    </div>
+                <div class="fn-card fn-card-hl">
+                    <span class="fn-ico" aria-hidden="true">tune</span>
+                    <h3>応答スタイル3段階</h3>
+                    <p>AIがどこまで直接回答するかを、スライダー1本で調整。まずは取次だけに徹し、運用データを見ながら段階的に拡大。いつでも保守側へ戻せて、ベンダーへの依頼は不要。</p>
                 </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                    </div>
-                    <h3>重要な用件は、必ず人へつなぐ安全弁</h3>
-                    <p>確信度がどれほど高くても、AIに任せない領域をあらかじめ固定。重要な判断をAIが勝手に行うことを、設定ではなく構造で防ぎます。</p>
-                    <div class="safety-chips">
-                        <span>クレーム</span>
-                        <span>決済・課金</span>
-                        <span>本人確認</span>
-                        <span>予約・契約の確定</span>
-                        <span>法的事項</span>
-                    </div>
-                    <p class="pillar-note">上記の用件は、確信度に関わらず必ずスタッフへ取次します。</p>
-                </div>
-
             </div>
-        </div>
-    </section>
 
-    <!-- ===== COMPARE ===== -->
-    <section class="section section-surface" id="compare">
-        <div class="container">
-            <span class="section-eyebrow">Why AI Phone</span>
-            <h2 class="section-title">番号プッシュ式の自動応答と、ここが違います</h2>
-            <p class="section-subtitle">
-                「1番を押してください」の分岐でも、いきなり全部AIに答えさせるのでもなく。<br>意図理解による取次から始める、段階設計のアプローチです。
-            </p>
-            <div class="compare-grid">
-                <div class="compare-card compare-ng">
-                    <h3>従来の自動音声応答（IVR）</h3>
-                    <ul>
-                        <li>お客様が番号プッシュで用件を選ぶ必要がある</li>
-                        <li>分岐に当てはまらない用件は行き場を失う</li>
-                        <li>分岐シナリオの設計・修正に手間がかかる</li>
-                        <li>結局オペレーターにつながるまでが長い</li>
-                    </ul>
+            <h3 class="fn-group-title">標準機能</h3>
+            <div class="fn-grid">
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">call</span>
+                    <h3>AI音声一次対応</h3>
+                    <p>着信をAIが受け、自然な音声で即応対。24時間365日の一次受付。</p>
                 </div>
-                <div class="compare-card compare-ok">
-                    <h3>GBase Support のAI電話受付・取次</h3>
-                    <ul>
-                        <li>お客様は用件を話すだけ。AIが意図を判断</li>
-                        <li>どれにも当てはまらない用件は既定の取次先へ</li>
-                        <li>取次ルールは自然な文章で登録・変更</li>
-                        <li>取次専用から始めて、AI回答へ段階的に拡大</li>
-                    </ul>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">menu_book</span>
+                    <h3>ナレッジ回答</h3>
+                    <p>チャットボットと共通のナレッジベースから回答を組み立て。</p>
+                </div>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">translate</span>
+                    <h3>多言語対応</h3>
+                    <p>10言語以上の音声対話。外国語の着信もAIがそのまま一次対応。</p>
+                </div>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">graphic_eq</span>
+                    <h3>音声エンジン選択</h3>
+                    <p>10種類以上の商用音声からBot単位で選択。ブランドに合う声で応対。</p>
+                </div>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">event_available</span>
+                    <h3>予約連携</h3>
+                    <p>カレンダー連携による予約確認に対応。</p>
+                </div>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">phone_forwarded</span>
+                    <h3>意図理解による振り分け</h3>
+                    <p>用件を聞き取り、最適な担当・部署の直通番号へ自動転送。</p>
+                </div>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">edit_note</span>
+                    <h3>取次ルール管理</h3>
+                    <p>自然な文章とキーワードで登録。優先順位の上から判定。</p>
+                </div>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">campaign</span>
+                    <h3>転送前アナウンス</h3>
+                    <p>「担当におつなぎします」を転送前に自動で読み上げ。</p>
+                </div>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">voicemail</span>
+                    <h3>フォールバック案内</h3>
+                    <p>転送先が応答できない場合は、設定した固定メッセージで自動案内。</p>
+                </div>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">shield</span>
+                    <h3>安全弁</h3>
+                    <p>クレーム・決済・本人確認などは、確信度に関わらず必ず人へ。</p>
+                </div>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">verified_user</span>
+                    <h3>録音同意フロー</h3>
+                    <p>通話録音の同意取得ガイダンスを標準装備。公共・医療の現場にも対応。</p>
+                </div>
+                <div class="fn-card">
+                    <span class="fn-ico" aria-hidden="true">monitoring</span>
+                    <h3>通話ログ</h3>
+                    <p>用件の傾向を可視化。ナレッジ改善と対応範囲判断の材料に。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== EFFECT ===== -->
-    <section class="section" id="effect">
+    <!-- ===== DIFFERENTIATORS ===== -->
+    <section class="section section-surface" id="differentiators">
         <div class="container">
-            <span class="section-eyebrow">Value</span>
-            <h2 class="section-title">「失敗できない電話」だから、確実な設計で</h2>
+            <span class="section-eyebrow">選ばれる理由</span>
+            <h2 class="section-title">他のAI電話サービスと、ここが違う</h2>
             <p class="section-subtitle">
-                効果を数字で誇張するのではなく、仕組みそのものに確実性を持たせました。
+                ボイスボット・IVRとの比較でよく確認されるポイントを、方式別にまとめました。
             </p>
-            <div class="ev-grid">
-                <div class="ev-card">
-                    <span class="ev-tag">導入時のAI誤答リスク</span>
-                    <div class="ev-center">
-                        <div class="ev-lead">取次専用モードなら</div>
-                        <div class="ev-word">ゼロ</div>
-                    </div>
-                    <p class="ev-caption">「取次優先」ではAIは回答せず、受付と取次に徹するため、誤答が発生する余地がありません</p>
-                </div>
-                <div class="ev-card">
-                    <span class="ev-tag">電話の一次受付</span>
-                    <div class="ev-center">
-                        <div class="ev-word">24<small>時間</small>365<small>日</small></div>
-                    </div>
-                    <p class="ev-caption">夜間・繁忙期もAIが着信を受け、フォールバック案内まで自動で実行</p>
-                </div>
-                <div class="ev-card">
-                    <span class="ev-tag">シナリオ開発・プログラミング</span>
-                    <div class="ev-center">
-                        <div class="ev-word">不要</div>
-                    </div>
-                    <p class="ev-caption">取次ルールは「どんな用件のとき、誰につなぐか」を自然な文章で登録するだけ</p>
-                </div>
+            <div class="cmp-table-wrap">
+                <table class="cmp-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>番号プッシュ式IVR</th>
+                            <th>一般的なボイスボット</th>
+                            <th class="col-us">GBase AI電話受付・取次</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>用件の伝え方</th>
+                            <td class="col-dim">番号を押して選択</td>
+                            <td class="col-dim">話す（用意されたシナリオの範囲内）</td>
+                            <td class="col-us">話すだけ。AIが意図を判断</td>
+                        </tr>
+                        <tr>
+                            <th>設定の手間</th>
+                            <td class="col-dim">分岐ツリーを人が設計</td>
+                            <td class="col-dim">対話シナリオの設計・開発が必要</td>
+                            <td class="col-us">自然な文章でルールを書くだけ</td>
+                        </tr>
+                        <tr>
+                            <th>ナレッジ</th>
+                            <td class="col-dim">なし</td>
+                            <td class="col-dim">電話専用に別途構築</td>
+                            <td class="col-us">チャットボットと共通の1つのナレッジ</td>
+                        </tr>
+                        <tr>
+                            <th>AIに任せる範囲</th>
+                            <td class="col-dim">広げられない</td>
+                            <td class="col-dim">調整はベンダー依存になりがち</td>
+                            <td class="col-us">スライダーで段階的に拡大。いつでも戻せる</td>
+                        </tr>
+                        <tr>
+                            <th>始め方</th>
+                            <td class="col-dim">分岐設計の完成後に公開</td>
+                            <td class="col-dim">要件定義・対話設計を経て導入</td>
+                            <td class="col-us">取次専用モードで小さく開始</td>
+                        </tr>
+                        <tr>
+                            <th>費用の見え方</th>
+                            <td class="col-dim">回線・保守費が中心</td>
+                            <td class="col-dim">個別見積もりが中心。AI処理のコストは見えにくい</td>
+                            <td class="col-us">通話1件単位でAIコストを自動計算・可視化</td>
+                        </tr>
+                        <tr>
+                            <th>多言語対応</th>
+                            <td class="col-dim">言語別のガイダンス録音が必要</td>
+                            <td class="col-dim">日本語中心の設計が多い</td>
+                            <td class="col-us">10言語以上の音声対話に対応</td>
+                        </tr>
+                        <tr>
+                            <th>有人対応との連携</th>
+                            <td class="col-dim">転送のみ</td>
+                            <td class="col-dim">自動応答と有人対応は別運用になりがち</td>
+                            <td class="col-us">AIコパイロットが有人通話も画面上で支援</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- ===== SYNERGY ===== -->
-    <section class="section section-surface" id="synergy">
+    <!-- ===== TRIAL / DEMO CALL ===== -->
+    <section class="section demo-call" id="trial">
         <div class="container">
-            <div class="synergy">
-                <div>
-                    <p class="synergy-eyebrow">With GBase Support</p>
-                    <h2>1つのナレッジベースが、<br>チャットにも、電話にも</h2>
-                    <p class="synergy-lead">
-                        AI電話は独立したツールではなく、GBase Supportの1機能です。FAQや資料を一度登録すれば、Web・LINE・店頭端末に加えて電話でも同じ知識で応答。すでにチャットボットを運用中なら、蓄積したナレッジをそのまま電話に活かせます。
-                    </p>
-                    <ul class="pillar-bullets">
-                        <li>ナレッジベース・管理画面はチャットボットと共通。</li>
-                        <li>電話の通話データも、ナレッジ改善の材料に。</li>
-                        <li>予約・カレンダーなどの業務システム連携に対応。</li>
-                    </ul>
-                    <a href="./index.html" class="synergy-link">GBase Support の全体像を見る</a>
+            <span class="section-eyebrow">デモ体験</span>
+            <h2 class="demo-call-title">まずは1度、お試しください。</h2>
+            <div class="demo-badge-wrap">
+                <span class="demo-badge"><span class="msr" aria-hidden="true">call</span>AIとの電話応対を、その場で体験できます</span>
+            </div>
+            <a href="tel:05017857077" class="demo-number">050-1785-7077</a>
+            <p class="demo-hint">ホテル受付を例にしたデモ回線です　│　24時間受付・通話料はお客様のご負担となります</p>
+
+            <div class="demo-qlabel">▼ 質問例</div>
+            <div class="demo-stage">
+                <div class="demo-bubbles demo-bubbles-left">
+                    <span class="demo-bubble">今夜、空いているお部屋はありますか？</span>
+                    <span class="demo-bubble">大浴場は何時まで入れますか？</span>
+                    <span class="demo-bubble">朝食は何時から食べられますか？</span>
                 </div>
-                <div class="synergy-visual">
-                    <p class="synergy-visual-label">One knowledge base, five channels</p>
-                    <div class="synergy-db" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-                    </div>
-                    <div class="synergy-channels">
-                        <div><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>店頭端末</div>
-                        <div><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>LINE</div>
-                        <div><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><line x1="14" y1="14" x2="17" y2="14"/><line x1="20" y1="14" x2="21" y2="14"/><line x1="14" y1="17" x2="14" y2="21"/><line x1="17" y1="17" x2="21" y2="17"/><line x1="21" y1="21" x2="21" y2="21"/></svg></div>QRコード</div>
-                        <div><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"/></svg></div>Web</div>
-                        <div class="sc-phone"><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>電話</div>
-                    </div>
+                <div class="demo-figure">
+                    <img src="./images/ai-phone/demo-character.webp" alt="電話を受けるGBaseのAIオペレーター" width="501" height="1395" loading="lazy" decoding="async">
+                    <span class="demo-figure-tip">実際に<b>AI</b>との<br>電話応対が<br><b>体験</b>できます！</span>
                 </div>
+                <div class="demo-bubbles demo-bubbles-right">
+                    <span class="demo-bubble">担当の方とお話ししたいです</span>
+                    <span class="demo-bubble">Do you speak English?</span>
+                    <span class="demo-bubble">支払い方法を教えてください</span>
+                </div>
+            </div>
+
+            <p class="section-note">※ 商業施設の代表電話・コールセンターでも、同じ仕組みで受付から取次まで自動化できます。「担当の方と…」とお話しいただくと、AIが用件を判断して取り次ぐ流れもご確認いただけます。</p>
+
+            <div class="demo-next">
+                <a href="https://cs.gbase.ai/contact" class="btn btn-primary">オンラインデモを予約する</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== ROADMAP ===== -->
-    <section class="section" id="roadmap">
+    <!-- ===== GETTING STARTED ===== -->
+    <section class="section" id="onboarding">
         <div class="container">
-            <span class="section-eyebrow">Roadmap</span>
-            <h2 class="section-title">段階的に、無理なく対応範囲を広げる</h2>
+            <span class="section-eyebrow">導入までの流れ</span>
+            <h2 class="section-title">導入の流れ — 3ステップで運用開始</h2>
             <p class="section-subtitle">
-                取次で始めて、データを貯めて、確信度の高い用件から解禁する。<br>導入ロードマップのモデルケースです。
+                取次専用モードなら、シナリオ開発なしで運用を始められます。<br>広げるのは、データが貯まってからで構いません。
             </p>
-            <div class="roadmap">
+            <div class="roadmap steps3">
                 <div class="rm-card">
-                    <p class="rm-phase">PHASE 1</p>
-                    <h3>取次で稼働開始</h3>
-                    <p>AI取次で運用を開始し、通話データの収集をスタートします。</p>
+                    <p class="rm-phase">STEP 1</p>
+                    <h3>ヒアリング・ルール設計</h3>
+                    <p>電話の用件傾向を伺い、「どんな用件を、誰につなぐか」の取次ルールを一緒に設計します。自然な文章で登録するだけです。</p>
                 </div>
                 <div class="rm-card">
-                    <p class="rm-phase">PHASE 2</p>
-                    <h3>ナレッジ拡充・学習</h3>
-                    <p>ナレッジを拡充しながら、用件ごとの確信度の実績を観察します。</p>
+                    <p class="rm-phase">STEP 2</p>
+                    <h3>転送設定をして、稼働開始</h3>
+                    <p>取次先の直通番号と転送を設定し、AIが受付と取次に徹する「取次優先」モードで稼働開始。AIが誤答するリスクのない状態から始まります。</p>
                 </div>
                 <div class="rm-card">
-                    <p class="rm-phase">PHASE 3</p>
-                    <h3>高確信カテゴリを解禁</h3>
-                    <p>確信度の高い用件から、AIによる直接回答を段階的に解禁します。</p>
-                </div>
-                <div class="rm-card">
-                    <p class="rm-phase">PHASE 4</p>
-                    <h3>自己解決を主体に</h3>
-                    <p>しきい値を調整しながら、AIが応対しきる範囲を広げていきます。</p>
+                    <p class="rm-phase">STEP 3</p>
+                    <h3>データを見て、段階的に拡大</h3>
+                    <p>通話データとナレッジの整備状況を見ながら、確信度の高い用件からAIの直接回答を解禁。スライダーはいつでも保守側へ戻せます。</p>
                 </div>
             </div>
-            <p class="section-note">※ 進め方はモデルケースです。実際のスケジュールは、用件の傾向・ナレッジの整備状況に合わせて設計します。</p>
+            <p class="section-note">※ 広げるペースは、用件の傾向・ナレッジの整備状況に合わせて設計します。取次専用のまま運用を続けることも可能です。</p>
         </div>
     </section>
 
@@ -1163,7 +1419,19 @@
                 </details>
                 <details>
                     <summary>チャットボットと同じ知識を使えますか？</summary>
-                    <p>はい。GBase Supportのナレッジベースをそのまま電話の応答に活用します。FAQや資料を一度登録すれば、Web・LINE・店頭端末・電話のすべての接点で共通利用でき、電話の通話データもナレッジの改善に活かせます。</p>
+                    <p>はい。GBase Supportのナレッジベースをそのまま電話の応答に活用します。FAQや資料を一度登録すれば、Web・LINE・<a href="./concierge.html">店頭端末</a>・電話のすべての接点で共通利用でき、電話の通話データもナレッジの改善に活かせます。</p>
+                </details>
+                <details>
+                    <summary>費用はどのように決まりますか？</summary>
+                    <p><a href="https://cs.gbase.ai/price">料金</a>はご利用規模・用途に応じてご案内します。特長として、通話ごとのAIコストが管理画面で1件単位に自動計算・可視化されるため、導入後は「この電話にいくらかかったか」を確認しながら費用対効果を判断できます。詳細はお問い合わせください。</p>
+                </details>
+                <details>
+                    <summary>外国語の電話にも対応できますか？</summary>
+                    <p>はい。リアルタイム音声対話は10言語以上に対応しており、訪日のお客様や外国人のお客様からの着信もAIがそのまま一次対応します。言語別のガイダンスを別途録音する必要はありません。</p>
+                </details>
+                <details>
+                    <summary>オペレーターが対応する通話をAIが支援できますか？</summary>
+                    <p>はい。AIコパイロットモードでは、オペレーターの通話をAIがリアルタイムに文字起こしし、回答候補の提示や通話後の要約生成を行います。完全自動応答とAI支援付きの有人対応を、同じ基盤で使い分けられます。</p>
                 </details>
                 <details>
                     <summary>導入はどのように進みますか？</summary>
@@ -1176,11 +1444,10 @@
     <!-- ===== CTA ===== -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <h2>電話対応の自動化、<span class="accent">リスクゼロ</span>から始めませんか</h2>
+            <h2>電話対応の自動化、<span class="accent">取次</span>から始めませんか</h2>
             <p>まずはAIが受付と取次に徹する段階から。<br>貴社の電話対応の課題に合わせた進め方を、ご提案します。</p>
             <div class="cta-buttons">
-                <a href="https://cs.gbase.ai/contact" class="btn btn-primary">お問い合わせ</a>
-                <a href="https://cs.gbase.ai/register" class="btn btn-secondary">無料ではじめる</a>
+                <a href="https://cs.gbase.ai/contact" class="btn btn-primary">オンラインデモを予約する</a>
             </div>
         </div>
     </section>
